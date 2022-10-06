@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Space Assets/Sprites X2/Ships/spaceShips_007.png" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 22.0
+height = 21.9999
 
 [node name="Player" type="KinematicBody2D"]
 rotation = -1.5708
@@ -16,3 +20,7 @@ position = Vector2( 0, 75 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 1 )
