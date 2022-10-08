@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 		flame_exhaust.animation = "acceleration"
 	
 	if Input.is_action_just_released("flip_maneuver"):
-		rotation_degrees+=180; 
+		rotation_degrees+= direction.angle_to(velocity) *180/PI +180
 	
 	if Input.is_action_pressed("rotate_left"):
 		rotation_degrees-= rotation_speed * delta
@@ -35,6 +35,7 @@ func _physics_process(delta: float) -> void:
 		rotation_degrees+= rotation_speed * delta
 		
 	velocity = move_and_slide(velocity)
+	
 
 func _on_AnimatedSprite_animation_finished() -> void:
 	flame_exhaust.animation = "max-speed"
