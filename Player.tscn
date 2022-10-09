@@ -1,11 +1,31 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Space Assets/Sprites X2/Ships/spaceShips_007.png" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
+[ext_resource path="res://Space Assets2/Effects/fire02.png" type="Texture" id=3]
+[ext_resource path="res://Space Assets2/Effects/fire03.png" type="Texture" id=4]
+[ext_resource path="res://Space Assets2/Effects/fire04.png" type="Texture" id=5]
+[ext_resource path="res://Space Assets2/Effects/fire06.png" type="Texture" id=6]
+[ext_resource path="res://Space Assets2/Effects/fire01.png" type="Texture" id=7]
+[ext_resource path="res://Space Assets2/Effects/fire07.png" type="Texture" id=8]
+[ext_resource path="res://Space Assets2/Effects/fire05.png" type="Texture" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 22.0
 height = 21.9999
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ null, ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 9 ) ],
+"loop": false,
+"name": "acceleration",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "max-speed",
+"speed": 10.0
+} ]
 
 [node name="Player" type="KinematicBody2D"]
 rotation = -1.5708
@@ -24,3 +44,10 @@ current = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0.0001086, -30 )
+frames = SubResource( 2 )
+animation = "acceleration"
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
