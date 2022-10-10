@@ -16,7 +16,7 @@ height = 21.9999
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ null, ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 9 ) ],
 "loop": false,
 "name": "acceleration",
 "speed": 5.0
