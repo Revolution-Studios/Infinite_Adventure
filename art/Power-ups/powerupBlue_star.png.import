@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/powerupBlue_star.png-a66bba0137902764f388f294f05eab94.stex"
+path="res://.import/powerupBlue_star.png-c3ceb91bcde3f2e049e46a00d7106664.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets2/Power-ups/powerupBlue_star.png"
-dest_files=[ "res://.import/powerupBlue_star.png-a66bba0137902764f388f294f05eab94.stex" ]
+source_file="res://art/Power-ups/powerupBlue_star.png"
+dest_files=[ "res://.import/powerupBlue_star.png-c3ceb91bcde3f2e049e46a00d7106664.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/playerShip1_damage3.png-e46a19441d9078a94c4186ad0ad246a5.stex"
+path="res://.import/playerShip1_damage3.png-cee170233eac850fcd21a61a879fffda.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets2/Damage/playerShip1_damage3.png"
-dest_files=[ "res://.import/playerShip1_damage3.png-e46a19441d9078a94c4186ad0ad246a5.stex" ]
+source_file="res://art/Damage/playerShip1_damage3.png"
+dest_files=[ "res://.import/playerShip1_damage3.png-cee170233eac850fcd21a61a879fffda.stex" ]
 
 [params]
 

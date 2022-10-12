@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cursor.png-5713fd4264b0826ea5bc087c64c4d1fd.stex"
+path="res://.import/cursor.png-e8ad9f0b7b74ee935986036c3f475ec5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets2/UI/cursor.png"
-dest_files=[ "res://.import/cursor.png-5713fd4264b0826ea5bc087c64c4d1fd.stex" ]
+source_file="res://art/UI/cursor.png"
+dest_files=[ "res://.import/cursor.png-e8ad9f0b7b74ee935986036c3f475ec5.stex" ]
 
 [params]
 

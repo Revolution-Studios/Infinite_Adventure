@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spaceParts_009.png-913222ed66440925cd26f2156d70af73.stex"
+path="res://.import/spaceParts_009X.png-f1284acac6b42ea9d707bc89772dd5b8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets/Sprites X2/Parts/spaceParts_009.png"
-dest_files=[ "res://.import/spaceParts_009.png-913222ed66440925cd26f2156d70af73.stex" ]
+source_file="res://art/Parts/spaceParts_009X.png"
+dest_files=[ "res://.import/spaceParts_009X.png-f1284acac6b42ea9d707bc89772dd5b8.stex" ]
 
 [params]
 

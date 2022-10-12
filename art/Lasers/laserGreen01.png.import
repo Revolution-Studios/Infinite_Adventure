@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/laserGreen01.png-1c146619c94707aa8d8c6aea50ebabbc.stex"
+path="res://.import/laserGreen01.png-fc4b5e57398f6cc1d9e19ce25b78da11.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets2/Lasers/laserGreen01.png"
-dest_files=[ "res://.import/laserGreen01.png-1c146619c94707aa8d8c6aea50ebabbc.stex" ]
+source_file="res://art/Lasers/laserGreen01.png"
+dest_files=[ "res://.import/laserGreen01.png-fc4b5e57398f6cc1d9e19ce25b78da11.stex" ]
 
 [params]
 

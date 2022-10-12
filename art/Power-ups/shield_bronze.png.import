@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shield_bronze.png-e76b641145c5466e399ad1b2f0003d43.stex"
+path="res://.import/shield_bronze.png-0f0b88449eacac9377d64251fd74fee5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets2/Power-ups/shield_bronze.png"
-dest_files=[ "res://.import/shield_bronze.png-e76b641145c5466e399ad1b2f0003d43.stex" ]
+source_file="res://art/Power-ups/shield_bronze.png"
+dest_files=[ "res://.import/shield_bronze.png-0f0b88449eacac9377d64251fd74fee5.stex" ]
 
 [params]
 

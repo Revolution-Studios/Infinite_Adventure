@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shield1.png-3edbbf2187b3b7811185f852d047d713.stex"
+path="res://.import/shield1.png-0d1d3154df9e26035bed1561b671280c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets2/Effects/shield1.png"
-dest_files=[ "res://.import/shield1.png-3edbbf2187b3b7811185f852d047d713.stex" ]
+source_file="res://art/Effects/shield1.png"
+dest_files=[ "res://.import/shield1.png-0d1d3154df9e26035bed1561b671280c.stex" ]
 
 [params]
 

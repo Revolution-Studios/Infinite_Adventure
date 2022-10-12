@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/scratch2.png-9641d6f015108f80b720fa9ca690a703.stex"
+path="res://.import/scratch2.png-313bd1b4483a60862422bffc657e6182.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets2/Parts/scratch2.png"
-dest_files=[ "res://.import/scratch2.png-9641d6f015108f80b720fa9ca690a703.stex" ]
+source_file="res://art/Parts/scratch2.png"
+dest_files=[ "res://.import/scratch2.png-313bd1b4483a60862422bffc657e6182.stex" ]
 
 [params]
 

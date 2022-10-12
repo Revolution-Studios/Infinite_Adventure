@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/engine4.png-adad64dfcc75df0b2755137c9ff00c2d.stex"
+path="res://.import/engine4.png-d5a7aff8297a544261304e454acb1062.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets2/Parts/engine4.png"
-dest_files=[ "res://.import/engine4.png-adad64dfcc75df0b2755137c9ff00c2d.stex" ]
+source_file="res://art/Parts/engine4.png"
+dest_files=[ "res://.import/engine4.png-d5a7aff8297a544261304e454acb1062.stex" ]
 
 [params]
 

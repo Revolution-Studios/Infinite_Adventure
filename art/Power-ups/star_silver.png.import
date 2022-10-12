@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/star_silver.png-06d7d7715523f6fb6da53700b79e5e22.stex"
+path="res://.import/star_silver.png-d509d4b45460526e8d7480a06fdd7247.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets2/Power-ups/star_silver.png"
-dest_files=[ "res://.import/star_silver.png-06d7d7715523f6fb6da53700b79e5e22.stex" ]
+source_file="res://art/Power-ups/star_silver.png"
+dest_files=[ "res://.import/star_silver.png-d509d4b45460526e8d7480a06fdd7247.stex" ]
 
 [params]
 

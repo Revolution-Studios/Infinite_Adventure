@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/beam6.png-203f94e9dfe85fbba7bf227a062e64ee.stex"
+path="res://.import/beam6.png-532a4d98552b964d3a103534a2ad5cf0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets2/Parts/beam6.png"
-dest_files=[ "res://.import/beam6.png-203f94e9dfe85fbba7bf227a062e64ee.stex" ]
+source_file="res://art/Parts/beam6.png"
+dest_files=[ "res://.import/beam6.png-532a4d98552b964d3a103534a2ad5cf0.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wingGreen_1.png-c89d923639ad16db5599db35b13b89f6.stex"
+path="res://.import/wingGreen_1.png-8a85be03e1cbc99d79643eb08b36d180.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets2/Parts/wingGreen_1.png"
-dest_files=[ "res://.import/wingGreen_1.png-c89d923639ad16db5599db35b13b89f6.stex" ]
+source_file="res://art/Parts/wingGreen_1.png"
+dest_files=[ "res://.import/wingGreen_1.png-8a85be03e1cbc99d79643eb08b36d180.stex" ]
 
 [params]
 

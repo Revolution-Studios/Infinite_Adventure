@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/enemyBlack2.png-1e0112ae318fe51cb1c4510cb26de9d6.stex"
+path="res://.import/enemyBlack2.png-4629c57407e6d60307e290cf40ab10de.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets2/Enemies/enemyBlack2.png"
-dest_files=[ "res://.import/enemyBlack2.png-1e0112ae318fe51cb1c4510cb26de9d6.stex" ]
+source_file="res://art/Enemies/enemyBlack2.png"
+dest_files=[ "res://.import/enemyBlack2.png-4629c57407e6d60307e290cf40ab10de.stex" ]
 
 [params]
 

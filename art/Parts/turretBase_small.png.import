@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/turretBase_small.png-bfc0600700a1e7782b1580b1b8ba047e.stex"
+path="res://.import/turretBase_small.png-d687f3f593fa442e7108478a16ae35b3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets2/Parts/turretBase_small.png"
-dest_files=[ "res://.import/turretBase_small.png-bfc0600700a1e7782b1580b1b8ba047e.stex" ]
+source_file="res://art/Parts/turretBase_small.png"
+dest_files=[ "res://.import/turretBase_small.png-d687f3f593fa442e7108478a16ae35b3.stex" ]
 
 [params]
 

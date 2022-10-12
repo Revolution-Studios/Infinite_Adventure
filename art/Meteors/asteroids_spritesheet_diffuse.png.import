@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/asteroids_spritesheet_diffuse.png-8168ba2048f949fbe974436d55f069e8.stex"
+path="res://.import/asteroids_spritesheet_diffuse.png-a20ad4c89c1d20bbd987e4bd89b55189.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets2/Meteors/asteroids_spritesheet_diffuse.png"
-dest_files=[ "res://.import/asteroids_spritesheet_diffuse.png-8168ba2048f949fbe974436d55f069e8.stex" ]
+source_file="res://art/Meteors/asteroids_spritesheet_diffuse.png"
+dest_files=[ "res://.import/asteroids_spritesheet_diffuse.png-a20ad4c89c1d20bbd987e4bd89b55189.stex" ]
 
 [params]
 

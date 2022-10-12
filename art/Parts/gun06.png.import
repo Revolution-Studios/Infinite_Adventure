@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gun06.png-82af8e1b42661d1816a8ea2850c2e074.stex"
+path="res://.import/gun06.png-dfbb42f32a87a34201453ed77a694c14.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets2/Parts/gun06.png"
-dest_files=[ "res://.import/gun06.png-82af8e1b42661d1816a8ea2850c2e074.stex" ]
+source_file="res://art/Parts/gun06.png"
+dest_files=[ "res://.import/gun06.png-dfbb42f32a87a34201453ed77a694c14.stex" ]
 
 [params]
 
