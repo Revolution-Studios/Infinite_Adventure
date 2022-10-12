@@ -1,10 +1,10 @@
 [gd_scene load_steps=32 format=2]
 
-[ext_resource path="res://Planets/planet00.png" type="Texture" id=1]
+[ext_resource path="res://art/Planets/planet00.png" type="Texture" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://space backgrounds/Nebula Aqua-Pink.png" type="Texture" id=3]
 [ext_resource path="res://space backgrounds/Stars-Big_1_1_PC.png" type="Texture" id=4]
-[ext_resource path="res://Space Assets2/Meteors/asteroids_spritesheet_diffuse.png" type="Texture" id=5]
+[ext_resource path="res://art/Space Assets2/Meteors/asteroids_spritesheet_diffuse.png" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 511.0
@@ -160,7 +160,7 @@ motion_scale = Vector2( 0.2, 0.2 )
 motion_mirroring = Vector2( 4096, 4096 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer1"]
-scale = Vector2( 1.5, 1.5 )
+position = Vector2( 3, -7 )
 texture = ExtResource( 3 )
 centered = false
 
@@ -183,7 +183,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Asteroid3"]
 frames = SubResource( 25 )
 animation = "Asteroid1"
-frame = 18
+frame = 4
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Asteroid3"]
@@ -202,7 +202,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Asteroid2"]
 frames = SubResource( 25 )
 animation = "Asteroid1"
-frame = 9
+frame = 18
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Asteroid2"]
@@ -221,7 +221,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Asteroid"]
 frames = SubResource( 25 )
 animation = "Asteroid1"
-frame = 4
+frame = 12
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Asteroid"]
