@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spaceShips_009.png-92630fdb181f2707c86815d67ffc4acf.stex"
+path="res://.import/spaceShips_009X2.png-7bff0d2f2e463fb321eead9bd2629103.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets/Sprites X2/Ships/spaceShips_009.png"
-dest_files=[ "res://.import/spaceShips_009.png-92630fdb181f2707c86815d67ffc4acf.stex" ]
+source_file="res://art/Ships/spaceShips_009X2.png"
+dest_files=[ "res://.import/spaceShips_009X2.png-7bff0d2f2e463fb321eead9bd2629103.stex" ]
 
 [params]
 

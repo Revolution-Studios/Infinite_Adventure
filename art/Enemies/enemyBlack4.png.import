@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/enemyBlack4.png-3237af07ec5bec0dad027f9e3b5fc384.stex"
+path="res://.import/enemyBlack4.png-95266536ccb9e927aa3a528b210c0160.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets2/Enemies/enemyBlack4.png"
-dest_files=[ "res://.import/enemyBlack4.png-3237af07ec5bec0dad027f9e3b5fc384.stex" ]
+source_file="res://art/Enemies/enemyBlack4.png"
+dest_files=[ "res://.import/enemyBlack4.png-95266536ccb9e927aa3a528b210c0160.stex" ]
 
 [params]
 

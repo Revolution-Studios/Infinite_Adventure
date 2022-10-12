@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/things_gold.png-c9ac3f335ef8c6899858fb13146c8090.stex"
+path="res://.import/things_gold.png-d5b037a3017597c4df74720a47a5c2b1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets2/Power-ups/things_gold.png"
-dest_files=[ "res://.import/things_gold.png-c9ac3f335ef8c6899858fb13146c8090.stex" ]
+source_file="res://art/Power-ups/things_gold.png"
+dest_files=[ "res://.import/things_gold.png-d5b037a3017597c4df74720a47a5c2b1.stex" ]
 
 [params]
 

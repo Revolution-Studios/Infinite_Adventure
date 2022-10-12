@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ufoGreen.png-527024710bd22699d2b46253f7a35eb4.stex"
+path="res://.import/ufoGreen.png-06a3b7e6a80ce2b09a959670694741f3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets2/ufoGreen.png"
-dest_files=[ "res://.import/ufoGreen.png-527024710bd22699d2b46253f7a35eb4.stex" ]
+source_file="res://art/Ships/ufoGreen.png"
+dest_files=[ "res://.import/ufoGreen.png-06a3b7e6a80ce2b09a959670694741f3.stex" ]
 
 [params]
 

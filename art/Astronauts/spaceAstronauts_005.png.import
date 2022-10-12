@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spaceAstronauts_005.png-fd5bcc2507eb81182e2b5a7e4f758ec8.stex"
+path="res://.import/spaceAstronauts_005.png-3740d0bfbbb65a7ff4c5ba3889ebd058.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets/Sprites/Astronauts/spaceAstronauts_005.png"
-dest_files=[ "res://.import/spaceAstronauts_005.png-fd5bcc2507eb81182e2b5a7e4f758ec8.stex" ]
+source_file="res://art/Astronauts/spaceAstronauts_005.png"
+dest_files=[ "res://.import/spaceAstronauts_005.png-3740d0bfbbb65a7ff4c5ba3889ebd058.stex" ]
 
 [params]
 

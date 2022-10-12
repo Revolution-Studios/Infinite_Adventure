@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/playerLife3_red.png-65087098435de1169cd7f16493de5898.stex"
+path="res://.import/playerLife3_red.png-15e601f50b42854ed05aa2afa47f32f9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets2/UI/playerLife3_red.png"
-dest_files=[ "res://.import/playerLife3_red.png-65087098435de1169cd7f16493de5898.stex" ]
+source_file="res://art/UI/playerLife3_red.png"
+dest_files=[ "res://.import/playerLife3_red.png-15e601f50b42854ed05aa2afa47f32f9.stex" ]
 
 [params]
 

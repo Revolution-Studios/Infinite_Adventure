@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/playerShip2_red.png-d04c54604b7e054f19873e4c2b5984b0.stex"
+path="res://.import/playerShip2_red.png-bc4ddd94c5d8bbc178986fd144918896.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets2/playerShip2_red.png"
-dest_files=[ "res://.import/playerShip2_red.png-d04c54604b7e054f19873e4c2b5984b0.stex" ]
+source_file="res://art/Ships/playerShip2_red.png"
+dest_files=[ "res://.import/playerShip2_red.png-bc4ddd94c5d8bbc178986fd144918896.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/buttonGreen.png-1dc58db7cf7c8a1d1e3065ef9421f763.stex"
+path="res://.import/buttonGreen.png-e9cd35f96fb14beab47edae814a141e7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets2/UI/buttonGreen.png"
-dest_files=[ "res://.import/buttonGreen.png-1dc58db7cf7c8a1d1e3065ef9421f763.stex" ]
+source_file="res://art/UI/buttonGreen.png"
+dest_files=[ "res://.import/buttonGreen.png-e9cd35f96fb14beab47edae814a141e7.stex" ]
 
 [params]
 

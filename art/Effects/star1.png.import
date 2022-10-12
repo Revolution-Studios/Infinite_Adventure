@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/star1.png-c213c38b985c8b0177a7391474b69ae9.stex"
+path="res://.import/star1.png-f55bbb9e06cac1172745cabb10048458.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets2/Effects/star1.png"
-dest_files=[ "res://.import/star1.png-c213c38b985c8b0177a7391474b69ae9.stex" ]
+source_file="res://art/Effects/star1.png"
+dest_files=[ "res://.import/star1.png-f55bbb9e06cac1172745cabb10048458.stex" ]
 
 [params]
 

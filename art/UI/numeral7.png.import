@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/numeral7.png-39997e8baa8a54b9b808ef7b9ee1abba.stex"
+path="res://.import/numeral7.png-843308eecc4619a6ea4b79ccf99d8290.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets2/UI/numeral7.png"
-dest_files=[ "res://.import/numeral7.png-39997e8baa8a54b9b808ef7b9ee1abba.stex" ]
+source_file="res://art/UI/numeral7.png"
+dest_files=[ "res://.import/numeral7.png-843308eecc4619a6ea4b79ccf99d8290.stex" ]
 
 [params]
 

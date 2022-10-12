@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spaceMeteors_002.png-27bbaa3161e3e1044bf4add2e35bd716.stex"
+path="res://.import/spaceMeteors_002.png-29ed72b13c093eb1a61b8c3b26bcce5b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets/Sprites X2/Meteors/spaceMeteors_002.png"
-dest_files=[ "res://.import/spaceMeteors_002.png-27bbaa3161e3e1044bf4add2e35bd716.stex" ]
+source_file="res://art/Meteors/spaceMeteors_002.png"
+dest_files=[ "res://.import/spaceMeteors_002.png-29ed72b13c093eb1a61b8c3b26bcce5b.stex" ]
 
 [params]
 

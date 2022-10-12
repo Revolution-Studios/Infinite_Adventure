@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pill_green.png-b8d2acb6746ddf433b9db4fcf2030f8d.stex"
+path="res://.import/pill_green.png-f72e9185ed511bace7d0cf0c3f490313.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets2/Power-ups/pill_green.png"
-dest_files=[ "res://.import/pill_green.png-b8d2acb6746ddf433b9db4fcf2030f8d.stex" ]
+source_file="res://art/Power-ups/pill_green.png"
+dest_files=[ "res://.import/pill_green.png-f72e9185ed511bace7d0cf0c3f490313.stex" ]
 
 [params]
 

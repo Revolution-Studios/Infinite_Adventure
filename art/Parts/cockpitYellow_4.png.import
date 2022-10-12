@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cockpitYellow_4.png-8cd2cddd6008b0ad8efa02c7635bd4f9.stex"
+path="res://.import/cockpitYellow_4.png-a8f7ef85dda8f9a3389f54a3ca12cb43.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets2/Parts/cockpitYellow_4.png"
-dest_files=[ "res://.import/cockpitYellow_4.png-8cd2cddd6008b0ad8efa02c7635bd4f9.stex" ]
+source_file="res://art/Parts/cockpitYellow_4.png"
+dest_files=[ "res://.import/cockpitYellow_4.png-a8f7ef85dda8f9a3389f54a3ca12cb43.stex" ]
 
 [params]
 

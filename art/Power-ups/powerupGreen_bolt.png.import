@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/powerupGreen_bolt.png-282b8b30761a84cd97fd820b99aafa55.stex"
+path="res://.import/powerupGreen_bolt.png-544b3a78914d92eab531a5fadc40cfa8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets2/Power-ups/powerupGreen_bolt.png"
-dest_files=[ "res://.import/powerupGreen_bolt.png-282b8b30761a84cd97fd820b99aafa55.stex" ]
+source_file="res://art/Power-ups/powerupGreen_bolt.png"
+dest_files=[ "res://.import/powerupGreen_bolt.png-544b3a78914d92eab531a5fadc40cfa8.stex" ]
 
 [params]
 

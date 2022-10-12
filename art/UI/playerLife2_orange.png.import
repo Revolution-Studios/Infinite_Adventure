@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/playerLife2_orange.png-83618558951bd7066d89533a98425ca5.stex"
+path="res://.import/playerLife2_orange.png-25f1275cb9e5d7126fc39af8a4efee11.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets2/UI/playerLife2_orange.png"
-dest_files=[ "res://.import/playerLife2_orange.png-83618558951bd7066d89533a98425ca5.stex" ]
+source_file="res://art/UI/playerLife2_orange.png"
+dest_files=[ "res://.import/playerLife2_orange.png-25f1275cb9e5d7126fc39af8a4efee11.stex" ]
 
 [params]
 

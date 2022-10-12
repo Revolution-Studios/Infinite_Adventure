@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/meteorBrown_tiny2.png-e1667644ab08dfe162fa10db002f917d.stex"
+path="res://.import/meteorBrown_tiny2.png-7c11d3148cc3de539b704e0d098f05d3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets2/Meteors/meteorBrown_tiny2.png"
-dest_files=[ "res://.import/meteorBrown_tiny2.png-e1667644ab08dfe162fa10db002f917d.stex" ]
+source_file="res://art/Meteors/meteorBrown_tiny2.png"
+dest_files=[ "res://.import/meteorBrown_tiny2.png-7c11d3148cc3de539b704e0d098f05d3.stex" ]
 
 [params]
 

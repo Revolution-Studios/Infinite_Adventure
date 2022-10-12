@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bolt_bronze.png-7c6e26148f670f5bb0277e96c770708d.stex"
+path="res://.import/bolt_bronze.png-ecd6bb09a41bfb2679a56eae4417fce4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets2/Power-ups/bolt_bronze.png"
-dest_files=[ "res://.import/bolt_bronze.png-7c6e26148f670f5bb0277e96c770708d.stex" ]
+source_file="res://art/Power-ups/bolt_bronze.png"
+dest_files=[ "res://.import/bolt_bronze.png-ecd6bb09a41bfb2679a56eae4417fce4.stex" ]
 
 [params]
 

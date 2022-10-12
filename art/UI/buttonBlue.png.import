@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/buttonBlue.png-2df7907da2b6b1777411d30a46d4d5fd.stex"
+path="res://.import/buttonBlue.png-94584860313249d457665f235e401f5d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets2/UI/buttonBlue.png"
-dest_files=[ "res://.import/buttonBlue.png-2df7907da2b6b1777411d30a46d4d5fd.stex" ]
+source_file="res://art/UI/buttonBlue.png"
+dest_files=[ "res://.import/buttonBlue.png-94584860313249d457665f235e401f5d.stex" ]
 
 [params]
 

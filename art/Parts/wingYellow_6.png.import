@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wingYellow_6.png-e7db000eb6c1f175e7d8aeb17a4bbe2d.stex"
+path="res://.import/wingYellow_6.png-8a14f5fad822b6e8c2ed4fffa60a7b13.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets2/Parts/wingYellow_6.png"
-dest_files=[ "res://.import/wingYellow_6.png-e7db000eb6c1f175e7d8aeb17a4bbe2d.stex" ]
+source_file="res://art/Parts/wingYellow_6.png"
+dest_files=[ "res://.import/wingYellow_6.png-8a14f5fad822b6e8c2ed4fffa60a7b13.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/speed.png-bddbc74b8c1e457a6ec6e5aac284f09c.stex"
+path="res://.import/speed.png-17496a3640edff3c9cf5de6844131fb9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Space Assets2/Effects/speed.png"
-dest_files=[ "res://.import/speed.png-bddbc74b8c1e457a6ec6e5aac284f09c.stex" ]
+source_file="res://art/Effects/speed.png"
+dest_files=[ "res://.import/speed.png-17496a3640edff3c9cf5de6844131fb9.stex" ]
 
 [params]
 
