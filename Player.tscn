@@ -1,7 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://art/Ships/spaceShips_007X2.png" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
+[ext_resource path="res://art/Effects/fire07.png" type="Texture" id=3]
+[ext_resource path="res://art/Effects/fire04.png" type="Texture" id=4]
+[ext_resource path="res://art/Effects/fire05.png" type="Texture" id=6]
+[ext_resource path="res://art/Effects/fire06.png" type="Texture" id=7]
+[ext_resource path="res://art/Effects/fire03.png" type="Texture" id=8]
+[ext_resource path="res://art/Effects/fire01.png" type="Texture" id=9]
+[ext_resource path="res://art/Effects/fire02.png" type="Texture" id=11]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 22.0
@@ -9,12 +16,12 @@ height = 21.9999
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ null, null, null, null, null, null, null ],
+"frames": [ ExtResource( 11 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 6 ) ],
 "loop": false,
 "name": "acceleration",
 "speed": 5.0
 }, {
-"frames": [ null, null ],
+"frames": [ ExtResource( 4 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "max-speed",
 "speed": 10.0
@@ -41,5 +48,6 @@ shape = SubResource( 1 )
 position = Vector2( 0.0001086, -30 )
 frames = SubResource( 2 )
 animation = "acceleration"
+frame = 5
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
