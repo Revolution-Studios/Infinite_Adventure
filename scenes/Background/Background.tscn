@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/Background/art/Nebula Aqua-Pink.png" type="Texture" id=1]
+[ext_resource path="res://scenes/World/art/Stars-Big_1_1_PC.png" type="Texture" id=2]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+offset = Vector2( -600, -600 )
+transform = Transform2D( 1, 0, 0, 1, -600, -600 )
+
+[node name="ParallaxLayer1" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.2, 0.2 )
+motion_mirroring = Vector2( 4096, 4096 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxLayer1"]
+position = Vector2( 3, -7 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.4, 0.4 )
+motion_mirroring = Vector2( 4096, 4096 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxLayer2"]
+texture = ExtResource( 2 )
+centered = false

@@ -44,9 +44,9 @@ current = true
 rotation = 1.5708
 shape = SubResource( 1 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="Ship_Exhaust" type="AnimatedSprite" parent="."]
 position = Vector2( 0.0001086, -30 )
 frames = SubResource( 2 )
 animation = "acceleration"
 
-[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="animation_finished" from="Ship_Exhaust" to="." method="_on_AnimatedSprite_animation_finished"]

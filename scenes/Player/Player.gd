@@ -6,7 +6,7 @@ var rotation_speed: int = 150
 var direction: Vector2
 var velocity: Vector2 = Vector2.ZERO
 onready var ship_nose: Node2D = $Sprite/Ship_Nose
-onready var flame_exhaust: Node2D = $AnimatedSprite
+onready var flame_exhaust: Node2D = $Ship_Exhaust
 
 func _ready() -> void:
 	flame_exhaust.hide()

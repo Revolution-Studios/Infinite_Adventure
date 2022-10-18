@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Nebula Aqua-Pink.png-66b8ba227b89713c4b7d2203f6c46d10.stex"
+path="res://.import/Nebula Aqua-Pink.png-7926ef831f0af70e61e8b14564c9ab9f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/World/art/Nebula Aqua-Pink.png"
-dest_files=[ "res://.import/Nebula Aqua-Pink.png-66b8ba227b89713c4b7d2203f6c46d10.stex" ]
+source_file="res://scenes/Background/art/Nebula Aqua-Pink.png"
+dest_files=[ "res://.import/Nebula Aqua-Pink.png-7926ef831f0af70e61e8b14564c9ab9f.stex" ]
 
 [params]
 
