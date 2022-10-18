@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Stars-Big_1_1_PC.png-507d059292b6e5743b92f3f13209128d.stex"
+path="res://.import/planet00.png-cb2630137d18482a3514d6481b3607c4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/World/art/Stars-Big_1_1_PC.png"
-dest_files=[ "res://.import/Stars-Big_1_1_PC.png-507d059292b6e5743b92f3f13209128d.stex" ]
+source_file="res://scenes/Planet/art/planet00.png"
+dest_files=[ "res://.import/planet00.png-cb2630137d18482a3514d6481b3607c4.stex" ]
 
 [params]
 

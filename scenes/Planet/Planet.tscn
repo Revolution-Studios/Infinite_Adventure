@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://scenes/World/art/planet00.png" type="Texture" id=1]
+[ext_resource path="res://scenes/Planet/art/planet00.png" type="Texture" id=1]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 511.0
