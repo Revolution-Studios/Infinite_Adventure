@@ -131,7 +131,8 @@ radius = 21.4507
 height = 20.1022
 
 [node name="Asteroid" type="RigidBody2D"]
-mode = 1
+collision_mask = 0
+gravity_scale = 0.0
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
