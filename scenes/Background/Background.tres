@@ -1,0 +1,57 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform vec2 resolution = vec2(1000, 1000);
+uniform float density = 0.1;
+
+
+float random (vec2 st) {
+    return fract(
+		sin(
+			dot(
+				st.xy,
+                	vec2(12.9898,78.233)
+			)
+		)*
+        43758.5453123
+	);
+}
+
+void fragment() {
+	int minX = int(max(0.0, FRAGCOORD.x - 10.0));
+    int maxX = int(min(resolution.x, FRAGCOORD.x + 10.0));
+
+    int minY = int(max(0.0, FRAGCOORD.y - 10.0));
+    int maxY = int(min(resolution.y, FRAGCOORD.y + 10.0));
+
+    // const threshold = 0.99999;
+    float threshold = 0.99 + (1.0 - density) * 0.00999;
+
+    float val = 0.0;
+    for(int x = minX; x < maxX; x++) {
+        for(int y = minY; y < maxY; y++) {
+            float neighborVal = random(vec2(float(x)/resolution.x, float(y)/resolution.y));
+            if(neighborVal > threshold) {
+				float size = 1.0 - (neighborVal - threshold) / (1.0 - threshold);
+				float dist = sqrt(
+                    (FRAGCOORD.x - float(x)) * (FRAGCOORD.x - float(x)) +
+                    (FRAGCOORD.y - float(y)) * (FRAGCOORD.y - float(y))
+                );
+                float brightness = exp(-1.0 * dist * dist * (size + 0.03));
+                val += brightness;
+            }
+        }
+    }
+
+    float rgbVal = min(1.0, val);
+	COLOR = vec4(rgbVal, rgbVal, rgbVal, 1.);
+
+}
+"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/resolution = Vector2( 1000, 1000 )
+shader_param/density = 0.1

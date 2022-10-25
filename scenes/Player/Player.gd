@@ -48,6 +48,9 @@ func _physics_process(delta: float) -> void:
 				print("health is 0")
 				visible = false
 
+	PlayerState.position = self.position
+
+
 func _on_AnimatedSprite_animation_finished() -> void:
 	flame_exhaust.animation = "max-speed"
 

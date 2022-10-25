@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/Foreground/Foreground.gd" type="Script" id=2]
+[ext_resource path="res://scenes/Foreground/Foreground.tres" type="Material" id=4]
+
+[node name="Foreground" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource( 4 )
+margin_right = 1920.0
+margin_bottom = 1080.0
+color = Color( 0.854902, 0.0705882, 0.0705882, 0 )
