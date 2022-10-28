@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var hull_health = 100
+
 var acceleration: int = 250
 var max_speed: int = 500
 var rotation_speed: int = 150
@@ -42,8 +42,8 @@ func _physics_process(delta: float) -> void:
 		print("Collided with ", collision.collider.name)
 		if collision.collider.name.begins_with("Asteroid"):
 			collision.collider.apply_central_impulse(-collision.normal * inertia)
-			if hull_health > 0:
-				hull_health = hull_health -10
+			if PlayerState.hull_health > 0:
+				PlayerState.hull_health = PlayerState.hull_health -10
 			else:
 				print("health is 0")
 				visible = false

@@ -1,10 +1,12 @@
 extends Node
 
+signal hull_health_changed
 var position = Vector2(50, 50)
+var hull_health = 100 setget set_hull_health
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+func set_hull_health(val):
+	hull_health = val
+	emit_signal("hull_health_changed", hull_health) 
 
 
 # Called when the node enters the scene tree for the first time.
