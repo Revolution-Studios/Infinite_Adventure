@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-
 var acceleration: int = 250
 var max_speed: int = 500
 var rotation_speed: int = 150
@@ -13,7 +12,11 @@ onready var flame_exhaust: Node2D = $Ship_Exhaust
 func _ready() -> void:
 	flame_exhaust.hide()
 
+
 func _physics_process(delta: float) -> void:
+	if PlayerState.hull_health <= 0: 
+		queue_free()
+	
 	direction = (ship_nose.global_position - global_position).normalized()
 	
 	if Input.is_action_pressed("move_forward"):
@@ -35,22 +38,23 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_pressed("rotate_right"):
 		rotation_degrees+= rotation_speed * delta
-		
-	velocity = move_and_slide(velocity, Vector2(0, 0), false, 4, 0.785, false)
-	for i in get_slide_count():
-		var collision = get_slide_collision(i)
-		print("Collided with ", collision.collider.name)
-		if collision.collider.name.begins_with("Asteroid"):
-			collision.collider.apply_central_impulse(-collision.normal * inertia)
-			if PlayerState.hull_health > 0:
-				PlayerState.hull_health = PlayerState.hull_health -10
-			else:
-				print("health is 0")
-				visible = false
-
+	
+	_get_collision_damage()
+	
 	PlayerState.position = self.position
+	
+	velocity = move_and_slide(velocity, Vector2(0, 0), false, 4, PI/4, false)
 
 
 func _on_AnimatedSprite_animation_finished() -> void:
 	flame_exhaust.animation = "max-speed"
 
+
+func _get_collision_damage()-> void:
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		
+		if collision.collider is RigidBody2D: 
+			collision.collider.apply_central_impulse(-collision.normal * inertia)
+			
+			PlayerState.hull_health = PlayerState.hull_health - collision.collider.damage

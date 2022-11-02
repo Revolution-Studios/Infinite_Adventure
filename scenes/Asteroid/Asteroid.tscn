@@ -1099,8 +1099,6 @@ script = ExtResource( 2 )
 position = Vector2( 3.5, 1.5 )
 frames = SubResource( 25 )
 animation = "Asteroid3"
-frame = 9
-playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 2.5, 0.5 )
