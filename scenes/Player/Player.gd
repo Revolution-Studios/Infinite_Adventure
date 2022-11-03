@@ -3,7 +3,7 @@ extends KinematicBody2D
 var acceleration: int = 250
 var max_speed: int = 500
 var rotation_speed: int = 150
-var inertia = 25
+var inertia = 50
 var direction: Vector2
 var velocity: Vector2 = Vector2.ZERO
 onready var ship_nose: Node2D = $Sprite/Ship_Nose
@@ -36,7 +36,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("rotate_right"):
 		rotation_degrees+= rotation_speed * delta
 	
-	_apply_collision_damage()
+	if _apply_collision_knockback_damage():
+		velocity = velocity * -1
 	
 	if PlayerState.hull_health <= 0: 
 		queue_free()
@@ -50,11 +51,17 @@ func _on_AnimatedSprite_animation_finished() -> void:
 	flame_exhaust.animation = "max-speed"
 
 
-func _apply_collision_damage()-> void:
+func _apply_collision_knockback_damage()-> bool:
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		
 		if collision.collider is RigidBody2D: 
 			collision.collider.apply_central_impulse(-collision.normal * inertia)
-			
+		
+			if i > 0 and collision.collider_id == get_slide_collision(i -1).collider_id:  
+				continue
+		
 			PlayerState.hull_health = PlayerState.hull_health - collision.collider.damage
+			return true
+		
+	return false
