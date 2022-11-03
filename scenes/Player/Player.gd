@@ -14,9 +14,6 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if PlayerState.hull_health <= 0: 
-		queue_free()
-	
 	direction = (ship_nose.global_position - global_position).normalized()
 	
 	if Input.is_action_pressed("move_forward"):
@@ -39,7 +36,10 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("rotate_right"):
 		rotation_degrees+= rotation_speed * delta
 	
-	_get_collision_damage()
+	_apply_collision_damage()
+	
+	if PlayerState.hull_health <= 0: 
+		queue_free()
 	
 	PlayerState.position = self.position
 	
@@ -50,7 +50,7 @@ func _on_AnimatedSprite_animation_finished() -> void:
 	flame_exhaust.animation = "max-speed"
 
 
-func _get_collision_damage()-> void:
+func _apply_collision_damage()-> void:
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		
