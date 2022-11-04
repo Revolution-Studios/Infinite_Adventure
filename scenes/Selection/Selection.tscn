@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=2]
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 5
+border_width_top = 5
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_top = 5
+border_width_right = 5
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_right = 5
+border_width_bottom = 5
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 5
+border_width_bottom = 5
+
+[node name="Selection" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 250, 250 )
+
+[node name="TopLeft" type="Control" parent="."]
+margin_right = 100.0
+margin_bottom = 100.0
+size_flags_vertical = 0
+
+[node name="Panel" type="Panel" parent="TopLeft"]
+margin_right = 100.0
+margin_bottom = 100.0
+custom_styles/panel = SubResource( 5 )
+
+[node name="TopRight" type="Control" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -100.0
+margin_bottom = 100.0
+size_flags_vertical = 0
+
+[node name="Panel" type="Panel" parent="TopRight"]
+margin_right = 100.0
+margin_bottom = 100.0
+custom_styles/panel = SubResource( 2 )
+
+[node name="BottomRight" type="Control" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -100.0
+margin_top = -100.0
+size_flags_vertical = 0
+
+[node name="Panel" type="Panel" parent="BottomRight"]
+margin_right = 100.0
+margin_bottom = 100.0
+custom_styles/panel = SubResource( 3 )
+
+[node name="BottomLeft" type="Control" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -100.0
+margin_right = 100.0
+size_flags_vertical = 0
+
+[node name="Panel" type="Panel" parent="BottomLeft"]
+margin_right = 100.0
+margin_bottom = 100.0
+custom_styles/panel = SubResource( 4 )
