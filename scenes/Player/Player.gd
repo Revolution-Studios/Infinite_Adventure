@@ -6,6 +6,7 @@ var rotation_speed: int = 150
 var inertia = 50
 var direction: Vector2
 var velocity: Vector2 = Vector2.ZERO
+
 onready var ship_nose: Node2D = $Sprite/Ship_Nose
 onready var flame_exhaust: Node2D = $Ship_Exhaust
 
@@ -65,3 +66,21 @@ func _apply_collision_knockback_damage()-> bool:
 			return true
 		
 	return false
+
+func set_selection():
+	var planets = get_tree().get_nodes_in_group("Planets")
+	var closest_planet = planets[0]
+	
+	for planet in planets:
+		if planet.global_position.distance_to(position) < closest_planet.global_position.distance_to(position):
+			closest_planet = planet
+	if PlayerState.selection != null:
+		PlayerState.selection.get_node("Selection").visible = false
+	
+	PlayerState.selection = closest_planet
+	PlayerState.selection.get_node("Selection").visible = true
+
+func _input(select_planet):
+	if Input.is_action_pressed("select_planet"):
+		set_selection()
+		print("Selected ", PlayerState.selection)

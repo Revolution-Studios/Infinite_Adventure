@@ -1,7 +1,8 @@
-[gd_scene load_steps=212 format=2]
+[gd_scene load_steps=213 format=2]
 
 [ext_resource path="res://scenes/Asteroid/art/asteroids_spritesheet_diffuse.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Asteroid/Asteroid.gd" type="Script" id=2]
+[ext_resource path="res://scenes/Selection/Selection.tscn" type="PackedScene" id=3]
 
 [sub_resource type="AtlasTexture" id=2]
 flags = 4
@@ -1091,6 +1092,7 @@ radius = 21.4507
 height = 20.1022
 
 [node name="Asteroid" type="RigidBody2D"]
+position = Vector2( 960, 540 )
 collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource( 2 )
@@ -1104,3 +1106,10 @@ animation = "Asteroid3"
 position = Vector2( 2.5, 0.5 )
 rotation = 1.89892
 shape = SubResource( 26 )
+
+[node name="Selection" parent="." instance=ExtResource( 3 )]
+margin_left = -60.0
+margin_top = -60.0
+margin_right = 190.0
+margin_bottom = 190.0
+rect_scale = Vector2( 0.5, 0.5 )
