@@ -72,7 +72,9 @@ func set_selection():
 	var closest_planet = planets[0]
 	
 	for planet in planets:
-		if planet.global_position.distance_to(position) < closest_planet.global_position.distance_to(position):
+		var planetsize = planet.get_node("Selection").get_size()
+		var closestplanetsize = closest_planet.get_node("Selection").get_size()
+		if planet.global_position.distance_to(position) - planetsize < closest_planet.global_position.distance_to(position) - closestplanetsize:
 			closest_planet = planet
 	if PlayerState.selection != null:
 		PlayerState.selection.get_node("Selection").visible = false
