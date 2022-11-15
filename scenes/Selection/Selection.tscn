@@ -27,10 +27,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -960.0
-margin_top = -540.0
-margin_right = 960.0
-margin_bottom = 540.0
+margin_left = -554.0
+margin_top = -338.5
+margin_right = 554.0
+margin_bottom = 338.5
 rect_min_size = Vector2( 250, 250 )
 script = ExtResource( 1 )
 
@@ -40,8 +40,8 @@ margin_bottom = 100.0
 size_flags_vertical = 0
 
 [node name="Panel" type="Panel" parent="TopLeft"]
-margin_right = 100.0
-margin_bottom = 100.0
+margin_right = 50.0
+margin_bottom = 50.0
 custom_styles/panel = SubResource( 5 )
 
 [node name="TopRight" type="Control" parent="."]
@@ -52,8 +52,10 @@ margin_bottom = 100.0
 size_flags_vertical = 0
 
 [node name="Panel" type="Panel" parent="TopRight"]
-margin_right = 100.0
-margin_bottom = 100.0
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -50.0
+margin_bottom = 50.0
 custom_styles/panel = SubResource( 2 )
 
 [node name="BottomRight" type="Control" parent="."]
@@ -66,8 +68,12 @@ margin_top = -100.0
 size_flags_vertical = 0
 
 [node name="Panel" type="Panel" parent="BottomRight"]
-margin_right = 100.0
-margin_bottom = 100.0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -50.0
+margin_top = -50.0
 custom_styles/panel = SubResource( 3 )
 
 [node name="BottomLeft" type="Control" parent="."]
@@ -78,6 +84,8 @@ margin_right = 100.0
 size_flags_vertical = 0
 
 [node name="Panel" type="Panel" parent="BottomLeft"]
-margin_right = 100.0
-margin_bottom = 100.0
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -50.0
+margin_right = 50.0
 custom_styles/panel = SubResource( 4 )
