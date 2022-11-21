@@ -1,0 +1,25 @@
+{
+	"color": "#ff6272d7",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1669074936.json",
+	"mirror_portraits": false,
+	"name": "Amadou",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://portraits/Amadou/Amadou_default.png"
+		},
+		{
+			"name": "slight_smile",
+			"path": "res://portraits/Amadou/Amadou_slight_smile.PNG"
+		}
+	],
+	"scale": 100,
+	"theme": ""
+}

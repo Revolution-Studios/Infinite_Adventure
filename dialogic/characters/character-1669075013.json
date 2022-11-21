@@ -1,0 +1,25 @@
+{
+	"color": "#ffffffff",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1669075013.json",
+	"mirror_portraits": false,
+	"name": "Yam",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://portraits/Yam/Yam_default.PNG"
+		},
+		{
+			"name": "sad",
+			"path": "res://portraits/Yam/Yam_sad.png"
+		}
+	],
+	"scale": 100,
+	"theme": ""
+}
