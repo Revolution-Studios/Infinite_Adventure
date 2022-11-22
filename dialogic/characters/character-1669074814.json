@@ -1,5 +1,5 @@
 {
-	"color": "#ffc711e6",
+	"color": "#ff46be59",
 	"description": "",
 	"display_name": "",
 	"display_name_bool": false,
@@ -8,7 +8,7 @@
 	"name": "Joshua",
 	"nickname": "",
 	"nickname_bool": false,
-	"offset_x": 0,
+	"offset_x": -200,
 	"offset_y": 0,
 	"portraits": [
 		{
@@ -16,6 +16,6 @@
 			"path": "res://portraits/Joshua/Joshua_default.PNG"
 		}
 	],
-	"scale": 100,
+	"scale": 10,
 	"theme": ""
 }
