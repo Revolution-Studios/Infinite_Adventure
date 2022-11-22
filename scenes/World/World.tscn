@@ -39,4 +39,7 @@ layer = 100
 pause_mode = 2
 timeline = "timeline-1669079438.json"
 
+[connection signal="dialogic_signal" from="Dialog" to="Player" method="_on_Dialog_dialogic_signal"]
 [connection signal="timeline_end" from="Dialog" to="." method="_on_Dialog_timeline_end"]
+
+[editable path="Player"]

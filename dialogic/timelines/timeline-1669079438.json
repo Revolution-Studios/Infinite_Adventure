@@ -37,6 +37,10 @@
 			"value": ""
 		},
 		{
+			"emit_signal": "Amadou",
+			"event_id": "dialogic_040"
+		},
+		{
 			"animation": "[Default]",
 			"animation_length": 0,
 			"change_mirror_portrait": false,
@@ -68,6 +72,10 @@
 			"definition": "",
 			"event_id": "dialogic_011",
 			"value": ""
+		},
+		{
+			"emit_signal": "Yam",
+			"event_id": "dialogic_040"
 		},
 		{
 			"animation": "[Default]",
