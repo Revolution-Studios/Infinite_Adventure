@@ -8,8 +8,8 @@
 	"name": "Yam",
 	"nickname": "",
 	"nickname_bool": false,
-	"offset_x": 0,
-	"offset_y": 0,
+	"offset_x": 200,
+	"offset_y": -20,
 	"portraits": [
 		{
 			"name": "Default",
@@ -20,6 +20,6 @@
 			"path": "res://portraits/Yam/Yam_sad.png"
 		}
 	],
-	"scale": 100,
+	"scale": 10,
 	"theme": ""
 }

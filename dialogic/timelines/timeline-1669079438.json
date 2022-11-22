@@ -22,9 +22,81 @@
 		},
 		{
 			"character": "character-1669074814.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Yam, Amadou, are either of you in range? Are either of you receiving this message?"
+		},
+		{
+			"choice": "Amadou",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1669074936.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "slight_smile",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1669074936.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Amadou, Yam, are either of you receiving this message?"
+			"text": "Hi Joshua, what's going on?"
+		},
+		{
+			"choice": "Yam",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1669075013.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1669075013.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You sound worried Joshua, is everything OK?"
+		},
+		{
+			"event_id": "dialogic_013"
 		}
 	],
 	"metadata": {

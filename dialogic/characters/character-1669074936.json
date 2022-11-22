@@ -8,8 +8,8 @@
 	"name": "Amadou",
 	"nickname": "",
 	"nickname_bool": false,
-	"offset_x": 0,
-	"offset_y": 0,
+	"offset_x": 200,
+	"offset_y": 20,
 	"portraits": [
 		{
 			"name": "Default",
@@ -20,6 +20,6 @@
 			"path": "res://portraits/Amadou/Amadou_slight_smile.PNG"
 		}
 	],
-	"scale": 100,
+	"scale": 9,
 	"theme": ""
 }
