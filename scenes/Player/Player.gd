@@ -6,9 +6,10 @@ var rotation_speed: int = 150
 var inertia = 50
 var direction: Vector2
 var velocity: Vector2 = Vector2.ZERO
-
+var player_character = null
 onready var ship_nose: Node2D = $Sprite/Ship_Nose
 onready var flame_exhaust: Node2D = $Ship_Exhaust
+
 
 func _ready() -> void:
 	flame_exhaust.hide()
@@ -86,3 +87,7 @@ func _input(select_planet):
 	if Input.is_action_pressed("select_planet"):
 		set_selection()
 		print("Selected ", PlayerState.selection)
+
+func _on_Dialog_dialogic_signal(value) -> void:
+	player_character = value;
+	
