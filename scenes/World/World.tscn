@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/Asteroid/Asteroid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player/Player.tscn" type="PackedScene" id=2]
@@ -7,8 +7,10 @@
 [ext_resource path="res://scenes/Foreground/Foreground.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/UI/UI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/World/World.gd" type="Script" id=7]
+[ext_resource path="res://addons/dialogic/Dialog.tscn" type="PackedScene" id=8]
 
 [node name="World" type="Node2D"]
+pause_mode = 2
 script = ExtResource( 7 )
 
 [node name="Background" parent="." instance=ExtResource( 4 )]
@@ -16,6 +18,7 @@ script = ExtResource( 7 )
 [node name="Planet" parent="." groups=["Planets"] instance=ExtResource( 3 )]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+pause_mode = 1
 position = Vector2( 308, 374 )
 
 [node name="Asteroid" parent="." groups=["Planets"] instance=ExtResource( 1 )]
@@ -31,3 +34,7 @@ position = Vector2( 439, 653 )
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 6 )]
 layer = 100
+
+[node name="Dialog" parent="." instance=ExtResource( 8 )]
+pause_mode = 2
+timeline = "timeline-1669079438.json"
