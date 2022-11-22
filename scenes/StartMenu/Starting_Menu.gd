@@ -7,6 +7,7 @@ const world = preload("res://scenes/World/World.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	start_game.grab_focus()
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
