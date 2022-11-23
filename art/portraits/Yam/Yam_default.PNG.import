@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Yam_default.PNG-70ea78ee2af5918da0d812a13816575e.stex"
+path="res://.import/Yam_default.PNG-d7afd9c8b672a2b2fc64ecfb5f7b948c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://portraits/Yam/Yam_default.PNG"
-dest_files=[ "res://.import/Yam_default.PNG-70ea78ee2af5918da0d812a13816575e.stex" ]
+source_file="res://art/portraits/Yam/Yam_default.PNG"
+dest_files=[ "res://.import/Yam_default.PNG-d7afd9c8b672a2b2fc64ecfb5f7b948c.stex" ]
 
 [params]
 

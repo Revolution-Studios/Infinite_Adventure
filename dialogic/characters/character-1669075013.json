@@ -13,11 +13,11 @@
 	"portraits": [
 		{
 			"name": "Default",
-			"path": "res://portraits/Yam/Yam_default.PNG"
+			"path": "res://art/portraits/Yam/Yam_default.PNG"
 		},
 		{
 			"name": "sad",
-			"path": "res://portraits/Yam/Yam_sad.png"
+			"path": "res://art/portraits/Yam/Yam_sad.png"
 		}
 	],
 	"scale": 10,

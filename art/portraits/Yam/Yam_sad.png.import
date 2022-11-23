@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Amadou_slight_smile.PNG-174219cf5cd58318b3bc9c4fed0461c6.stex"
+path="res://.import/Yam_sad.png-e670bdc6b95ca8e590e6155b9bdebdc5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://portraits/Amadou/Amadou_slight_smile.PNG"
-dest_files=[ "res://.import/Amadou_slight_smile.PNG-174219cf5cd58318b3bc9c4fed0461c6.stex" ]
+source_file="res://art/portraits/Yam/Yam_sad.png"
+dest_files=[ "res://.import/Yam_sad.png-e670bdc6b95ca8e590e6155b9bdebdc5.stex" ]
 
 [params]
 
