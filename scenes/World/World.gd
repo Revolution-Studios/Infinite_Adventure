@@ -15,7 +15,7 @@ func _input(event) -> void:
 
 
 func _on_Dialog_timeline_end(_timeline_name) -> void:
-	get_tree().paused = !get_tree().paused
+	get_tree().paused = false
 
 
 func _on_Dialog_dialogic_signal(value) -> void:
