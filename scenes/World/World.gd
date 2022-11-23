@@ -1,7 +1,7 @@
 extends Node2D
 
-const harrier = preload("res://scenes/Player/Player_harrier.tscn")
-const falcon = preload("res://scenes/Player/Player_falcon.tscn")
+const harrier = preload("res://scenes/Player/Player_harrier/Player_harrier.tscn")
+const falcon = preload("res://scenes/Player/Player_falcon/Player_falcon.tscn")
 var player_ship = null
 
 
