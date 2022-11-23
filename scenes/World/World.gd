@@ -1,9 +1,11 @@
 extends Node2D
 
-onready var player = $Player
-# Called when the node enters the scene tree for the first time.
+const harrier = preload("res://scenes/Player/Player_harrier.tscn")
+const falcon = preload("res://scenes/Player/Player_falcon.tscn")
+var player_ship = null
+
+
 func _ready() -> void:
-	player.hide()
 	get_tree().paused = true
 
 
@@ -14,4 +16,13 @@ func _input(event) -> void:
 
 func _on_Dialog_timeline_end(_timeline_name) -> void:
 	get_tree().paused = !get_tree().paused
-	player.show() 
+
+
+func _on_Dialog_dialogic_signal(value) -> void:
+	if value == "Amadou":
+		player_ship = harrier.instance()
+	else:
+		player_ship = falcon.instance()
+
+	player_ship.global_position = Vector2(308,374)
+	add_child(player_ship) 

@@ -88,6 +88,5 @@ func _input(select_planet):
 		set_selection()
 		print("Selected ", PlayerState.selection)
 
-func _on_Dialog_dialogic_signal(value) -> void:
-	player_character = value;
+
 	
