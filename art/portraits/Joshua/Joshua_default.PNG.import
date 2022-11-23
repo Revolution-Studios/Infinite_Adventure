@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Joshua_default.PNG-a7277ac5df2e766ce3e3a72bfe3658ec.stex"
+path="res://.import/Joshua_default.PNG-f677074250304aee190ae3d6dbc59043.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://portraits/Joshua/Joshua_default.PNG"
-dest_files=[ "res://.import/Joshua_default.PNG-a7277ac5df2e766ce3e3a72bfe3658ec.stex" ]
+source_file="res://art/portraits/Joshua/Joshua_default.PNG"
+dest_files=[ "res://.import/Joshua_default.PNG-f677074250304aee190ae3d6dbc59043.stex" ]
 
 [params]
 

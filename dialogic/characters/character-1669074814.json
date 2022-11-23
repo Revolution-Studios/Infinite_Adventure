@@ -13,7 +13,7 @@
 	"portraits": [
 		{
 			"name": "Default",
-			"path": "res://portraits/Joshua/Joshua_default.PNG"
+			"path": "res://art/portraits/Joshua/Joshua_default.PNG"
 		}
 	],
 	"scale": 9,
