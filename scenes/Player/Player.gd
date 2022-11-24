@@ -72,7 +72,7 @@ func _apply_collision_knockback_damage()-> bool:
 func handle_landing_request():
 	var planets = get_tree().get_nodes_in_group("Planets")
 	var closest_planet = planets[0]
-	var speed_check = velocity.abs()
+	var speed_check = velocity.length()
 	for planet in planets:
 		var planetsize = planet.get_node("Selection").get_size()
 		var closestplanetsize = closest_planet.get_node("Selection").get_size()
@@ -85,7 +85,7 @@ func handle_landing_request():
 	PlayerState.selection.get_node("Selection").visible = true
 	
 	print (speed_check)
-	if speed_check[0] + speed_check[1] > 250:
+	if speed_check > 250:
 		print ("Moving too fast, slow down")
 
 func _input(select_planet):
