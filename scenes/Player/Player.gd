@@ -7,6 +7,7 @@ var inertia = 50
 var direction: Vector2
 var velocity: Vector2 = Vector2.ZERO
 var player_character = null
+
 onready var ship_nose: Node2D = $Sprite/Ship_Nose
 onready var flame_exhaust: Node2D = $Ship_Exhaust
 
@@ -68,10 +69,10 @@ func _apply_collision_knockback_damage()-> bool:
 		
 	return false
 
-func set_selection():
+func handle_landing_request():
 	var planets = get_tree().get_nodes_in_group("Planets")
 	var closest_planet = planets[0]
-	
+	var speed_check = velocity.abs()
 	for planet in planets:
 		var planetsize = planet.get_node("Selection").get_size()
 		var closestplanetsize = closest_planet.get_node("Selection").get_size()
@@ -82,10 +83,14 @@ func set_selection():
 	
 	PlayerState.selection = closest_planet
 	PlayerState.selection.get_node("Selection").visible = true
+	
+	print (speed_check)
+	if speed_check[0] + speed_check[1] > 250:
+		print ("Moving too fast, slow down")
 
 func _input(select_planet):
 	if Input.is_action_pressed("select_planet"):
-		set_selection()
+		handle_landing_request()
 		print("Selected ", PlayerState.selection)
 
 
