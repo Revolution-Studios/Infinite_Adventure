@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fire02.png-a99ccddd99ada533c55aa8d4cba1904e.stex"
+path="res://.import/fire05.png-68da24083b6119dadb9d2b962277cc51.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/Pilot/art/fire02.png"
-dest_files=[ "res://.import/fire02.png-a99ccddd99ada533c55aa8d4cba1904e.stex" ]
+source_file="res://scenes/Ships/Harrier/art/fire05.png"
+dest_files=[ "res://.import/fire05.png-68da24083b6119dadb9d2b962277cc51.stex" ]
 
 [params]
 
