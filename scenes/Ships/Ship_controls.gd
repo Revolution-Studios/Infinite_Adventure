@@ -76,7 +76,7 @@ func handle_landing_request():
 	for planet in planets:
 		var planetsize = planet.get_node("Selection").get_size()
 		var closestplanetsize = closest_planet.get_node("Selection").get_size()
-		if planet.global_position.distance_to(position) - planetsize < closest_planet.global_position.distance_to(position) - closestplanetsize:
+		if planet.global_position.distance_to(global_position) - planetsize < closest_planet.global_position.distance_to(global_position) - closestplanetsize:
 			closest_planet = planet
 	if PlayerState.selection != null:
 		PlayerState.selection.get_node("Selection").visible = false

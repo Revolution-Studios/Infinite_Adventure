@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/Asteroid/Asteroid.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Pilot/Pilot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Planet/Planet.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Background/Background.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Foreground/Foreground.tscn" type="PackedScene" id=5]
@@ -15,6 +16,9 @@ script = ExtResource( 7 )
 [node name="Background" parent="." instance=ExtResource( 4 )]
 
 [node name="Planet" parent="." groups=["Planets"] instance=ExtResource( 3 )]
+
+[node name="Pilot" parent="." instance=ExtResource( 2 )]
+position = Vector2( 960, 540 )
 
 [node name="Asteroid" parent="." groups=["Planets"] instance=ExtResource( 1 )]
 position = Vector2( 691, 276 )
