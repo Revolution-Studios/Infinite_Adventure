@@ -18,7 +18,7 @@ func _on_Dialog_timeline_end(_timeline_name) -> void:
 
 
 func _on_Dialog_dialogic_signal(value) -> void:
-	if value == "Amadou":
+	if value == "Yam":
 		var harrier = load("res://scenes/Ships/Harrier/Harrier.tscn")
 		player_ship = harrier.instance()
 		ship_name = "Harrier"
