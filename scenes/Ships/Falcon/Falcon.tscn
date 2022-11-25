@@ -8,7 +8,7 @@
 [ext_resource path="res://scenes/Pilot/art/spaceShips_007X2.png" type="Texture" id=6]
 [ext_resource path="res://scenes/Pilot/art/fire04.png" type="Texture" id=7]
 [ext_resource path="res://scenes/Pilot/art/fire01.png" type="Texture" id=8]
-[ext_resource path="res://scenes/Pilot/Ship_controls.gd" type="Script" id=9]
+[ext_resource path="res://scenes/Ships/Ship_controls.gd" type="Script" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 22.0
@@ -27,7 +27,7 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[node name="Harrier" type="KinematicBody2D"]
+[node name="Falcon" type="KinematicBody2D"]
 pause_mode = 1
 script = ExtResource( 9 )
 
@@ -42,7 +42,6 @@ position = Vector2( 0, 75 )
 current = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-pause_mode = 1
 rotation = 1.5708
 shape = SubResource( 1 )
 
