@@ -1,9 +1,6 @@
 extends Node2D
 
-const harrier = preload("res://scenes/Player/Player_harrier/Player_harrier.tscn")
-const falcon = preload("res://scenes/Player/Player_falcon/Player_falcon.tscn")
 var player_ship = null
-
 
 func _ready() -> void:
 	get_tree().paused = true
@@ -20,8 +17,10 @@ func _on_Dialog_timeline_end(_timeline_name) -> void:
 
 func _on_Dialog_dialogic_signal(value) -> void:
 	if value == "Amadou":
+		var harrier = load("res://scenes/Pilot/Harrier/Harrier.tscn")
 		player_ship = harrier.instance()
 	else:
+		var falcon = load("res://scenes/Pilot/Falcon/Falcon.tscn")
 		player_ship = falcon.instance()
 
 	player_ship.global_position = Vector2(308,374)

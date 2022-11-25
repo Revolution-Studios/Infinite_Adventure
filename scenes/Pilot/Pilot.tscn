@@ -1,0 +1,7 @@
+[gd_scene format=2]
+
+[node name="Pilot" type="Node2D"]
+pause_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true

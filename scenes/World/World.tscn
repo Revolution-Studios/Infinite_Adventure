@@ -16,7 +16,6 @@ script = ExtResource( 7 )
 
 [node name="Planet" parent="." groups=["Planets"] instance=ExtResource( 3 )]
 
-
 [node name="Asteroid" parent="." groups=["Planets"] instance=ExtResource( 1 )]
 position = Vector2( 691, 276 )
 
