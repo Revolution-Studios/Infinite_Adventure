@@ -91,7 +91,6 @@ func handle_landing_request():
 func _input(select_planet):
 	if Input.is_action_pressed("select_planet"):
 		handle_landing_request()
-		print("Selected ", PlayerState.selection)
 
 
 	
