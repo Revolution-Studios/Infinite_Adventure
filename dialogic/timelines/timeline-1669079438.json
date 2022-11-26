@@ -27,7 +27,7 @@
 
 			],
 			"portrait": "",
-			"question": "Yam, Amadou, are either of you in range? Are either of you receiving this message?"
+			"question": "Yam, Amadou, are either of you in range? This is an encrypted message? Please respond."
 		},
 		{
 			"choice": "Amadou",
@@ -39,6 +39,14 @@
 		{
 			"emit_signal": "Amadou",
 			"event_id": "dialogic_040"
+		},
+		{
+			"definition": "1669485545-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "Amadou"
 		},
 		{
 			"animation": "[Default]",
@@ -67,6 +75,10 @@
 			"text": "Hi Joshua, what's going on?"
 		},
 		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
 			"choice": "Yam",
 			"condition": "",
 			"definition": "",
@@ -76,6 +88,14 @@
 		{
 			"emit_signal": "Yam",
 			"event_id": "dialogic_040"
+		},
+		{
+			"definition": "1669485545-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "Yam"
 		},
 		{
 			"animation": "[Default]",
@@ -104,7 +124,23 @@
 			"text": "You sound worried Joshua, is everything OK?"
 		},
 		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
 			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1634488067",
+			"index": 0,
+			"name": "Joshua_explanation"
+		},
+		{
+			"character": "character-1669074814.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I hate to bring you into this [Character] but I'm afraid I have no choice. I need you to pick up a package from planet Parinia. You must be discrete. Avoid the galatic patrol. I will explain everything soon. "
 		}
 	],
 	"metadata": {
