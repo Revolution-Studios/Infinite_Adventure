@@ -8,7 +8,6 @@ var direction: Vector2
 var velocity: Vector2 = Vector2.ZERO
 var player_character = null
 
-onready var ship_nose: Node2D = $Sprite/Ship_Nose
 onready var flame_exhaust: Node2D = $Ship_Exhaust
 
 
@@ -17,8 +16,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	direction = (ship_nose.global_position - global_position).normalized()
-	
+	direction = Vector2(cos(self.rotation + PI/2), sin(self.rotation + PI/2))
 	if Input.is_action_pressed("move_forward"):
 		velocity = velocity.move_toward(direction * max_speed, acceleration * delta)
 		flame_exhaust.show()
