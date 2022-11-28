@@ -28,14 +28,18 @@ func _physics_process(delta: float) -> void:
 		flame_exhaust.hide()
 		flame_exhaust.animation = "acceleration"
 	
-	if Input.is_action_just_released("flip_maneuver"):
-		rotation_degrees+= direction.angle_to(velocity) *180/PI +180
-	
-	if Input.is_action_pressed("rotate_left"):
-		rotation_degrees-= rotation_speed * delta
-	
-	if Input.is_action_pressed("rotate_right"):
-		rotation_degrees+= rotation_speed * delta
+	if Input.is_action_pressed("flip_maneuver") && velocity.length() > 0:
+		var total_radians_to_rotate = direction.angle_to(velocity.rotated(PI))
+		var frame_degrees_to_rotate = rotation_speed * delta
+		if frame_degrees_to_rotate >= abs(rad2deg(total_radians_to_rotate)):
+			rotation_degrees += total_radians_to_rotate
+		else:
+			var rotation_direction = total_radians_to_rotate / abs(total_radians_to_rotate)
+			rotation_degrees += rotation_direction * frame_degrees_to_rotate
+	elif Input.is_action_pressed("rotate_left"):
+		rotation_degrees -= rotation_speed * delta
+	elif Input.is_action_pressed("rotate_right"):
+		rotation_degrees += rotation_speed * delta
 	
 	if _apply_collision_knockback_damage():
 		velocity = velocity * -1
