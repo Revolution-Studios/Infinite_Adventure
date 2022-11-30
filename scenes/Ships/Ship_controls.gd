@@ -73,6 +73,7 @@ func handle_landing_request():
 	var planets = get_tree().get_nodes_in_group("Planets")
 	var closest_planet = planets[0]
 	var speed_check = velocity.length()
+	
 	for planet in planets:
 		var planetsize = planet.get_node("Selection").get_size()
 		var closestplanetsize = closest_planet.get_node("Selection").get_size()
@@ -84,9 +85,17 @@ func handle_landing_request():
 	PlayerState.selection = closest_planet
 	PlayerState.selection.get_node("Selection").visible = true
 	
-	print (speed_check)
+	print ("Speed = ",speed_check)
 	if speed_check > 250:
 		print ("Moving too fast, slow down")
+	else:
+		var planetsize = closest_planet.get_node("Selection").get_size()
+		var distance_check = closest_planet.global_position.distance_to(global_position) - planetsize
+		print ("distance to planet ", distance_check)
+		if distance_check > 500:
+			print ("You have to get closer if you're trying to land")
+		else:
+			print ("Landing sequence initiated")
 
 func _input(select_planet):
 	if Input.is_action_pressed("select_planet"):
