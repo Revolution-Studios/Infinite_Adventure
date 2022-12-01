@@ -86,13 +86,13 @@ func handle_landing_request():
 	PlayerState.selection.get_node("Selection").visible = true
 	
 	print ("Speed = ",speed_check)
-	if speed_check > 250:
+	if speed_check > 50:
 		print ("Moving too fast, slow down")
 	else:
 		var planetsize = closest_planet.get_node("Selection").get_size()
 		var distance_check = closest_planet.global_position.distance_to(global_position) - planetsize
 		print ("distance to planet ", distance_check)
-		if distance_check > 500:
+		if distance_check > 150:
 			print ("You have to get closer if you're trying to land")
 		else:
 			print ("Landing sequence initiated")
