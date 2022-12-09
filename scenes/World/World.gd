@@ -7,12 +7,6 @@ var ship_name = null
 func _ready() -> void:
 	get_tree().paused = true
 
-
-func _input(event) -> void:
-	if event.is_action_pressed("Toggle_full_screen"): 
-		OS.window_fullscreen = !OS.window_fullscreen
-
-
 func _on_Dialog_timeline_end(_timeline_name) -> void:
 	get_tree().paused = false
 

@@ -14,6 +14,7 @@ pause_mode = 2
 script = ExtResource( 7 )
 
 [node name="Background" parent="." instance=ExtResource( 4 )]
+layer = -20
 
 [node name="Planet" parent="." groups=["Planets"] instance=ExtResource( 3 )]
 
@@ -30,9 +31,10 @@ position = Vector2( 1191, 849 )
 position = Vector2( 439, 653 )
 
 [node name="Foreground" parent="." instance=ExtResource( 5 )]
+layer = 0
 
-[node name="CanvasLayer" parent="." instance=ExtResource( 6 )]
-layer = 100
+[node name="UI" parent="." instance=ExtResource( 6 )]
+layer = 20
 
 [node name="Dialog" parent="." instance=ExtResource( 8 )]
 pause_mode = 2
