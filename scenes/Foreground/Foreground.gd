@@ -21,4 +21,4 @@ func _size_changed():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$ColorRect.material.set_shader_param('offset', PlayerState.position)
+	$ColorRect.material.set_shader_param('offset', GameState.player.position)
