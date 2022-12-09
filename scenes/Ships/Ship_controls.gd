@@ -44,10 +44,10 @@ func _physics_process(delta: float) -> void:
 	if _apply_collision_knockback_damage():
 		velocity = velocity * -1
 	
-	if PlayerState.hull_health <= 0: 
+	if GameState.player.hull_health <= 0: 
 		queue_free()
 	
-	PlayerState.position = self.position
+	GameState.player.position = self.position
 	
 	velocity = move_and_slide(velocity, Vector2(0, 0), false, 4, PI/4, false)
 
@@ -66,7 +66,7 @@ func _apply_collision_knockback_damage()-> bool:
 			if i > 0 and collision.collider_id == get_slide_collision(i -1).collider_id:  
 				continue
 		
-			PlayerState.hull_health = PlayerState.hull_health - collision.collider.damage
+			GameState.player.hull_health = GameState.player.hull_health - collision.collider.damage
 			return true
 		
 	return false
@@ -82,11 +82,11 @@ func handle_landing_request():
 		var closestplanetsize = closest_planet.get_node("Selection").get_size()
 		if planet.global_position.distance_to(global_position) - planetsize < closest_planet.global_position.distance_to(global_position) - closestplanetsize:
 			closest_planet = planet
-	if PlayerState.selection != null:
-		PlayerState.selection.get_node("Selection").visible = false
+	if GameState.player.selection != null:
+		GameState.player.selection.get_node("Selection").visible = false
 	
-	PlayerState.selection = closest_planet
-	PlayerState.selection.get_node("Selection").visible = true
+	GameState.player.selection = closest_planet
+	GameState.player.selection.get_node("Selection").visible = true
 	
 	print ("Speed = ",speed_check)
 	if speed_check > 50:
