@@ -1,0 +1,70 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/Game/Game.gd" type="Script" id=1]
+[ext_resource path="res://themes/start_menu.tres" type="Theme" id=2]
+
+[node name="Game" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Content" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MainMenu" type="CanvasLayer" parent="."]
+layer = 100
+visible = false
+
+[node name="MainMenuPanel" type="Panel" parent="MainMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -142.0
+margin_top = -340.0
+margin_right = 142.0
+margin_bottom = -120.0
+theme = ExtResource( 2 )
+
+[node name="ButtonContainer" type="VBoxContainer" parent="MainMenu/MainMenuPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -120.5
+margin_top = -88.0
+margin_right = 120.5
+margin_bottom = 88.0
+
+[node name="Close Menu" type="Button" parent="MainMenu/MainMenuPanel/ButtonContainer"]
+margin_right = 241.0
+margin_bottom = 41.0
+rect_pivot_offset = Vector2( 263, 47.5 )
+text = "Close Menu"
+
+[node name="NewGame" type="Button" parent="MainMenu/MainMenuPanel/ButtonContainer"]
+margin_top = 45.0
+margin_right = 241.0
+margin_bottom = 86.0
+rect_pivot_offset = Vector2( 263, 47.5 )
+text = "New Game"
+
+[node name="FullScreen" type="Button" parent="MainMenu/MainMenuPanel/ButtonContainer"]
+margin_top = 90.0
+margin_right = 241.0
+margin_bottom = 131.0
+rect_pivot_offset = Vector2( 263, 47.5 )
+text = "Exit Full Screen"
+
+[node name="Quit" type="Button" parent="MainMenu/MainMenuPanel/ButtonContainer"]
+margin_top = 135.0
+margin_right = 241.0
+margin_bottom = 176.0
+rect_pivot_offset = Vector2( 263, 47.5 )
+text = "Quit Game"
+
+[connection signal="pressed" from="MainMenu/MainMenuPanel/ButtonContainer/Close Menu" to="." method="_on_Close_Menu_pressed"]
+[connection signal="pressed" from="MainMenu/MainMenuPanel/ButtonContainer/NewGame" to="." method="_on_NewGame_pressed"]
+[connection signal="pressed" from="MainMenu/MainMenuPanel/ButtonContainer/FullScreen" to="." method="_on_FullScreen_pressed"]
+[connection signal="pressed" from="MainMenu/MainMenuPanel/ButtonContainer/Quit" to="." method="_on_Quit_pressed"]

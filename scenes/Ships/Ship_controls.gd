@@ -75,7 +75,7 @@ func handle_landing_request():
 	var planets = get_tree().get_nodes_in_group("Planets")
 	var closest_planet = planets[0]
 	var speed_check = velocity.length()
-	var Planet_Surface = preload("res://scenes/PlanetSurface/Planet_Surface.tscn")
+
 	
 	for planet in planets:
 		var planetsize = planet.get_node("Selection").get_size()
@@ -99,7 +99,7 @@ func handle_landing_request():
 			print ("You have to get closer if you're trying to land")
 		else:
 			print ("Landing sequence initiated")
-			get_tree().change_scene_to(Planet_Surface)
+			GameState.scene = Constants.SceneId.PlanetSurface
 
 func _input(select_planet):
 	if Input.is_action_pressed("select_planet"):
