@@ -3,6 +3,7 @@ extends Control
 var root_scene_map = {
 	Constants.SceneId.StartMenu: preload("res://scenes/StartMenu/StartMenu.tscn"),
 	Constants.SceneId.World: preload("res://scenes/World/World.tscn"),
+	Constants.SceneId.PlanetSurface: preload("res://scenes/PlanetSurface/PlanetSurface.tscn"),
 }
 
 func _input(event) -> void:
