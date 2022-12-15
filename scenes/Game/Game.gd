@@ -16,13 +16,13 @@ func _input(event) -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	GameState.connect("change_scene",self, "_change_scene")
-	get_tree().get_root().connect("size_changed", self, "_size_changed")
+	assert(GameState.connect("change_scene",self, "_change_scene") == 0)
+	assert(get_tree().get_root().connect("size_changed", self, "_size_changed_game") == 0)
 	GameState.scene = Constants.SceneId.StartMenu
-	_size_changed()
+	_size_changed_game()
 
 func _change_scene(sceneId):
-	print('_change_scene', root_scene_map, sceneId, root_scene_map.has(sceneId))
+
 	if(root_scene_map.has(sceneId)):
 		var children_to_remove = $Content.get_children()
 		$Content.add_child(root_scene_map[sceneId].instance())
@@ -30,7 +30,7 @@ func _change_scene(sceneId):
 			$Content.remove_child(n)
 			n.queue_free()
 
-func _size_changed():
+func _size_changed_game():
 	$MainMenu.get_node("MainMenuPanel/ButtonContainer/FullScreen").text = (
 		'Exit' if OS.window_fullscreen else 'Enter'
 	) + ' Fullscreen'
