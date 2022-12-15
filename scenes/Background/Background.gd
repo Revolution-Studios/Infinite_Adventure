@@ -8,7 +8,7 @@ extends ParallaxBackground
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_tree().get_root().connect("size_changed", self, "_size_changed")
+	assert(get_tree().get_root().connect("size_changed", self, "_size_changed") == 0)
 	_load_background()
 
 func _load_background():
