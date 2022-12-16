@@ -1,9 +1,9 @@
 extends Node
 
-var scene = null setget _set_scene
+var scene = null : set = _set_scene
 var player = PlayerState.new()
 
-signal change_scene
+signal change_scene_to_file
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,8 +11,8 @@ func _ready():
 
 func _set_scene(next_scene):
 	scene = next_scene
-	if scene == Constants.SceneId.World:
+	if scene == Constants.SceneId.World3D:
 		player.queue_free()
 		player = PlayerState.new()
-	emit_signal("change_scene", next_scene) 
+	emit_signal("change_scene_to_file", next_scene) 
 	

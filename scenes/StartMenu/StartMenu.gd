@@ -1,6 +1,6 @@
 extends Control
 
-onready var start_game = $VBoxContainer/Start
+@onready var start_game = $VBoxContainer/Start
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,7 +14,7 @@ func _ready() -> void:
 
 
 func _on_Start_pressed() -> void:
-	GameState.scene = Constants.SceneId.World
+	GameState.scene = Constants.SceneId.World3D
 
 
 func _on_Quit_pressed() -> void:

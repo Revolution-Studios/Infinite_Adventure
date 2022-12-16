@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var pilot = $Pilot
+@onready var pilot = $Pilot
 var player_ship = null
 var ship_name = null
 
@@ -14,11 +14,11 @@ func _on_Dialog_timeline_end(_timeline_name) -> void:
 func _on_Dialog_dialogic_signal(value) -> void:
 	if value == "Yam":
 		var harrier = load("res://scenes/Ships/Harrier/Harrier.tscn")
-		player_ship = harrier.instance()
+		player_ship = harrier.instantiate()
 		ship_name = "Harrier"
 	else:
 		var falcon = load("res://scenes/Ships/Falcon/Falcon.tscn")
-		player_ship = falcon.instance()
+		player_ship = falcon.instantiate()
 		ship_name = "Falcon"
 	
 	
