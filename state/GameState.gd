@@ -11,7 +11,7 @@ func _ready():
 
 func _set_scene(next_scene):
 	scene = next_scene
-	if scene == Constants.SceneId.World3D:
+	if scene == Constants.SceneId.World:
 		player.queue_free()
 		player = PlayerState.new()
 	emit_signal("change_scene_to_file", next_scene) 

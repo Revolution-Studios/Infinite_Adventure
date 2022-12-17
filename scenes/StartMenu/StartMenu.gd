@@ -14,7 +14,7 @@ func _ready() -> void:
 
 
 func _on_Start_pressed() -> void:
-	GameState.scene = Constants.SceneId.World3D
+	GameState.scene = Constants.SceneId.World
 
 
 func _on_Quit_pressed() -> void:

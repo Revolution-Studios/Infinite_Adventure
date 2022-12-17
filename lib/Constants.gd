@@ -1,5 +1,5 @@
 extends Node
 
-enum SceneId { StartMenu, World3D, PlanetSurface }
+enum SceneId { StartMenu, World, PlanetSurface }
 
 #export var SceneId: _SceneId

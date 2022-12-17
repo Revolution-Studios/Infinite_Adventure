@@ -2,7 +2,7 @@ extends Control
 
 var root_scene_map = {
 	Constants.SceneId.StartMenu: preload("res://scenes/StartMenu/StartMenu.tscn"),
-	Constants.SceneId.World3D: preload("res://scenes/World/World.tscn"),
+	Constants.SceneId.World: preload("res://scenes/World/World.tscn"),
 	Constants.SceneId.PlanetSurface: preload("res://scenes/PlanetSurface/PlanetSurface.tscn"),
 }
 
@@ -55,5 +55,5 @@ func _on_FullScreen_pressed():
 
 
 func _on_NewGame_pressed():
-	GameState.scene = Constants.SceneId.World3D
+	GameState.scene = Constants.SceneId.World
 	$MainMenu.visible = false

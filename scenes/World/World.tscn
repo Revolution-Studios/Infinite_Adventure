@@ -1,44 +1,36 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=3 uid="uid://7f0w23shkacq"]
 
-[ext_resource path="res://scenes/Asteroid/Asteroid.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/Pilot/Pilot.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/Planet/Planet.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/Background/Background.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/Foreground/Foreground.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/UI/UI.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/World3D/World.gd" type="Script" id=7]
-[ext_resource path="res://addons/dialogic/Dialog.tscn" type="PackedScene" id=8]
+[ext_resource type="PackedScene" path="res://scenes/Asteroid/Asteroid.tscn" id="1"]
+[ext_resource type="Script" path="res://scenes/World/World.gd" id="1_bhfwo"]
+[ext_resource type="PackedScene" path="res://scenes/Pilot/Pilot.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/Planet/Planet.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://scenes/Background/Background.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://scenes/Foreground/Foreground.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://scenes/UI/UI.tscn" id="6"]
 
-[node name="World3D" type="Node2D"]
+[node name="World" type="Node2D"]
 process_mode = 2
-script = ExtResource( 7 )
+script = ExtResource("1_bhfwo")
 
-[node name="Background" parent="." instance=ExtResource( 4 )]
+[node name="Background" parent="." instance=ExtResource("4")]
 layer = -20
 
-[node name="Planet" parent="." groups=["Planets"] instance=ExtResource( 3 )]
+[node name="Planet" parent="." groups=["Planets"] instance=ExtResource("3")]
 
-[node name="Pilot" parent="." instance=ExtResource( 2 )]
-position = Vector2( 960, 540 )
+[node name="Pilot" parent="." instance=ExtResource("2")]
+position = Vector2(960, 540)
 
-[node name="Asteroid" parent="." instance=ExtResource( 1 )]
-position = Vector2( 691, 276 )
+[node name="Asteroid" parent="." instance=ExtResource("1")]
+position = Vector2(691, 276)
 
-[node name="Asteroid2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1191, 849 )
+[node name="Asteroid2" parent="." instance=ExtResource("1")]
+position = Vector2(1191, 849)
 
-[node name="Asteroid3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 439, 653 )
+[node name="Asteroid3" parent="." instance=ExtResource("1")]
+position = Vector2(439, 653)
 
-[node name="Foreground" parent="." instance=ExtResource( 5 )]
+[node name="Foreground" parent="." instance=ExtResource("5")]
 layer = 0
 
-[node name="UI" parent="." instance=ExtResource( 6 )]
+[node name="UI" parent="." instance=ExtResource("6")]
 layer = 20
-
-[node name="Dialog" parent="." instance=ExtResource( 8 )]
-process_mode = 2
-timeline = "timeline-1669079438.json"
-
-[connection signal="dialogic_signal" from="Dialog" to="." method="_on_Dialog_dialogic_signal"]
-[connection signal="timeline_end" from="Dialog" to="." method="_on_Dialog_timeline_end"]
