@@ -5,7 +5,6 @@ var max_speed: int = 500
 var rotation_speed: int = 150
 var inertia = 50
 var direction: Vector2
-var velocity: Vector2 = Vector2.ZERO
 var player_character = null
 
 @onready var flame_exhaust: Node2D = $Ship_Exhaust
@@ -30,16 +29,16 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_pressed("flip_maneuver") && velocity.length() > 0:
 		var total_radians_to_rotate = direction.angle_to(velocity.rotated(PI))
-		var frame_degrees_to_rotate = rotation_speed * delta
-		if frame_degrees_to_rotate >= abs(rad_to_deg(total_radians_to_rotate)):
-			rotation_degrees += total_radians_to_rotate
+		var frame_radians_to_rotate = deg_to_rad(rotation_speed * delta)
+		if frame_radians_to_rotate >= abs(total_radians_to_rotate):
+			rotation += total_radians_to_rotate
 		else:
 			var rotation_direction = total_radians_to_rotate / abs(total_radians_to_rotate)
-			rotation_degrees += rotation_direction * frame_degrees_to_rotate
+			rotation += rotation_direction * frame_radians_to_rotate
 	elif Input.is_action_pressed("rotate_left"):
-		rotation_degrees -= rotation_speed * delta
+		rotation -= deg_to_rad(rotation_speed * delta)
 	elif Input.is_action_pressed("rotate_right"):
-		rotation_degrees += rotation_speed * delta
+		rotation += deg_to_rad(rotation_speed * delta)
 	
 	if _apply_collision_knockback_damage():
 		velocity = velocity * -1
@@ -56,7 +55,6 @@ func _physics_process(delta: float) -> void:
 	set_floor_max_angle(PI/4)
 	# TODOConverter40 infinite_inertia were removed in Godot 4.0 - previous value `false`
 	move_and_slide()
-	velocity = velocity
 
 
 func _on_AnimatedSprite_animation_finished() -> void:

@@ -1,9 +1,4 @@
-res://scenes/Game/Game.tscn
+res://scenes/Ships/Falcon/Falcon.tscn
 res://themes/start_menu.tres
 res://scenes/Foreground/Foreground.tres
-res://scenes/Game/Game.gd
-res://lib/Constants.gd
-res://state/GameState.gd
-res://scenes/StartMenu/StartMenu.gd
-res://scenes/World/World.tscn
-res://scenes/ShaderToImage/ShaderToImage.gd
+res://scenes/Ships/Ship_controls.gd
