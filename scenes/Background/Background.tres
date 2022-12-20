@@ -53,5 +53,5 @@ void fragment() {
 
 [resource]
 shader = SubResource("1")
-shader_parameter/resolution = Vector2(1000, 1000)
+shader_parameter/resolution = Vector2(1920, 1080)
 shader_parameter/density = 0.1

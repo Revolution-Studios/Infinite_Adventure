@@ -14,6 +14,7 @@ func _ready():
 func _load_background():
 	var size = get_viewport().get_visible_rect().size
 	$ColorRect.set_size(size)
+	$ColorRect.material.set_shader_parameter('resolution', size)
 	
 func _size_changed():
 	_load_background()
