@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://scenes/World/World.gd" id="1_bhfwo"]
 [ext_resource type="PackedScene" uid="uid://byxr167vonj4m" path="res://scenes/Pilot/Pilot.tscn" id="2"]
 [ext_resource type="PackedScene" path="res://scenes/Planet/Planet.tscn" id="3"]
-[ext_resource type="PackedScene" path="res://scenes/Background/Background.tscn" id="4"]
-[ext_resource type="PackedScene" path="res://scenes/Foreground/Foreground.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://dxy7xsco4rcy1" path="res://scenes/Background/Background.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://ycv8c2ktt5cq" path="res://scenes/Foreground/Foreground.tscn" id="5"]
 [ext_resource type="PackedScene" path="res://scenes/UI/UI.tscn" id="6"]
 
 [node name="World" type="Node2D"]

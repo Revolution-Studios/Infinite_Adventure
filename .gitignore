@@ -1,4 +1,5 @@
 .DS_Store
 .import
 .godot/editor/
+.godot/shader_cache
 addons/dialogic/Localization/*.translation

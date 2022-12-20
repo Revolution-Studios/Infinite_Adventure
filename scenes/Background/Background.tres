@@ -1,6 +1,6 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://p6qilfdl5ufl"]
 
-[sub_resource type="Shader" id=1]
+[sub_resource type="Shader" id="1"]
 code = "shader_type canvas_item;
 
 uniform vec2 resolution = vec2(1000, 1000);
@@ -52,6 +52,6 @@ void fragment() {
 "
 
 [resource]
-shader = SubResource( 1 )
-shader_param/resolution = Vector2( 1000, 1000 )
-shader_param/density = 0.1
+shader = SubResource("1")
+shader_parameter/resolution = Vector2(1000, 1000)
+shader_parameter/density = 0.1
