@@ -52,7 +52,6 @@ func _physics_process(delta: float) -> void:
 	set_floor_stop_on_slope_enabled(false)
 	set_max_slides(4)
 	set_floor_max_angle(PI/4)
-	# TODOConverter40 infinite_inertia were removed in Godot 4.0 - previous value `false`
 	move_and_slide()
 
 
