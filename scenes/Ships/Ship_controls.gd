@@ -49,7 +49,6 @@ func _physics_process(delta: float) -> void:
 	GameState.player.position = self.position
 	
 	set_velocity(velocity)
-	set_up_direction(Vector2(0, 0))
 	set_floor_stop_on_slope_enabled(false)
 	set_max_slides(4)
 	set_floor_max_angle(PI/4)

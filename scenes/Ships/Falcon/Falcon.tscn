@@ -29,6 +29,7 @@ animations = [{
 
 [node name="Falcon" type="CharacterBody2D"]
 process_mode = 1
+motion_mode = 1
 script = ExtResource("9")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
