@@ -205,6 +205,10 @@
 		},
 		{
 			"event_id": "dialogic_013"
+		},
+		{
+			"emit_signal": "unpause",
+			"event_id": "dialogic_040"
 		}
 	],
 	"metadata": {
