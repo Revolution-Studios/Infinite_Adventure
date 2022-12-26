@@ -29,6 +29,8 @@ func _change_scene(sceneId):
 		for n in children_to_remove:
 			$Content.remove_child(n)
 			n.queue_free()
+			
+		GameState.player.selection = null
 
 func _size_changed_game():
 	$MainMenu.get_node("MainMenuPanel/ButtonContainer/FullScreen").text = (
