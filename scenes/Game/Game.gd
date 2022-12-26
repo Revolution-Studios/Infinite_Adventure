@@ -52,5 +52,7 @@ func _on_FullScreen_pressed():
 
 
 func _on_NewGame_pressed():
+	GameState.player.queue_free()
+	GameState.player = PlayerState.new()
 	GameState.scene = Constants.SceneId.World
 	$MainMenu.visible = false

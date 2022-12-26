@@ -14,6 +14,8 @@ func _ready() -> void:
 
 
 func _on_Start_pressed() -> void:
+	GameState.player.queue_free()
+	GameState.player = PlayerState.new()
 	GameState.scene = Constants.SceneId.World
 
 
