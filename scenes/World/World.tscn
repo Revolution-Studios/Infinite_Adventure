@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/Asteroid/Asteroid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Pilot/Pilot.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://scenes/Foreground/Foreground.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/UI/UI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/World/World.gd" type="Script" id=7]
-[ext_resource path="res://addons/dialogic/Dialog.tscn" type="PackedScene" id=8]
 
 [node name="World" type="Node2D"]
 pause_mode = 2
@@ -35,10 +34,3 @@ layer = 0
 
 [node name="UI" parent="." instance=ExtResource( 6 )]
 layer = 20
-
-[node name="Dialog" parent="." instance=ExtResource( 8 )]
-pause_mode = 2
-timeline = "timeline-1669079438.json"
-
-[connection signal="dialogic_signal" from="Dialog" to="." method="_on_Dialog_dialogic_signal"]
-[connection signal="timeline_end" from="Dialog" to="." method="_on_Dialog_timeline_end"]
