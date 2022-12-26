@@ -21,9 +21,8 @@ func _on_Dialog_dialogic_signal(value) -> void:
 		player_ship = falcon.instance()
 		ship_name = "Falcon"
 	
-	
-	pilot.global_position = Vector2(308,374)
 	pilot.add_child(player_ship)
-	pilot.player_character = value
-	pilot.ship_type = ship_name
-	pilot.ship = pilot.get_node(ship_name)
+	pilot.global_position = Vector2(640,520)
+	GameState.player.character = value
+	GameState.player.ship_type = ship_name
+	GameState.player.ship = pilot.get_node(ship_name)
