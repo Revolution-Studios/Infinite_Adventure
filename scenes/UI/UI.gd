@@ -9,6 +9,8 @@ extends CanvasLayer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GameState.player.connect("hull_health_changed",self, "update_health")
+	update_health(GameState.player.hull_health)
+
 func update_health(val):
 	$ProgressBar.value = val
 

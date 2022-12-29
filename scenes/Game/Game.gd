@@ -18,12 +18,12 @@ func _input(event) -> void:
 func _ready():
 	assert(GameState.connect("change_scene",self, "_change_scene") == 0)
 	assert(get_tree().get_root().connect("size_changed", self, "_size_changed_game") == 0)
-	GameState.scene = Constants.SceneId.StartMenu
+	GameState.load_from_save()
 	_size_changed_game()
 
 func _change_scene(sceneId):
-
 	if(root_scene_map.has(sceneId)):
+
 		var children_to_remove = $Content.get_children()
 		$Content.add_child(root_scene_map[sceneId].instance())
 		for n in children_to_remove:
@@ -45,6 +45,7 @@ func _on_Close_Menu_pressed():
 
 
 func _on_Quit_pressed():
+	GameState.save()
 	get_tree().quit()
 
 
