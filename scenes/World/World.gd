@@ -1,8 +1,6 @@
 extends Node2D
 
 onready var pilot = $Pilot
-var player_ship = null
-var ship_name = null
 
 func _ready() -> void:
 	if GameState.player.character == null:
@@ -13,8 +11,7 @@ func _ready() -> void:
 		new_dialog.set_pause_mode(2)
 		get_tree().paused = true
 	else: 
-		pilot.add_child(GameState.player.ship.instance())
-		pilot.global_position = Vector2(640,520)
+		_spawn_ship()
 
 func _on_Dialog_timeline_end(_timeline_name) -> void:
 	get_tree().paused = false
@@ -22,18 +19,24 @@ func _on_Dialog_timeline_end(_timeline_name) -> void:
 
 func _on_Dialog_dialogic_signal(value) -> void:
 	if value == "Yam":
-		var harrier = load("res://scenes/Ships/Harrier/Harrier.tscn")
-		GameState.player.ship = harrier
-		player_ship = harrier.instance()
-		ship_name = "Harrier"
+		GameState.player.ship_type = "Harrier"
 	else:
-		var falcon = load("res://scenes/Ships/Falcon/Falcon.tscn")
-		GameState.player.ship = falcon
-		player_ship = falcon.instance()
-		ship_name = "Falcon"
+		GameState.player.ship_type = "Falcon"
 	
-	pilot.add_child(player_ship)
-	pilot.global_position = Vector2(640,520)
 	GameState.player.character = value
-	GameState.player.ship_type = ship_name
+	GameState.player.position = Vector2(-400, 0)
+	_spawn_ship()
+
+func _get_ship_class_from_name(ship_name):
+	if ship_name == "Harrier":
+		return load("res://scenes/Ships/Harrier/Harrier.tscn")
+	elif ship_name == "Falcon":
+		return load("res://scenes/Ships/Falcon/Falcon.tscn")
+	return null
 	
+func _spawn_ship():
+	var ship_class = _get_ship_class_from_name(GameState.player.ship_type)
+	if ship_class:
+		var ship_instance = ship_class.instance()
+		pilot.add_child(ship_instance)
+		ship_instance.position = GameState.player.position

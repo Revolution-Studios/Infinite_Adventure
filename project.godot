@@ -92,8 +92,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
-GameState="*res://state/GameState.gd"
 Constants="*res://lib/Constants.gd"
+GameState="*res://state/GameState.gd"
 
 [display]
 

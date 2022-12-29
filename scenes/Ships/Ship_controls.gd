@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 	
 	if GameState.player.hull_health <= 0: 
 		queue_free()
-	
+
 	GameState.player.position = self.position
 	
 	velocity = move_and_slide(velocity, Vector2(0, 0), false, 4, PI/4, false)
