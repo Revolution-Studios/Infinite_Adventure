@@ -1,8 +1,13 @@
 extends Node2D
 
 onready var pilot = $Pilot
+var player_ship = null
+var ship_name = null
+var systems = null
 
 func _ready() -> void:
+	print("world ready ", systems)
+	$UI.systems = systems
 	if GameState.player.character == null:
 		var new_dialog = Dialogic.start("Tutorial")
 		add_child(new_dialog)
@@ -27,10 +32,10 @@ func _on_Dialog_dialogic_signal(value) -> void:
 	GameState.player.position = Vector2(-400, 0)
 	_spawn_ship()
 
-func _get_ship_class_from_name(ship_name):
-	if ship_name == "Harrier":
+func _get_ship_class_from_name(name):
+	if name == "Harrier":
 		return load("res://scenes/Ships/Harrier/Harrier.tscn")
-	elif ship_name == "Falcon":
+	elif name == "Falcon":
 		return load("res://scenes/Ships/Falcon/Falcon.tscn")
 	return null
 	
