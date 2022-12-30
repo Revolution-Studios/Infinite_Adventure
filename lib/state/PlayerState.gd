@@ -8,6 +8,7 @@ var hull_health = 100 setget _set_hull_health
 var selection = null
 var character = null
 var ship_type = null
+var system_id = 1
 
 func _set_hull_health(val):
 	hull_health = val

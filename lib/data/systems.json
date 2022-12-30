@@ -1,0 +1,132 @@
+{
+    "systems": [
+        {
+            "id": 1,
+            "name": "Solaria",
+            "position": [
+                0,
+                0
+            ],
+            "planets": [
+                {
+                    "id": 1,
+                    "name": "Earth"
+                },
+                {
+                    "id": 2,
+                    "name": "Mars"
+                },
+                {
+                    "id": 3,
+                    "name": "Venus"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Andromeda",
+            "position": [
+                50,
+                50
+            ],
+            "planets": [
+                {
+                    "id": 4,
+                    "name": "Andromeda Prime"
+                },
+                {
+                    "id": 5,
+                    "name": "Andromeda II"
+                },
+                {
+                    "id": 6,
+                    "name": "Andromeda III"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Cygnus",
+            "position": [
+                -50,
+                -50
+            ],
+            "planets": [
+                {
+                    "id": 7,
+                    "name": "Cygnus X-1"
+                },
+                {
+                    "id": 8,
+                    "name": "Cygnus X-2"
+                },
+                {
+                    "id": 9,
+                    "name": "Cygnus X-3"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Aquila",
+            "position": [
+                75,
+                -50
+            ],
+            "planets": [
+                {
+                    "id": 10,
+                    "name": "Aquila Prime"
+                },
+                {
+                    "id": 11,
+                    "name": "Aquila II"
+                },
+                {
+                    "id": 12,
+                    "name": "Aquila III"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Proxima Centauri",
+            "position": [
+                -34,
+                60
+            ],
+            "planets": [
+                {
+                    "id": 13,
+                    "name": "Proxima Centauri A"
+                },
+                {
+                    "id": 14,
+                    "name": "Proxima Centauri B"
+                },
+                {
+                    "id": 15,
+                    "name": "Proxima Centauri C"
+                }
+            ]
+        }
+    ],
+    "connections": [
+        [
+            1,
+            2
+        ],
+        [
+            2,
+            3
+        ],
+        [
+            3,
+            4
+        ],
+        [
+            4,
+            5
+        ]
+    ]
+}
