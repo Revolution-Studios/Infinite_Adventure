@@ -4,6 +4,7 @@
             "id": 1,
             "name": "Solaria",
 			"relationship": "friendly",
+            "government": "Federation",
             "position": [
                 0,
                 0
@@ -11,7 +12,8 @@
             "planets": [
                 {
                     "id": 1,
-                    "name": "Earth"
+                    "name": "Earth",
+                    "goods_traded": ["Food", "Medical", "Equiptment"]
                 },
                 {
                     "id": 2,
@@ -27,6 +29,7 @@
             "id": 2,
             "name": "Andromeda",
 			"relationship": "friendly",
+            "government": "Federation",
             "position": [
                 50,
                 50
@@ -34,7 +37,8 @@
             "planets": [
                 {
                     "id": 4,
-                    "name": "Andromeda Prime"
+                    "name": "Andromeda Prime",
+                    "goods_traded": ["Food"]
                 },
                 {
                     "id": 5,
@@ -50,6 +54,7 @@
             "id": 3,
             "name": "Cygnus",
 			"relationship": "friendly",
+            "government": "Federation",
             "position": [
                 -50,
                 -50
@@ -57,7 +62,8 @@
             "planets": [
                 {
                     "id": 7,
-                    "name": "Cygnus X-1"
+                    "name": "Cygnus X-1",
+                    "goods_traded": ["Medical", "Equiptment"]
                 },
                 {
                     "id": 8,
@@ -73,6 +79,7 @@
             "id": 4,
             "name": "Aquila",
 			"relationship": "friendly",
+            "government": "Federation",
             "position": [
                 75,
                 -50
@@ -80,7 +87,8 @@
             "planets": [
                 {
                     "id": 10,
-                    "name": "Aquila Prime"
+                    "name": "Aquila Prime",
+                    "goods_traded": ["Equiptment"]
                 },
                 {
                     "id": 11,
@@ -96,6 +104,7 @@
             "id": 5,
             "name": "Proxima Centauri",
 			"relationship": "unexplored",
+            "government": "Federation",
             "position": [
                 -34,
                 60
@@ -119,6 +128,7 @@
             "id": 7,
             "name": "Yukichan",
 			"relationship": "friendly",
+            "government": "Federation",
             "position": [
                 120,
                 20
@@ -126,7 +136,8 @@
             "planets": [
                 {
                     "id": 13,
-                    "name": "Yuki's Helix"
+                    "name": "Yuki's Helix",
+                    "goods_traded": ["Food", "Medical", "Equiptment"]
                 }
             ]
         }
