@@ -50,42 +50,42 @@ region = Rect2( 0, 0, 45, 45 )
 [sub_resource type="SpriteFrames" id=10]
 animations = [ {
 "frames": [ SubResource( 1 ) ],
-"loop": true,
+"loop": false,
 "name": "enemy",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 2 ) ],
-"loop": true,
+"loop": false,
 "name": "enemy_current",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 3 ) ],
-"loop": true,
+"loop": false,
 "name": "friendly",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 4 ) ],
-"loop": true,
+"loop": false,
 "name": "friendly_current",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 5 ) ],
-"loop": true,
+"loop": false,
 "name": "neutral",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 6 ) ],
-"loop": true,
+"loop": false,
 "name": "neutral_current",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 7 ) ],
-"loop": true,
+"loop": false,
 "name": "unaffiliated",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 8 ) ],
-"loop": true,
+"loop": false,
 "name": "unaffiliated_current",
 "speed": 5.0
 }, {

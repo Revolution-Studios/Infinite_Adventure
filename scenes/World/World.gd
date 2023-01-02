@@ -6,7 +6,6 @@ var ship_name = null
 var systems = null
 
 func _ready() -> void:
-	print("world ready ", systems)
 	$UI.systems = systems
 	if GameState.player.character == null:
 		var new_dialog = Dialogic.start("Tutorial")
