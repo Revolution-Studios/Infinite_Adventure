@@ -3,6 +3,7 @@
         {
             "id": 1,
             "name": "Solaria",
+			"relationship": "friendly",
             "position": [
                 0,
                 0
@@ -25,6 +26,7 @@
         {
             "id": 2,
             "name": "Andromeda",
+			"relationship": "friendly",
             "position": [
                 50,
                 50
@@ -47,6 +49,7 @@
         {
             "id": 3,
             "name": "Cygnus",
+			"relationship": "friendly",
             "position": [
                 -50,
                 -50
@@ -69,6 +72,7 @@
         {
             "id": 4,
             "name": "Aquila",
+			"relationship": "friendly",
             "position": [
                 75,
                 -50
@@ -91,6 +95,7 @@
         {
             "id": 5,
             "name": "Proxima Centauri",
+			"relationship": "unexplored",
             "position": [
                 -34,
                 60
@@ -117,15 +122,15 @@
             2
         ],
         [
-            2,
+            1,
             3
         ],
         [
-            3,
+            1,
             4
         ],
         [
-            4,
+            1,
             5
         ]
     ]

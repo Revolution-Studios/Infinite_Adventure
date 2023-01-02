@@ -11,7 +11,7 @@ func _update_health(val):
 	
 func _input(event):
 	if event.is_action_pressed("toggle_system_map"):
-		$SystemMap.visible = !$SystemMap.visible
+		$SystemMap.shown = !$SystemMap.shown
 
 func _set_systems(val):
 	systems = val
