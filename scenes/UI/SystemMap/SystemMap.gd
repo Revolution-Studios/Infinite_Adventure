@@ -28,18 +28,19 @@ func _ready():
 
 func _set_shown(val):
 	var final_opacity = 0
-	var final_pos_y = 600
+	var parent_height = get_viewport().get_visible_rect().size.y
+	var final_pos_y = parent_height - rect_size.y
 	if val:
 		final_opacity = 1
-		final_pos_y = 600
+		final_pos_y = parent_height - rect_size.y - 50
 	else:
 		final_opacity = 0
-		final_pos_y = 700
+		final_pos_y = parent_height - rect_size.y + 50
 	
 	$Tween.interpolate_property(
 		self,
 		"modulate:a",
-		self.modulate.a,
+		modulate.a,
 		final_opacity,
 		TOGGLE_ANIMATION_TIME,
 		Tween.TRANS_LINEAR
@@ -47,7 +48,7 @@ func _set_shown(val):
 	$Tween.interpolate_property(
 		self,
 		"rect_position:y",
-		self.rect_position.y,
+		rect_position.y,
 		final_pos_y,
 		TOGGLE_ANIMATION_TIME,
 		Tween.TRANS_LINEAR
