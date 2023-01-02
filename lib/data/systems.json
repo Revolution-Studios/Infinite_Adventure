@@ -114,6 +114,21 @@
                     "name": "Proxima Centauri C"
                 }
             ]
+        },
+        {
+            "id": 7,
+            "name": "Yukichan",
+			"relationship": "friendly",
+            "position": [
+                120,
+                20
+            ],
+            "planets": [
+                {
+                    "id": 13,
+                    "name": "Yuki's Helix"
+                }
+            ]
         }
     ],
     "connections": [
@@ -132,6 +147,10 @@
         [
             1,
             5
+        ],
+        [
+            4,
+            7
         ]
     ]
 }
