@@ -13,15 +13,18 @@ var _drag = false
 var _current_zoom_level = 1
 var _drag_start_position = Vector2.ZERO
 var _mouse_over_map = false
+var _selected_system_id = null
+var _system_nodes = {}
 onready var center_container = $Row.get_node("Center")
 onready var map_control = center_container.get_node("MarginContainer/Control")
 onready var system_container = map_control.get_node("SystemContainer")
+onready var system_info = $Row.get_node("Left/MarginContainer/ScrollContainer/VBoxContainer")
 
 func _ready():
 	assert(center_container.connect("resized", self, "_map_area_resized") == 0)
 	assert($CloseButton.connect("pressed", self, "_close") == 0)
-	assert(map_control.connect("mouse_entered", self, "_mouse_entered_map") == 0)
-	assert(map_control.connect("mouse_exited", self, "_mouse_exited_map") == 0)
+#	assert(map_control.connect("mouse_entered", self, "_mouse_entered_map") == 0)
+#	assert(map_control.connect("mouse_exited", self, "_mouse_exited_map") == 0)
 	_map_area_resized()
 	self.modulate.a = 0;
 #	assert($Buttons.get_node("CenterButton").connect("pressed", self, "_center") == 0)
@@ -55,6 +58,7 @@ func _set_shown(val):
 	)
 	$Tween.start()
 	shown = val
+	_system_selected(GameState.player.system_id)
 
 func _mouse_entered_map():
 	_mouse_over_map = true
@@ -91,6 +95,11 @@ func _update_zoom(incr, zoom_anchor):
 
 func _set_systems(val):
 	systems = val
+	for child in system_container.get_children():
+		remove_child(child)
+		child.queue_free()
+	_system_nodes = {}
+
 	if !systems:
 		return
 	for connection in systems.data.connections:
@@ -112,13 +121,40 @@ func _set_systems(val):
 		var system = SystemClass.instance()
 		system.fromJSON(systemData)
 		system_container.add_child(system)
+		system.connect("selected", self, "_system_selected")
+		_system_nodes[str(systemData.id)] = system
 	
+func _system_selected(id):
+	if id == _selected_system_id:
+		return
+	if _selected_system_id != null:
+		_system_nodes[str(_selected_system_id)].selected = false
+	_system_nodes[str(id)].selected = true
+	_selected_system_id = id
+	var data = systems.getById(_selected_system_id)
+	print("data ", data)
+	if data:
+		if data.relationship != "unexplored":
+			var goods = systems.getGoodsTraded(data)
+			var services = systems.getServices(data)
+			system_info.get_node("Name").values = PoolStringArray([data.name])
+			system_info.get_node("Government").values = PoolStringArray([data.government])
+			system_info.get_node("LegalStatus").values = PoolStringArray([data.relationship])
+			system_info.get_node("GoodsTraded").values = goods if goods.size() else PoolStringArray(["none"])
+			system_info.get_node("Services").values = services if services.size() else PoolStringArray(["none"])
+		else:
+			system_info.get_node("Name").values = PoolStringArray(["unknown"])
+			system_info.get_node("Government").values = PoolStringArray(["unknown"])
+			system_info.get_node("LegalStatus").values = PoolStringArray(["unknown"])
+			system_info.get_node("GoodsTraded").values = PoolStringArray(["unknown"])
+			system_info.get_node("Services").values = PoolStringArray(["unknown"])
 
 func _input(event):
 	if event.is_action_pressed("system_map_cam_drag"):
 		_drag = true
 		_drag_start_position = event.position - system_container.position
 	elif event.is_action_released("system_map_cam_drag"):
+		print("released")
 		_drag = false
 	elif event is InputEventMouseMotion && _drag:
 		system_container.position = (event.position - _drag_start_position) * _current_zoom_level

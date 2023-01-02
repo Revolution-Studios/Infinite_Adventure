@@ -72,7 +72,7 @@ __meta__ = {
 label = "Government"
 values = PoolStringArray( "Federation" )
 
-[node name="SystemInfo" parent="Row/Left/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
+[node name="LegalStatus" parent="Row/Left/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 158.0
 margin_right = 550.0
 margin_bottom = 197.0
@@ -80,7 +80,7 @@ size_flags_horizontal = 0
 label = "Legal Status"
 values = PoolStringArray( "Friendly" )
 
-[node name="SystemInfo2" parent="Row/Left/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
+[node name="GoodsTraded" parent="Row/Left/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 237.0
 margin_right = 550.0
 margin_bottom = 276.0
@@ -88,7 +88,7 @@ size_flags_horizontal = 0
 label = "Goods Traded"
 values = PoolStringArray( "Food", "Medical", "Equiptment" )
 
-[node name="SystemInfo3" parent="Row/Left/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
+[node name="Services" parent="Row/Left/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 316.0
 margin_right = 550.0
 margin_bottom = 355.0
