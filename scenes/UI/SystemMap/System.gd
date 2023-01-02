@@ -5,6 +5,18 @@ signal selected
 var _system_data = null
 var selected = false setget _set_selected
 
+var textures = {
+	"unexplored": preload("res://scenes/UI/SystemMap/art/unexploredSystemMapNode.png"),
+	"unaffiliated": preload("res://scenes/UI/SystemMap/art/unaffiliatedSystemMapNode.png"),
+	"friendly": preload("res://scenes/UI/SystemMap/art/friendlySystemMapNode.png"),
+	"neutral": preload("res://scenes/UI/SystemMap/art/neutralSystemMapNode.png"),
+	"enemy": preload("res://scenes/UI/SystemMap/art/enemySystemMapNode.png"),
+	"unaffiliated_current": preload("res://scenes/UI/SystemMap/art/unaffiliated_currentSystemMapNode.png"),
+	"friendly_current": preload("res://scenes/UI/SystemMap/art/friendly_currentSystemMapNode.png"),
+	"neutral_current": preload("res://scenes/UI/SystemMap/art/neutral_currentSystemMapNode.png"),
+	"enemy_current": preload("res://scenes/UI/SystemMap/art/enemy_currentSystemMapNode.png"),
+}
+
 func _ready():
 	$TextureRect.connect("gui_input", self, "_input_event")
 #	$SelectionArea.connect("input_event", self, "_input_event")
@@ -27,7 +39,7 @@ func fromJSON(system_data):
 		
 	position = Vector2(system_data.position[0], system_data.position[1])
 	_system_data = system_data
-#	$Node.animation = systemData.relationship + (
-#		'_current' if GameState.player.system_id == systemData.id
-#		else ''
-#	)
+	var texture_key = system_data.relationship
+	if system_data.id == GameState.player.system_id:
+		texture_key += '_current'
+	$TextureRect.texture = textures[texture_key]
