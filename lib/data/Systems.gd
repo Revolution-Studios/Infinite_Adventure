@@ -20,10 +20,10 @@ func _init():
 		conn[1] = int(conn[1])
 	systems_file.close()
 
-func getById(id):
+func get_by_id(id):
 	return _systems_by_id[id]
 	
-func getGoodsTraded(system):
+func get_goods_traded(system):
 	if !system.has('planets'):
 		return []
 	var goods = {}
@@ -33,7 +33,7 @@ func getGoodsTraded(system):
 				goods[good] = true
 	return goods.keys()
 	
-func getServices(system):
+func get_services(system):
 	if !system.has('planets'):
 		return []
 	var goods = {}
