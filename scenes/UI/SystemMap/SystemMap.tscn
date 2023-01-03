@@ -98,20 +98,20 @@ values = PoolStringArray( "Trading", "Outfitting", "Foo", "Bar" )
 
 [node name="Center" type="MarginContainer" parent="Row"]
 margin_left = 350.0
-margin_right = 1515.0
+margin_right = 1680.0
 margin_bottom = 1080.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Background" type="NinePatchRect" parent="Row/Center"]
-margin_right = 1165.0
+margin_right = 1330.0
 margin_bottom = 1080.0
 texture = ExtResource( 1 )
 patch_margin_top = 63
 patch_margin_bottom = 182
 
 [node name="MarginContainer" type="MarginContainer" parent="Row/Center"]
-margin_right = 1165.0
+margin_right = 1330.0
 margin_bottom = 1080.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -121,7 +121,7 @@ custom_constants/margin_bottom = 45
 
 [node name="Control" type="Control" parent="Row/Center/MarginContainer"]
 margin_top = 60.0
-margin_right = 1155.0
+margin_right = 1320.0
 margin_bottom = 1035.0
 rect_clip_content = true
 
@@ -129,20 +129,19 @@ rect_clip_content = true
 position = Vector2( 0, 44 )
 
 [node name="Right" type="MarginContainer" parent="Row"]
-margin_left = 1515.0
+margin_left = 1680.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 
 [node name="Background" type="NinePatchRect" parent="Row/Right"]
-margin_right = 405.0
+margin_right = 240.0
 margin_bottom = 1080.0
-rect_min_size = Vector2( 405, 0 )
+rect_min_size = Vector2( 240, 0 )
 texture = ExtResource( 2 )
-region_rect = Rect2( 0, 0, 405, 724 )
 patch_margin_left = 50
-patch_margin_top = 167
+patch_margin_top = 169
 patch_margin_right = 166
-patch_margin_bottom = 47
+patch_margin_bottom = 57
 
 [node name="Buttons" type="VBoxContainer" parent="."]
 visible = false
