@@ -13,11 +13,15 @@ func _init():
 	
 	data = parse_json(systems_file.get_as_text())
 	for system in data.systems:
-		_systems_by_id[str(system.id)] = system
+		system.id = int(system.id)
+		_systems_by_id[system.id] = system
+	for conn in data.connections:
+		conn[0] = int(conn[0])
+		conn[1] = int(conn[1])
 	systems_file.close()
 
 func getById(id):
-	return _systems_by_id[str(id)]
+	return _systems_by_id[id]
 	
 func getGoodsTraded(system):
 	if !system.has('planets'):

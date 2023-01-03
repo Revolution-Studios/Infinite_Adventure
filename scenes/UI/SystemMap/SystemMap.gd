@@ -10,11 +10,13 @@ var shown = false setget _set_shown
 var scale = 1
 var SystemClass = load("res://scenes/UI/SystemMap/System.tscn")
 var _drag = false
+var _editing_nav = false
 var _current_zoom_level = 1
 var _drag_start_position = Vector2.ZERO
 var _mouse_over_map = false
 var _selected_system_id = null
 var _system_nodes = {}
+var _system_edges = {}
 onready var center_container = $Row.get_node("Center")
 onready var map_control = center_container.get_node("MarginContainer/Control")
 onready var system_container = map_control.get_node("SystemContainer")
@@ -91,7 +93,6 @@ func _update_zoom(incr, zoom_anchor):
 	system_container.position += zoom_center*ratio
 	
 	system_container.scale = Vector2(_current_zoom_level, _current_zoom_level)
-	
 
 func _set_systems(val):
 	systems = val
@@ -99,11 +100,13 @@ func _set_systems(val):
 		remove_child(child)
 		child.queue_free()
 	_system_nodes = {}
+	_system_edges = {}
 
 	if !systems:
 		return
 	for connection in systems.data.connections:
 		var line = Line2D.new();
+		line.default_color = Color("979797")
 		line.width = 2
 		line.end_cap_mode = Line2D.LINE_CAP_NONE
 		var system1 = systems.getById(connection[0])
@@ -117,23 +120,32 @@ func _set_systems(val):
 		line.add_point(point1 - direction * 11)
 		line.add_point(point2 + direction * 11)
 		system_container.add_child(line)
+		var id1 = connection[0]
+		var id2 = connection[1]
+		if !_system_edges.has(id1):
+			_system_edges[id1] = {}
+		if !_system_edges.has(id2):
+			_system_edges[id2] = {}
+			
+		_system_edges[id1][id2] = line
+		_system_edges[id2][id1] = line
+
 	for systemData in systems.data.systems:
 		var system = SystemClass.instance()
 		system.fromJSON(systemData)
 		system_container.add_child(system)
 		system.connect("selected", self, "_system_selected")
-		_system_nodes[str(systemData.id)] = system
+		_system_nodes[systemData.id] = system
 	
 func _system_selected(id):
-	if id == _selected_system_id:
+	var data = systems.getById(id)
+	if !data:
 		return
-	if _selected_system_id != null:
-		_system_nodes[str(_selected_system_id)].selected = false
-	_system_nodes[str(id)].selected = true
-	_selected_system_id = id
-	var data = systems.getById(_selected_system_id)
-	print("data ", data)
-	if data:
+	if id != _selected_system_id:
+		if _selected_system_id != null:
+			_system_nodes[_selected_system_id].selected = false
+		_system_nodes[id].selected = true
+		_selected_system_id = id
 		if data.relationship != "unexplored":
 			var goods = systems.getGoodsTraded(data)
 			var services = systems.getServices(data)
@@ -149,21 +161,60 @@ func _system_selected(id):
 			system_info.get_node("GoodsTraded").values = PoolStringArray(["unknown"])
 			system_info.get_node("Services").values = PoolStringArray(["unknown"])
 
+	if _editing_nav:
+		_update_nav_route(id)
+
+func _update_nav_route(id):
+	var path = [GameState.player.system_id]
+	path.append_array(GameState.player.nav_route)
+	
+	for i in range(1, path.size()):
+		var last_id = path[i-1]
+		_system_edges[last_id][path[i]].default_color = Color("979797")
+	
+	var path_resolved = [GameState.player.system_id]
+	if id != GameState.player.system_id:
+		for i in range(1, path.size()):
+			var last_id = path[i-1]
+			var nav_id = path[i]
+			if !_system_edges[last_id].has(nav_id):
+				break
+			if nav_id == id:
+				break
+			path_resolved.push_back(nav_id)
+
+	var last_id = path_resolved.back()
+	if path_resolved.size() == 2 and !_system_edges[last_id].has(id) and _system_edges[path_resolved.front()].has(id):
+		path_resolved.pop_back()
+		last_id = path_resolved.back()
+	if _system_edges[last_id].has(id):
+		path_resolved.push_back(id)
+		
+	path_resolved.pop_front()
+	
+	last_id = GameState.player.system_id
+	for path_id in path_resolved:
+		_system_edges[last_id][path_id].default_color = Color("10C800")
+		last_id = path_id
+	
+	GameState.player.nav_route = path_resolved
+
 func _input(event):
 	if event.is_action_pressed("system_map_cam_drag"):
 		_drag = true
 		_drag_start_position = event.position - system_container.position
 	elif event.is_action_released("system_map_cam_drag"):
-		print("released")
 		_drag = false
 	elif event is InputEventMouseMotion && _drag:
 		system_container.position = (event.position - _drag_start_position) * _current_zoom_level
 	elif event.is_action("cam_zoom_in"):
 		if _mouse_over_map:
 			_update_zoom(ZOOM_INCREMENT, event.position)
-			print("zoom in")
 	elif event.is_action("cam_zoom_out"):
 		if _mouse_over_map:
 			_update_zoom(-1 * ZOOM_INCREMENT, event.position)
-			print("zoom out")
+	elif event.is_action_pressed("nav_multi"):
+		_editing_nav = true
+	elif event.is_action_released("nav_multi"):
+		_editing_nav = false
 	

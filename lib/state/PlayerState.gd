@@ -9,6 +9,7 @@ var selection = null
 var character = null
 var ship_type = null
 var system_id = 1
+var nav_route = []
 
 func _set_hull_health(val):
 	hull_health = val

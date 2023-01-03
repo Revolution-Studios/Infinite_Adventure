@@ -29,7 +29,6 @@ func _input_event(event):
 		emit_signal("selected", id)
 		
 func _set_selected(val):
-	print("set selected ", val)
 	$Selection.visible = val
 	selected = val
 
