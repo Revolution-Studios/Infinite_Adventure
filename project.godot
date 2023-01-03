@@ -111,6 +111,7 @@ enabled=PoolStringArray( "res://addons/dialogic/plugin.cfg" )
 
 autoload=false
 main=false
+stretch=false
 
 [gui]
 
