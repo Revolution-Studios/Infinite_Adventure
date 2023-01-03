@@ -28,6 +28,7 @@ func _ready():
 	assert(center_container.connect("resized", self, "_center") == 0)
 	assert($CloseButton.connect("pressed", self, "_close") == 0)
 	assert(button_container.get_node("CenterButton").connect("pressed", self, "_center") == 0)
+	assert(button_container.get_node("CloseMapButton").connect("pressed", self, "_close") == 0)
 	assert(clear_route_button.connect("pressed", self, "_clear_route") == 0)
 	assert(map_control.connect("mouse_entered", self, "_mouse_entered_map") == 0)
 	assert(map_control.connect("mouse_exited", self, "_mouse_exited_map") == 0)
