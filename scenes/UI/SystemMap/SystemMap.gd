@@ -29,6 +29,8 @@ func _ready():
 	assert($CloseButton.connect("pressed", self, "_close") == 0)
 	assert(button_container.get_node("CenterButton").connect("pressed", self, "_center") == 0)
 	assert(clear_route_button.connect("pressed", self, "_clear_route") == 0)
+	assert(map_control.connect("mouse_entered", self, "_mouse_entered_map") == 0)
+	assert(map_control.connect("mouse_exited", self, "_mouse_exited_map") == 0)
 	self.modulate.a = 0;
 
 func _set_shown(val):
@@ -72,16 +74,14 @@ func _close():
 	_set_shown(false)
 	
 func _center():
-	print("center")
 	var current_system = systems.getById(GameState.player.system_id)
-	print("current_system.position ", current_system.position)
-	print("map_control.rect_size ", map_control.rect_size)
 	system_container.position = Vector2(current_system.position[0], current_system.position[1]) + map_control.rect_size / 2
-	
+	system_container.scale = Vector2(1, 1)
+
 func _clear_route():
 	_update_nav_route(GameState.player.system_id)
 	
-func _update_zoom(incr, zoom_anchor):
+func _update_zoom(incr, mouse_pos):
 	var old_zoom = _current_zoom_level
 	_current_zoom_level += incr
 	if _current_zoom_level < MAX_ZOOM_LEVEL:
@@ -90,10 +90,11 @@ func _update_zoom(incr, zoom_anchor):
 		_current_zoom_level = MIN_ZOOM_LEVEL
 	if old_zoom == _current_zoom_level:
 		return
-		
-	var zoom_center = zoom_anchor - system_container.position
-	var ratio = 1-_current_zoom_level/old_zoom
-	system_container.position += zoom_center*ratio
+	
+	var map_center = map_control.rect_global_position +  map_control.rect_size / 2
+	var mouse_offset = mouse_pos - map_center
+	var ratio = 1 - _current_zoom_level/old_zoom
+	system_container.position += mouse_offset * ratio
 	
 	system_container.scale = Vector2(_current_zoom_level, _current_zoom_level)
 
@@ -207,12 +208,13 @@ func _update_nav_route(id):
 
 func _input(event):
 	if event.is_action_pressed("system_map_cam_drag"):
-		_drag = true
-		_drag_start_position = event.position - system_container.position
+		if _mouse_over_map:
+			_drag = true
+			_drag_start_position = (event.position - system_container.position)
 	elif event.is_action_released("system_map_cam_drag"):
 		_drag = false
 	elif event is InputEventMouseMotion && _drag:
-		system_container.position = (event.position - _drag_start_position) * _current_zoom_level
+		system_container.position = event.position - _drag_start_position
 	elif event.is_action("cam_zoom_in"):
 		if _mouse_over_map:
 			_update_zoom(ZOOM_INCREMENT, event.position)
@@ -223,4 +225,7 @@ func _input(event):
 		_editing_nav = true
 	elif event.is_action_released("nav_multi"):
 		_editing_nav = false
+	elif event is InputEventMagnifyGesture:
+		if _mouse_over_map:
+			_update_zoom(event.factor - 1, event.position)
 	
