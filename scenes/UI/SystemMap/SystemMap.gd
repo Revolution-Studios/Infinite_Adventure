@@ -21,15 +21,15 @@ onready var center_container = $Row.get_node("Center")
 onready var map_control = center_container.get_node("MarginContainer/Control")
 onready var system_container = map_control.get_node("SystemContainer")
 onready var system_info = $Row.get_node("Left/MarginContainer/ScrollContainer/VBoxContainer")
+onready var button_container = $Row.get_node("Right/MarginContainer/VBoxContainer")
+onready var clear_route_button = button_container.get_node("ClearRouteButton")
 
 func _ready():
-	assert(center_container.connect("resized", self, "_map_area_resized") == 0)
+	assert(center_container.connect("resized", self, "_center") == 0)
 	assert($CloseButton.connect("pressed", self, "_close") == 0)
-#	assert(map_control.connect("mouse_entered", self, "_mouse_entered_map") == 0)
-#	assert(map_control.connect("mouse_exited", self, "_mouse_exited_map") == 0)
-	_map_area_resized()
+	assert(button_container.get_node("CenterButton").connect("pressed", self, "_center") == 0)
+	assert(clear_route_button.connect("pressed", self, "_clear_route") == 0)
 	self.modulate.a = 0;
-#	assert($Buttons.get_node("CenterButton").connect("pressed", self, "_center") == 0)
 
 func _set_shown(val):
 	var final_opacity = 0
@@ -67,16 +67,19 @@ func _mouse_entered_map():
 	
 func _mouse_exited_map():
 	_mouse_over_map = false
-	
-func _map_area_resized():
-	system_container.position = center_container.rect_size / 2;
-	
+
 func _close():
 	_set_shown(false)
 	
-func _center(pos: Vector2):
+func _center():
+	print("center")
 	var current_system = systems.getById(GameState.player.system_id)
-	system_container.position = Vector2(current_system.position[0], current_system.position[1])
+	print("current_system.position ", current_system.position)
+	print("map_control.rect_size ", map_control.rect_size)
+	system_container.position = Vector2(current_system.position[0], current_system.position[1]) + map_control.rect_size / 2
+	
+func _clear_route():
+	_update_nav_route(GameState.player.system_id)
 	
 func _update_zoom(incr, zoom_anchor):
 	var old_zoom = _current_zoom_level
@@ -136,7 +139,9 @@ func _set_systems(val):
 		system_container.add_child(system)
 		system.connect("selected", self, "_system_selected")
 		_system_nodes[systemData.id] = system
-	
+
+	_center()
+
 func _system_selected(id):
 	var data = systems.getById(id)
 	if !data:
@@ -198,6 +203,7 @@ func _update_nav_route(id):
 		last_id = path_id
 	
 	GameState.player.nav_route = path_resolved
+	clear_route_button.disabled = (path_resolved.size() == 0)
 
 func _input(event):
 	if event.is_action_pressed("system_map_cam_drag"):
