@@ -10,7 +10,7 @@ __meta__ = {
 "_edit_vertical_guides_": [ -15.0, 15.0 ]
 }
 
-[node name="Name" type="RichTextLabel" parent="."]
+[node name="Name" type="Label" parent="."]
 margin_left = 15.0
 margin_top = -3.0
 margin_right = 315.0
@@ -20,7 +20,6 @@ rect_pivot_offset = Vector2( 0, 8 )
 size_flags_horizontal = 3
 size_flags_vertical = 5
 text = "Vega"
-scroll_active = false
 
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_left = -11.0
