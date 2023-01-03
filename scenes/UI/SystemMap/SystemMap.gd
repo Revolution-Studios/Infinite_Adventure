@@ -75,7 +75,7 @@ func _close():
 	_set_shown(false)
 	
 func _center():
-	var current_system = systems.getById(GameState.player.system_id)
+	var current_system = systems.get_by_id(GameState.player.system_id)
 	system_container.position = Vector2(current_system.position[0], current_system.position[1]) + map_control.rect_size / 2
 	system_container.scale = Vector2(1, 1)
 
@@ -114,8 +114,8 @@ func _set_systems(val):
 		line.default_color = Color("979797")
 		line.width = 2
 		line.end_cap_mode = Line2D.LINE_CAP_NONE
-		var system1 = systems.getById(connection[0])
-		var system2 = systems.getById(connection[1])
+		var system1 = systems.get_by_id(connection[0])
+		var system2 = systems.get_by_id(connection[1])
 		var point1 = Vector2(system1.position[0], system1.position[1])
 		var point2 = Vector2(system2.position[0], system2.position[1])
 		
@@ -145,7 +145,7 @@ func _set_systems(val):
 	_center()
 
 func _system_selected(id):
-	var data = systems.getById(id)
+	var data = systems.get_by_id(id)
 	if !data:
 		return
 	if id != _selected_system_id:
@@ -154,8 +154,8 @@ func _system_selected(id):
 		_system_nodes[id].selected = true
 		_selected_system_id = id
 		if data.relationship != "unexplored":
-			var goods = systems.getGoodsTraded(data)
-			var services = systems.getServices(data)
+			var goods = systems.get_goods_traded(data)
+			var services = systems.get_services(data)
 			system_info.get_node("Name").values = PoolStringArray([data.name])
 			system_info.get_node("Government").values = PoolStringArray([data.government])
 			system_info.get_node("LegalStatus").values = PoolStringArray([data.relationship])
