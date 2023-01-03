@@ -18,8 +18,7 @@ var textures = {
 }
 
 func _ready():
-	$TextureRect.connect("gui_input", self, "_input_event")
-#	$SelectionArea.connect("input_event", self, "_input_event")
+	assert($TextureRect.connect("gui_input", self, "_input_event") == 0)
 	
 func _input_event(event):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.is_pressed():
