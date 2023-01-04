@@ -6,10 +6,6 @@ var save_filename = "user://save_game.save"
 
 signal change_scene
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
 func _set_scene(next_scene):
 	scene = next_scene
 	emit_signal("change_scene", next_scene) 

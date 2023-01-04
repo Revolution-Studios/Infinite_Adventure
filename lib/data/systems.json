@@ -1,0 +1,167 @@
+{
+    "systems": [
+        {
+            "id": 1,
+            "name": "Solaria",
+			"relationship": "friendly",
+            "government": "Federation",
+            "position": [
+                0,
+                0
+            ],
+            "planets": [
+                {
+                    "id": 1,
+                    "name": "Earth",
+                    "goods_traded": ["Food", "Medical", "Equiptment"]
+                },
+                {
+                    "id": 2,
+                    "name": "Mars"
+                },
+                {
+                    "id": 3,
+                    "name": "Venus"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Andromeda",
+			"relationship": "friendly",
+            "government": "Federation",
+            "position": [
+                50,
+                50
+            ],
+            "planets": [
+                {
+                    "id": 4,
+                    "name": "Andromeda Prime",
+                    "goods_traded": ["Food"]
+                },
+                {
+                    "id": 5,
+                    "name": "Andromeda II"
+                },
+                {
+                    "id": 6,
+                    "name": "Andromeda III"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Cygnus",
+			"relationship": "friendly",
+            "government": "Federation",
+            "position": [
+                -50,
+                -50
+            ],
+            "planets": [
+                {
+                    "id": 7,
+                    "name": "Cygnus X-1",
+                    "goods_traded": ["Medical", "Equiptment"]
+                },
+                {
+                    "id": 8,
+                    "name": "Cygnus X-2"
+                },
+                {
+                    "id": 9,
+                    "name": "Cygnus X-3"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Aquila",
+			"relationship": "friendly",
+            "government": "Federation",
+            "position": [
+                75,
+                -50
+            ],
+            "planets": [
+                {
+                    "id": 10,
+                    "name": "Aquila Prime",
+                    "goods_traded": ["Equiptment"]
+                },
+                {
+                    "id": 11,
+                    "name": "Aquila II"
+                },
+                {
+                    "id": 12,
+                    "name": "Aquila III"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Proxima Centauri",
+			"relationship": "unexplored",
+            "government": "Federation",
+            "position": [
+                -34,
+                60
+            ],
+            "planets": [
+                {
+                    "id": 13,
+                    "name": "Proxima Centauri A"
+                },
+                {
+                    "id": 14,
+                    "name": "Proxima Centauri B"
+                },
+                {
+                    "id": 15,
+                    "name": "Proxima Centauri C"
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "name": "Yukichan",
+			"relationship": "friendly",
+            "government": "Federation",
+            "position": [
+                120,
+                20
+            ],
+            "planets": [
+                {
+                    "id": 13,
+                    "name": "Yuki's Helix",
+                    "goods_traded": ["Food", "Medical", "Equiptment"]
+                }
+            ]
+        }
+    ],
+    "connections": [
+        [
+            1,
+            2
+        ],
+        [
+            1,
+            3
+        ],
+        [
+            1,
+            4
+        ],
+        [
+            1,
+            5
+        ],
+        [
+            4,
+            7
+        ]
+    ]
+}

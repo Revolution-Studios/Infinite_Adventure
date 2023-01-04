@@ -18,7 +18,7 @@ layer = -20
 [node name="Planet" parent="." groups=["Planets"] instance=ExtResource( 3 )]
 
 [node name="Pilot" parent="." instance=ExtResource( 2 )]
-position = Vector2( 960, 540 )
+position = Vector2( 605, 473 )
 
 [node name="Asteroid" parent="." instance=ExtResource( 1 )]
 position = Vector2( 691, 276 )

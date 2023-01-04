@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"godot_tools.editor_path": "/Applications/Godot.app/Contents/MacOS/Godot",
+		"editor.insertSpaces": false,
+		"editor.detectIndentation": false,
+		"search.exclude": {
+			"**/addons": true
+		}
+	}
+}
