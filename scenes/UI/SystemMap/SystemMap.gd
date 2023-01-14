@@ -35,6 +35,7 @@ func _ready():
 	self.modulate.a = 0;
 
 func _set_shown(val):
+	_center()
 	var final_opacity = 0
 	var parent_height = get_viewport().get_visible_rect().size.y
 	var final_pos_y = parent_height - rect_size.y
