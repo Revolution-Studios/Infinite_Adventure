@@ -1,15 +1,21 @@
 extends Control
 
+onready var Surface_start = $CanvasLayer/PlanetPanel/surfacelocations/Bar
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+func _ready() -> void:
+	Surface_start.grab_focus()
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func _physics_process(delta):
+	if Input.is_action_just_pressed("ui_select"):
+		if $CanvasLayer/PlanetPanel/surfacelocations/Bar.has_focus():
+			$CanvasLayer/PlanetPanel/surfacelocations/Bar.release_focus()
+		else:
+			$CanvasLayer/PlanetPanel/surfacelocations/Bar.grab_focus()
 
 
 func _on_Leave_pressed():
 	GameState.scene = Constants.SceneId.World
+
+func _input(event):
+	if event.is_action_pressed("take_off"):
+		GameState.scene = Constants.SceneId.World

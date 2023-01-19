@@ -44,6 +44,10 @@ margin_bottom = 88.0
 margin_right = 241.0
 margin_bottom = 41.0
 rect_pivot_offset = Vector2( 263, 47.5 )
+focus_neighbour_top = NodePath("../Quit")
+focus_neighbour_bottom = NodePath("../NewGame")
+focus_next = NodePath("../NewGame")
+focus_previous = NodePath("../Quit")
 text = "Close Menu"
 
 [node name="NewGame" type="Button" parent="MainMenu/MainMenuPanel/ButtonContainer"]
@@ -51,6 +55,10 @@ margin_top = 45.0
 margin_right = 241.0
 margin_bottom = 86.0
 rect_pivot_offset = Vector2( 263, 47.5 )
+focus_neighbour_top = NodePath("../Close Menu")
+focus_neighbour_bottom = NodePath("../FullScreen")
+focus_next = NodePath("../FullScreen")
+focus_previous = NodePath("../Close Menu")
 text = "New Game"
 
 [node name="FullScreen" type="Button" parent="MainMenu/MainMenuPanel/ButtonContainer"]
@@ -58,6 +66,10 @@ margin_top = 90.0
 margin_right = 241.0
 margin_bottom = 131.0
 rect_pivot_offset = Vector2( 263, 47.5 )
+focus_neighbour_top = NodePath("../NewGame")
+focus_neighbour_bottom = NodePath("../Quit")
+focus_next = NodePath("../Quit")
+focus_previous = NodePath("../NewGame")
 text = "Exit Full Screen"
 
 [node name="Quit" type="Button" parent="MainMenu/MainMenuPanel/ButtonContainer"]
@@ -65,6 +77,10 @@ margin_top = 135.0
 margin_right = 241.0
 margin_bottom = 176.0
 rect_pivot_offset = Vector2( 263, 47.5 )
+focus_neighbour_top = NodePath("../FullScreen")
+focus_neighbour_bottom = NodePath("../Close Menu")
+focus_next = NodePath("../Close Menu")
+focus_previous = NodePath("../FullScreen")
 text = "Quit Game"
 
 [connection signal="pressed" from="MainMenu/MainMenuPanel/ButtonContainer/Close Menu" to="." method="_on_Close_Menu_pressed"]

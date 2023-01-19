@@ -1,6 +1,7 @@
 extends Control
 
 var systems = null
+onready var Menu = $MainMenu/MainMenuPanel/ButtonContainer/NewGame
 
 var root_scene_map = {
 	Constants.SceneId.StartMenu: preload("res://scenes/StartMenu/StartMenu.tscn"),
@@ -15,6 +16,7 @@ func _input(event) -> void:
 		)
 		
 		$MainMenu.visible = !$MainMenu.visible
+		Menu.grab_focus()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
