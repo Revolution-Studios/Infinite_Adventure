@@ -9,7 +9,7 @@ func _on_Leave_pressed():
 	GameState.scene = Constants.SceneId.World
 
 func _input(event):
-	if event.is_action_just_pressed("ui_select"):
+	if event.is_action_pressed("ui_select"):
 		if $CanvasLayer/PlanetPanel/surfacelocations/Bar.has_focus():
 			$CanvasLayer/PlanetPanel/surfacelocations/Bar.release_focus()
 		else:
