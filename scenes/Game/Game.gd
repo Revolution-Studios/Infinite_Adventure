@@ -17,6 +17,12 @@ func _input(event) -> void:
 		
 		$MainMenu.visible = !$MainMenu.visible
 		Menu.grab_focus()
+	if event.is_action_pressed("ui_select"):
+		if $MainMenu/MainMenuPanel/ButtonContainer/NewGame.has_focus():
+			$MainMenu/MainMenuPanel/ButtonContainer/NewGame.release_focus()
+		else:
+			$MainMenu/MainMenuPanel/ButtonContainer/NewGame.grab_focus()
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
