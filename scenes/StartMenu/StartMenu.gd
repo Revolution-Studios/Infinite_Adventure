@@ -6,12 +6,12 @@ onready var start_game = $VBoxContainer/Start
 func _ready() -> void:
 	start_game.grab_focus()
 	
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
-
+func _input(event):
+	if event.is_action_pressed("ui_select"):
+		if $VBoxContainer/Start.has_focus():
+			$VBoxContainer/Start.release_focus()
+		else:
+			$VBoxContainer/Start.grab_focus()
 
 func _on_Start_pressed() -> void:
 	GameState.player.queue_free()
