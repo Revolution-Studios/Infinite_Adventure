@@ -51,6 +51,11 @@ custom_constants/separation = 20
 margin_right = 450.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 0, 80 )
+focus_neighbour_top = NodePath("../../surfacelocations2/Leave")
+focus_neighbour_right = NodePath("../../surfacelocations2/Outfitter")
+focus_neighbour_bottom = NodePath("../Missions")
+focus_next = NodePath("../Missions")
+focus_previous = NodePath("../../surfacelocations2/Leave")
 text = "Bar"
 
 [node name="Missions" type="Button" parent="CanvasLayer/PlanetPanel/surfacelocations"]
@@ -59,6 +64,11 @@ margin_right = 450.0
 margin_bottom = 180.0
 grow_vertical = 2
 rect_min_size = Vector2( 0, 80 )
+focus_neighbour_top = NodePath("../Bar")
+focus_neighbour_right = NodePath("../../surfacelocations2/Refuel")
+focus_neighbour_bottom = NodePath("../Trade Center")
+focus_next = NodePath("../Trade Center")
+focus_previous = NodePath("../Bar")
 text = "Missions"
 
 [node name="Trade Center" type="Button" parent="CanvasLayer/PlanetPanel/surfacelocations"]
@@ -66,6 +76,11 @@ margin_top = 200.0
 margin_right = 450.0
 margin_bottom = 280.0
 rect_min_size = Vector2( 0, 80 )
+focus_neighbour_top = NodePath("../Missions")
+focus_neighbour_right = NodePath("../../surfacelocations2/Leave")
+focus_neighbour_bottom = NodePath("../../surfacelocations2/Outfitter")
+focus_next = NodePath("../../surfacelocations2/Outfitter")
+focus_previous = NodePath("../Missions")
 text = "Trade Center"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/PlanetPanel"]
@@ -91,6 +106,11 @@ custom_constants/separation = 20
 margin_right = 450.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 0, 80 )
+focus_neighbour_left = NodePath("../../surfacelocations/Bar")
+focus_neighbour_top = NodePath("../../surfacelocations/Trade Center")
+focus_neighbour_bottom = NodePath("../Refuel")
+focus_next = NodePath("../Refuel")
+focus_previous = NodePath("../../surfacelocations/Trade Center")
 text = "Outfitter"
 
 [node name="Refuel" type="Button" parent="CanvasLayer/PlanetPanel/surfacelocations2"]
@@ -98,6 +118,11 @@ margin_top = 100.0
 margin_right = 450.0
 margin_bottom = 180.0
 rect_min_size = Vector2( 0, 80 )
+focus_neighbour_left = NodePath("../../surfacelocations/Missions")
+focus_neighbour_top = NodePath("../Outfitter")
+focus_neighbour_bottom = NodePath("../Leave")
+focus_next = NodePath("../Leave")
+focus_previous = NodePath("../Outfitter")
 text = "Refuel"
 
 [node name="Leave" type="Button" parent="CanvasLayer/PlanetPanel/surfacelocations2"]
@@ -105,6 +130,11 @@ margin_top = 200.0
 margin_right = 450.0
 margin_bottom = 280.0
 rect_min_size = Vector2( 0, 80 )
+focus_neighbour_left = NodePath("../../surfacelocations/Trade Center")
+focus_neighbour_top = NodePath("../Refuel")
+focus_neighbour_bottom = NodePath("../../surfacelocations/Bar")
+focus_next = NodePath("../../surfacelocations/Bar")
+focus_previous = NodePath("../Refuel")
 text = "Leave"
 
 [connection signal="pressed" from="CanvasLayer/PlanetPanel/surfacelocations2/Leave" to="." method="_on_Leave_pressed"]
