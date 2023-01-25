@@ -106,7 +106,7 @@ func _system_id_changed(_current_system_id, _previous_system_id):
 
 func _render_systems():
 	for child in system_container.get_children():
-		remove_child(child)
+		system_container.remove_child(child)
 		child.queue_free()
 	_system_nodes = {}
 	_system_edges = {}
