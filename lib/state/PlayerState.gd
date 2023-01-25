@@ -3,18 +3,24 @@ extends Node
 class_name PlayerState
 
 signal hull_health_changed
+signal system_id_changed
 var position = Vector2.ZERO
 var hull_health = 100 setget _set_hull_health
 var selection = null
 var character = null
 var ship_type = null
 var system_id = 1
-var planet_id = null
+var system_id = 1 setget _set_system_id
 var nav_route = []
 
 func _set_hull_health(val):
 	hull_health = val
-	emit_signal("hull_health_changed", hull_health) 
+	emit_signal("hull_health_changed", hull_health)
+
+func _set_system_id(val):
+	var previous_system_id = system_id
+	system_id = val
+	emit_signal("system_id_changed", system_id, previous_system_id)
 
 func toJSON():
 	return {

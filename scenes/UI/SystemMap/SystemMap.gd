@@ -32,6 +32,7 @@ func _ready():
 	assert(clear_route_button.connect("pressed", self, "_clear_route") == 0)
 	assert(map_control.connect("mouse_entered", self, "_mouse_entered_map") == 0)
 	assert(map_control.connect("mouse_exited", self, "_mouse_exited_map") == 0)
+	assert(GameState.player.connect("system_id_changed", self, "_system_id_changed") == 0)
 	self.modulate.a = 0;
 
 func _set_shown(val):
@@ -100,8 +101,10 @@ func _update_zoom(incr, mouse_pos):
 	
 	system_container.scale = Vector2(_current_zoom_level, _current_zoom_level)
 
-func _set_systems(val):
-	systems = val
+func _system_id_changed(_current_system_id, _previous_system_id):
+	_render_systems()
+
+func _render_systems():
 	for child in system_container.get_children():
 		remove_child(child)
 		child.queue_free()
@@ -110,6 +113,8 @@ func _set_systems(val):
 
 	if !systems:
 		return
+
+	# Add map route lines
 	for connection in systems.data.connections:
 		var line = Line2D.new();
 		line.default_color = Color("979797")
@@ -119,7 +124,7 @@ func _set_systems(val):
 		var system2 = systems.get_by_id(connection[1])
 		var point1 = Vector2(system1.position[0], system1.position[1])
 		var point2 = Vector2(system2.position[0], system2.position[1])
-		
+
 		# We want to shorten each line on both ends by a fixed amount
 		# so that it doesn't overlap the node
 		var direction = (point1 - point2).normalized()
@@ -132,10 +137,17 @@ func _set_systems(val):
 			_system_edges[id1] = {}
 		if !_system_edges.has(id2):
 			_system_edges[id2] = {}
-			
+
 		_system_edges[id1][id2] = line
 		_system_edges[id2][id1] = line
 
+	# Color the route lines that are part of the current nav route
+	var last_id = GameState.player.system_id
+	for path_id in GameState.player.nav_route:
+		_system_edges[last_id][path_id].default_color = Color("10C800")
+		last_id = path_id
+
+	# Add map systems
 	for systemData in systems.data.systems:
 		var system = SystemClass.instance()
 		system.fromJSON(systemData)
@@ -143,6 +155,9 @@ func _set_systems(val):
 		system.connect("selected", self, "_system_selected")
 		_system_nodes[systemData.id] = system
 
+func _set_systems(val):
+	systems = val
+	_render_systems()
 	_center()
 
 func _system_selected(id):

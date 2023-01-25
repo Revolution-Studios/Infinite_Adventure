@@ -101,9 +101,19 @@ func handle_landing_request():
 			print ("Landing sequence initiated")
 			GameState.scene = Constants.SceneId.PlanetSurface
 
+func handle_jump_request():
+	print('Jump request')
+	if(GameState.player.nav_route.size() == 0):
+		print('Open the map to set where you would like to jump')
+	else:
+		GameState.player.system_id = GameState.player.nav_route.pop_front()
+		print("Jumped to ", GameState.player.system_id, " nav_route = ", GameState.player.nav_route)
+
 func _input(event):
 	if event.is_action_pressed("select_planet"):
 		handle_landing_request()
+	if event.is_action_pressed("jump"):
+		handle_jump_request()
 
 
 	
