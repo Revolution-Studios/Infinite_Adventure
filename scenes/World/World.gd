@@ -7,6 +7,16 @@ var systems = null
 
 func _ready() -> void:
 	$UI.systems = systems
+	var current_system = systems.get_by_id(GameState.player.system_id)
+	var planet_class = load("res://scenes/Planet/Planet.tscn")
+	for planet in current_system.planets:
+		if "position" in planet:
+			var planet_instance = planet_class.instance()
+			planet_instance.position = Vector2(planet.position[0],planet.position[1])
+			planet_instance.add_to_group("Planets")
+			add_child(planet_instance)
+			print (planet)
+	print (current_system)
 	if GameState.player.character == null:
 		var new_dialog = Dialogic.start("Tutorial")
 		add_child(new_dialog)

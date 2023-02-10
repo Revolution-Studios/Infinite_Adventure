@@ -13,15 +13,27 @@
                 {
                     "id": 1,
                     "name": "Earth",
+                    "position": [
+                        960,
+                        540
+                    ],
                     "goods_traded": ["Food", "Medical", "Equiptment"]
                 },
                 {
                     "id": 2,
-                    "name": "Mars"
+                    "name": "Mars",
+                    "position": [
+                        0,
+                        0
+                    ]
                 },
                 {
                     "id": 3,
-                    "name": "Venus"
+                    "name": "Venus",
+                    "position": [
+                        2000,
+                        0
+                    ]
                 }
             ]
         },
