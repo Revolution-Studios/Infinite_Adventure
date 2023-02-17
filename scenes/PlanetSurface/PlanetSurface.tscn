@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/PlanetSurface/PlanetSurface.gd" type="Script" id=1]
 [ext_resource path="res://themes/start_menu.tres" type="Theme" id=3]
 [ext_resource path="res://themes/fonts/SpaceGrotesk-SemiBold.ttf" type="DynamicFontData" id=4]
-
-[sub_resource type="ImageTexture" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
@@ -23,7 +21,6 @@ margin_bottom = 34.0
 rect_pivot_offset = Vector2( 960, 1750 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 2 )
 expand = true
 stretch_mode = 7
 

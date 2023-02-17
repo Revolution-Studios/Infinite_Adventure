@@ -38,7 +38,6 @@ func _change_scene(sceneId):
 			for planet in current_system.planets:
 				if planet.id == GameState.player.planet_id:
 					new_scene.planet_data = planet
-			print (current_system)
 		$Content.add_child(new_scene)
 		for n in children_to_remove:
 			$Content.remove_child(n)

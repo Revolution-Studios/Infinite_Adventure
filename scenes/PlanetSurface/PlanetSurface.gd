@@ -5,7 +5,6 @@ var planet_data = null
 
 func _ready() -> void:
 	Surface_start.grab_focus()
-	print (planet_data)
 	$CanvasLayer/PlanetPanel/RichTextLabel.text = planet_data.name
 	if "background_image" in planet_data:
 		var texture = ImageTexture.new()
