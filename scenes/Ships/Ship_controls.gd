@@ -99,7 +99,6 @@ func handle_landing_request():
 			print ("You have to get closer if you're trying to land")
 		else:
 			print ("Landing sequence initiated")
-			print (closest_planet.planet_data)
 			GameState.player.planet_id = closest_planet.planet_data.id
 			GameState.scene = Constants.SceneId.PlanetSurface
 
