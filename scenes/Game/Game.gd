@@ -33,6 +33,12 @@ func _change_scene(sceneId):
 		var new_scene = root_scene_map[sceneId].instance();
 		if sceneId == Constants.SceneId.World:
 			new_scene.systems = systems
+		elif sceneId == Constants.SceneId.PlanetSurface:
+			var current_system = systems.get_by_id(GameState.player.system_id)
+			for planet in current_system.planets:
+				if planet.id == GameState.player.planet_id:
+					new_scene.planet_data = planet
+			print (current_system)
 		$Content.add_child(new_scene)
 		for n in children_to_remove:
 			$Content.remove_child(n)

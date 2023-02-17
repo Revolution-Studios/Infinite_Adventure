@@ -1,9 +1,18 @@
 extends Control
 
 onready var Surface_start = $CanvasLayer/PlanetPanel/surfacelocations/Bar
+var planet_data = null
 
 func _ready() -> void:
 	Surface_start.grab_focus()
+	print (planet_data)
+	$CanvasLayer/PlanetPanel/RichTextLabel.text = planet_data.name
+	if "background_image" in planet_data:
+		var texture = ImageTexture.new()
+		var image = Image.new()
+		image.load(planet_data.background_image)
+		texture.create_from_image(image)
+		$Backroundimage.texture = texture
 
 func _on_Leave_pressed():
 	GameState.scene = Constants.SceneId.World
