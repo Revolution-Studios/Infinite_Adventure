@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rsz_18x_-_sci_fi_hangar_with_mechanics_and_space_ships.png-0f002756fab13a181f1600eb2ac6e73d.stex"
+path="res://.import/planet01.png-8024c3a40001fdd36ef0586e572e4a2a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/PlanetSurface/art/rsz_18x_-_sci_fi_hangar_with_mechanics_and_space_ships.png"
-dest_files=[ "res://.import/rsz_18x_-_sci_fi_hangar_with_mechanics_and_space_ships.png-0f002756fab13a181f1600eb2ac6e73d.stex" ]
+source_file="res://scenes/Planet/art/planet01.png"
+dest_files=[ "res://.import/planet01.png-8024c3a40001fdd36ef0586e572e4a2a.stex" ]
 
 [params]
 

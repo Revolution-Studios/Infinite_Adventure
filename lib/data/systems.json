@@ -17,11 +17,13 @@
                         960,
                         540
                     ],
+                    "background_image": "res://scenes/PlanetSurface/art/earthbg.png",
                     "goods_traded": ["Food", "Medical", "Equiptment"]
                 },
                 {
                     "id": 2,
                     "name": "Mars",
+                    "planet_image": "res://scenes/Planet/art/planet01.png",
                     "position": [
                         0,
                         0
