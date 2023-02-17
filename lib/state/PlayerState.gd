@@ -28,7 +28,9 @@ func toJSON():
 		'position_y': position.y,
 		'hull_health': hull_health,
 		'character': character,
-		'ship_type': ship_type
+		'ship_type': ship_type,
+		'planet_id': planet_id,
+		'system_id': system_id
 	}
 
 func fromJSON(json):
@@ -36,3 +38,7 @@ func fromJSON(json):
 	_set_hull_health(json.hull_health)
 	character = json.character
 	ship_type = json.ship_type
+	if "planet_id" in json:
+		planet_id = int(json.planet_id)
+	if "system_id" in json:
+		system_id = int(json.system_id)
