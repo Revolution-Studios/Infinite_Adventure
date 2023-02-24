@@ -39,6 +39,9 @@ func fromJSON(json):
 	character = json.character
 	ship_type = json.ship_type
 	if "planet_id" in json:
-		planet_id = int(json.planet_id)
+		if json.planet_id != null:
+			planet_id = int(json.planet_id)
+		else:
+			planet_id = null
 	if "system_id" in json:
 		system_id = int(json.system_id)
