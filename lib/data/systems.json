@@ -27,7 +27,8 @@
                     "position": [
                         0,
                         0
-                    ]
+                    ],
+                    "background_image": "res://scenes/PlanetSurface/art/marsbg.png"
                 },
                 {
                     "id": 3,
@@ -35,7 +36,8 @@
                     "position": [
                         2000,
                         0
-                    ]
+                    ],
+                    "background_image": "res://scenes/PlanetSurface/art/venusbg.png"
                 }
             ]
         },
