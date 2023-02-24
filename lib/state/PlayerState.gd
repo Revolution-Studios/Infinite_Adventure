@@ -20,7 +20,6 @@ func _set_hull_health(val):
 func _set_system_id(val):
 	var previous_system_id = system_id
 	system_id = val
-	print("set system id", val)
 	emit_signal("system_id_changed", system_id, previous_system_id)
 
 func toJSON():
