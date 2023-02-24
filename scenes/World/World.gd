@@ -62,8 +62,6 @@ func _render_planets():
 			planet_instance.add_to_group("Planets")
 			planet_instance.planet_data = planet
 			add_child(planet_instance)
-			print (planet)
-	print ("render planets", current_system)
 
 func _on_system_id_changed(_new_system_id, _old_system_id):
 	_render_planets()
