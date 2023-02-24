@@ -104,7 +104,11 @@
                 {
                     "id": 10,
                     "name": "Aquila Prime",
-                    "goods_traded": ["Equiptment"]
+                    "goods_traded": ["Equiptment"],
+                    "position": [
+                        50,
+                        50
+                    ],
                 },
                 {
                     "id": 11,
