@@ -6,10 +6,10 @@ var planet_data = null
 func _ready() -> void:
 	Surface_start.grab_focus()
 	$CanvasLayer/PlanetPanel/RichTextLabel.text = planet_data.name
-	if "background_image" in planet_data:
+	if "shipyard_image" in planet_data:
 		var texture = ImageTexture.new()
 		var image = Image.new()
-		image.load(planet_data.background_image)
+		image.load(planet_data.shipyard_image)
 		texture.create_from_image(image)
 		$Backroundimage.texture = texture
 
@@ -33,45 +33,45 @@ func _on_Bar_pressed():
 	if "bar_image" in planet_data:
 		var texture = ImageTexture.new()
 		var image = Image.new()
-		image.load(planet_data.background_image)
+		image.load(planet_data.bar_image)
 		texture.create_from_image(image)
 		$Backroundimage.texture = texture
 
 func _on_Missions_pressed():
 	$CanvasLayer/PlanetPanel/RichTextLabel.text = planet_data.name
-	if "jobboard_image" in planet_data:
+	if "missions_image" in planet_data:
 		var texture = ImageTexture.new()
 		var image = Image.new()
-		image.load(planet_data.background_image)
+		image.load(planet_data.missions_image)
 		texture.create_from_image(image)
 		$Backroundimage.texture = texture
 
 
 func _on_Trade_Center_pressed():
 	$CanvasLayer/PlanetPanel/RichTextLabel.text = planet_data.name
-	if "storefront_image" in planet_data:
+	if "trade_center_image" in planet_data:
 		var texture = ImageTexture.new()
 		var image = Image.new()
-		image.load(planet_data.background_image)
+		image.load(planet_data.trade_center_image)
 		texture.create_from_image(image)
 		$Backroundimage.texture = texture
 
 
 func _on_Outfitter_pressed():
 	$CanvasLayer/PlanetPanel/RichTextLabel.text = planet_data.name
-	if "shipparts_image" in planet_data:
+	if "outfitter_image" in planet_data:
 		var texture = ImageTexture.new()
 		var image = Image.new()
-		image.load(planet_data.background_image)
+		image.load(planet_data.outfitter_image)
 		texture.create_from_image(image)
 		$Backroundimage.texture = texture
 
 
 func _on_Refuel_pressed():
 	$CanvasLayer/PlanetPanel/RichTextLabel.text = planet_data.name
-	if "background_image" in planet_data:
+	if "shipyard_image" in planet_data:
 		var texture = ImageTexture.new()
 		var image = Image.new()
-		image.load(planet_data.background_image)
+		image.load(planet_data.shipyard_image)
 		texture.create_from_image(image)
 		$Backroundimage.texture = texture

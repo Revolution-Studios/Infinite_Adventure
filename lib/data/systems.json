@@ -17,7 +17,7 @@
                         960,
                         540
                     ],
-                    "background_image": "res://scenes/PlanetSurface/art/earthbg.png",
+                    "shipyard_image": "res://scenes/PlanetSurface/art/earthbg.png",
                     "goods_traded": ["Food", "Medical", "Equiptment"]
                 },
                 {
@@ -28,7 +28,7 @@
                         0,
                         0
                     ],
-                    "background_image": "res://scenes/PlanetSurface/art/marsbg.png"
+                    "shipyard_image": "res://scenes/PlanetSurface/art/marsbg.png"
                 },
                 {
                     "id": 3,
@@ -37,7 +37,7 @@
                         2000,
                         0
                     ],
-                    "background_image": "res://scenes/PlanetSurface/art/venusbg.png"
+                    "shipyard_image": "res://scenes/PlanetSurface/art/venusbg.png"
                 }
             ]
         },
