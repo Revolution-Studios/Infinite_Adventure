@@ -18,6 +18,11 @@
                         540
                     ],
                     "shipyard_image": "res://scenes/PlanetSurface/art/earthbg.png",
+                    "shipyard_description": "Welcome to earth!",
+                    "bar_description": "Bar description comming soon",
+                    "missions_description": "Missions description comming soon",
+                    "trade_center_description": "Trade center description comming soon",
+                    "outfitter_description": "Outfitter description comming soon",
                     "goods_traded": ["Food", "Medical", "Equiptment"]
                 },
                 {
@@ -28,7 +33,12 @@
                         0,
                         0
                     ],
-                    "shipyard_image": "res://scenes/PlanetSurface/art/marsbg.png"
+                    "shipyard_image": "res://scenes/PlanetSurface/art/marsbg.png",
+                    "shipyard_description": "Welcome to Mars!",
+                    "bar_description": "Bar description comming soon",
+                    "missions_description": "Missions description comming soon",
+                    "trade_center_description": "Trade center description comming soon",
+                    "outfitter_description": "Outfitter description comming soon"
                 },
                 {
                     "id": 3,
@@ -37,7 +47,12 @@
                         2000,
                         0
                     ],
-                    "shipyard_image": "res://scenes/PlanetSurface/art/venusbg.png"
+                    "shipyard_image": "res://scenes/PlanetSurface/art/venusbg.png",
+                    "shipyard_description": "Welcome to Venus!",
+                    "bar_description": "Bar description comming soon",
+                    "missions_description": "Missions description comming soon",
+                    "trade_center_description": "Trade center description comming soon",
+                    "outfitter_description": "Outfitter description comming soon"
                 }
             ]
         },
@@ -108,7 +123,7 @@
                     "position": [
                         50,
                         50
-                    ],
+                    ]
                 },
                 {
                     "id": 11,
