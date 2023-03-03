@@ -9,29 +9,9 @@ func _ready() -> void:
 	GameState.player.connect("system_id_changed", self, "_on_system_id_changed")
 	$UI.systems = systems
 	_render_planets()
-	if GameState.player.character == null:
-		var new_dialog = Dialogic.start("Tutorial")
-		add_child(new_dialog)
-		new_dialog.connect("dialogic_signal", self, "_on_Dialog_dialogic_signal")
-		new_dialog.connect("timeline_end", self, "_on_Dialog_timeline_end")
-		new_dialog.set_pause_mode(2)
-		get_tree().paused = true
-	else: 
+	if GameState.player.character != null:
 		_spawn_ship()
 
-func _on_Dialog_timeline_end(_timeline_name) -> void:
-	get_tree().paused = false
-
-
-func _on_Dialog_dialogic_signal(value) -> void:
-	if value == "Yam":
-		GameState.player.ship_type = "Harrier"
-	else:
-		GameState.player.ship_type = "Falcon"
-	
-	GameState.player.character = value
-	GameState.player.position = Vector2(-400, 0)
-	_spawn_ship()
 
 func _get_ship_class_from_name(name):
 	if name == "Harrier":
