@@ -7,8 +7,8 @@ signal system_id_changed
 var position = Vector2.ZERO
 var hull_health = 100 setget _set_hull_health
 var selection = null
-var character = null
-var ship_type = null
+var character = "yam"
+var ship_type = "Harrier"
 var planet_id = 1
 var system_id = 1 setget _set_system_id
 var nav_route = []
