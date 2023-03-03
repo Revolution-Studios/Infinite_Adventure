@@ -1,14 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://scenes/ShaderToImage/ShaderToImage.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Background/Background.gd" type="Script" id=4]
 
 [node name="Background" type="ParallaxBackground"]
 offset = Vector2( -600, -600 )
 transform = Transform2D( 1, 0, 0, 1, -600, -600 )
 script = ExtResource( 4 )
-
-[node name="ShaderToImage" parent="." instance=ExtResource( 3 )]
 
 [node name="StarLayer" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.4, 0.4 )
