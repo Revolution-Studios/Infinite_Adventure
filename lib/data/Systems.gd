@@ -11,7 +11,9 @@ func _init():
 
 	systems_file.open(systems_filename, File.READ)
 	
-	data = parse_json(systems_file.get_as_text())
+	var test_json_conv = JSON.new()
+	test_json_conv.parse(systems_file.get_as_text())
+	data = test_json_conv.get_data()
 	for system in data.systems:
 		system.id = int(system.id)
 		_systems_by_id[system.id] = system

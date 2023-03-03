@@ -1,6 +1,6 @@
 extends Control
 
-onready var Surface_start = $CanvasLayer/PlanetPanel/surfacelocations/Bar
+@onready var Surface_start = $CanvasLayer/PlanetPanel/surfacelocations/Bar
 var planet_data = null
 
 func _ready() -> void:

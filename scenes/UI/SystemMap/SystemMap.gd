@@ -5,8 +5,8 @@ const MIN_ZOOM_LEVEL = 4.0
 const ZOOM_INCREMENT = 0.05
 const TOGGLE_ANIMATION_TIME = 0.2
 
-var systems = null setget _set_systems 
-var shown = false setget _set_shown 
+var systems = null : set = _set_systems
+var shown = false : set = _set_shown
 var scale = 1
 var SystemClass = load("res://scenes/UI/SystemMap/System.tscn")
 var _drag = false
@@ -17,35 +17,35 @@ var _mouse_over_map = false
 var _selected_system_id = null
 var _system_nodes = {}
 var _system_edges = {}
-onready var center_container = $Row.get_node("Center")
-onready var map_control = center_container.get_node("MarginContainer/Control")
-onready var system_container = map_control.get_node("SystemContainer")
-onready var system_info = $Row.get_node("Left/MarginContainer/ScrollContainer/VBoxContainer")
-onready var button_container = $Row.get_node("Right/MarginContainer/VBoxContainer")
-onready var clear_route_button = button_container.get_node("ClearRouteButton")
+@onready var center_container = $Row.get_node("Center")
+@onready var map_control = center_container.get_node("MarginContainer/Control")
+@onready var system_container = map_control.get_node("SystemContainer")
+@onready var system_info = $Row.get_node("Left/MarginContainer/ScrollContainer/VBoxContainer")
+@onready var button_container = $Row.get_node("Right/MarginContainer/VBoxContainer")
+@onready var clear_route_button = button_container.get_node("ClearRouteButton")
 
 func _ready():
-	assert(center_container.connect("resized", self, "_center") == 0)
-	assert($CloseButton.connect("pressed", self, "_close") == 0)
-	assert(button_container.get_node("CenterButton").connect("pressed", self, "_center") == 0)
-	assert(button_container.get_node("CloseMapButton").connect("pressed", self, "_close") == 0)
-	assert(clear_route_button.connect("pressed", self, "_clear_route") == 0)
-	assert(map_control.connect("mouse_entered", self, "_mouse_entered_map") == 0)
-	assert(map_control.connect("mouse_exited", self, "_mouse_exited_map") == 0)
-	assert(GameState.player.connect("system_id_changed", self, "_system_id_changed") == 0)
+	assert(center_container.connect("resized",Callable(self,"_center")) == 0)
+	assert($CloseButton.connect("pressed",Callable(self,"_close")) == 0)
+	assert(button_container.get_node("CenterButton").connect("pressed",Callable(self,"_center")) == 0)
+	assert(button_container.get_node("CloseMapButton").connect("pressed",Callable(self,"_close")) == 0)
+	assert(clear_route_button.connect("pressed",Callable(self,"_clear_route")) == 0)
+	assert(map_control.connect("mouse_entered",Callable(self,"_mouse_entered_map")) == 0)
+	assert(map_control.connect("mouse_exited",Callable(self,"_mouse_exited_map")) == 0)
+	assert(GameState.player.connect("system_id_changed",Callable(self,"_system_id_changed")) == 0)
 	self.modulate.a = 0;
 
 func _set_shown(val):
 	_center()
 	var final_opacity = 0
 	var parent_height = get_viewport().get_visible_rect().size.y
-	var final_pos_y = parent_height - rect_size.y
+	var final_pos_y = parent_height - size.y
 	if val:
 		final_opacity = 1
-		final_pos_y = parent_height - rect_size.y - 50
+		final_pos_y = parent_height - size.y - 50
 	else:
 		final_opacity = 0
-		final_pos_y = parent_height - rect_size.y + 50
+		final_pos_y = parent_height - size.y + 50
 	
 	$Tween.interpolate_property(
 		self,
@@ -57,8 +57,8 @@ func _set_shown(val):
 	)
 	$Tween.interpolate_property(
 		self,
-		"rect_position:y",
-		rect_position.y,
+		"position:y",
+		position.y,
 		final_pos_y,
 		TOGGLE_ANIMATION_TIME,
 		Tween.TRANS_LINEAR
@@ -78,7 +78,7 @@ func _close():
 	
 func _center():
 	var current_system = systems.get_by_id(GameState.player.system_id)
-	system_container.position = Vector2(current_system.position[0], current_system.position[1]) + map_control.rect_size / 2
+	system_container.position = Vector2(current_system.position[0], current_system.position[1]) + map_control.size / 2
 	system_container.scale = Vector2(1, 1)
 
 func _clear_route():
@@ -94,7 +94,7 @@ func _update_zoom(incr, mouse_pos):
 	if old_zoom == _current_zoom_level:
 		return
 	
-	var map_center = map_control.rect_global_position +  map_control.rect_size / 2
+	var map_center = map_control.global_position +  map_control.size / 2
 	var mouse_offset = mouse_pos - map_center
 	var ratio = 1 - _current_zoom_level/old_zoom
 	system_container.position += mouse_offset * ratio
@@ -149,10 +149,10 @@ func _render_systems():
 
 	# Add map systems
 	for systemData in systems.data.systems:
-		var system = SystemClass.instance()
+		var system = SystemClass.instantiate()
 		system.fromJSON(systemData)
 		system_container.add_child(system)
-		system.connect("selected", self, "_system_selected")
+		system.connect("selected",Callable(self,"_system_selected"))
 		_system_nodes[systemData.id] = system
 
 func _set_systems(val):
@@ -172,17 +172,17 @@ func _system_selected(id):
 		if data.relationship != "unexplored":
 			var goods = systems.get_goods_traded(data)
 			var services = systems.get_services(data)
-			system_info.get_node("Name").values = PoolStringArray([data.name])
-			system_info.get_node("Government").values = PoolStringArray([data.government])
-			system_info.get_node("LegalStatus").values = PoolStringArray([data.relationship])
-			system_info.get_node("GoodsTraded").values = goods if goods.size() else PoolStringArray(["none"])
-			system_info.get_node("Services").values = services if services.size() else PoolStringArray(["none"])
+			system_info.get_node("Name").values = PackedStringArray([data.name])
+			system_info.get_node("Government").values = PackedStringArray([data.government])
+			system_info.get_node("LegalStatus").values = PackedStringArray([data.relationship])
+			system_info.get_node("GoodsTraded").values = goods if goods.size() else PackedStringArray(["none"])
+			system_info.get_node("Services").values = services if services.size() else PackedStringArray(["none"])
 		else:
-			system_info.get_node("Name").values = PoolStringArray(["unknown"])
-			system_info.get_node("Government").values = PoolStringArray(["unknown"])
-			system_info.get_node("LegalStatus").values = PoolStringArray(["unknown"])
-			system_info.get_node("GoodsTraded").values = PoolStringArray(["unknown"])
-			system_info.get_node("Services").values = PoolStringArray(["unknown"])
+			system_info.get_node("Name").values = PackedStringArray(["unknown"])
+			system_info.get_node("Government").values = PackedStringArray(["unknown"])
+			system_info.get_node("LegalStatus").values = PackedStringArray(["unknown"])
+			system_info.get_node("GoodsTraded").values = PackedStringArray(["unknown"])
+			system_info.get_node("Services").values = PackedStringArray(["unknown"])
 
 	if _editing_nav:
 		_update_nav_route(id)

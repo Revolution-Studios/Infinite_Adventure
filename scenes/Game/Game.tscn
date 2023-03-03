@@ -5,7 +5,7 @@
 [ext_resource path="res://themes/RootTheme.tres" type="Theme" id=3]
 
 [node name="Game" type="Control"]
-pause_mode = 2
+process_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 3 )
@@ -24,10 +24,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -142.0
-margin_top = -340.0
-margin_right = 142.0
-margin_bottom = -120.0
+offset_left = -142.0
+offset_top = -340.0
+offset_right = 142.0
+offset_bottom = -120.0
 theme = ExtResource( 2 )
 
 [node name="ButtonContainer" type="VBoxContainer" parent="MainMenu/MainMenuPanel"]
@@ -35,50 +35,50 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -120.5
-margin_top = -88.0
-margin_right = 120.5
-margin_bottom = 88.0
+offset_left = -120.5
+offset_top = -88.0
+offset_right = 120.5
+offset_bottom = 88.0
 
 [node name="Close Menu" type="Button" parent="MainMenu/MainMenuPanel/ButtonContainer"]
-margin_right = 241.0
-margin_bottom = 41.0
-rect_pivot_offset = Vector2( 263, 47.5 )
-focus_neighbour_top = NodePath("../Quit")
-focus_neighbour_bottom = NodePath("../NewGame")
+offset_right = 241.0
+offset_bottom = 41.0
+pivot_offset = Vector2( 263, 47.5 )
+focus_neighbor_top = NodePath("../Quit")
+focus_neighbor_bottom = NodePath("../NewGame")
 focus_next = NodePath("../NewGame")
 focus_previous = NodePath("../Quit")
 text = "Close Menu"
 
 [node name="NewGame" type="Button" parent="MainMenu/MainMenuPanel/ButtonContainer"]
-margin_top = 45.0
-margin_right = 241.0
-margin_bottom = 86.0
-rect_pivot_offset = Vector2( 263, 47.5 )
-focus_neighbour_top = NodePath("../Close Menu")
-focus_neighbour_bottom = NodePath("../FullScreen")
+offset_top = 45.0
+offset_right = 241.0
+offset_bottom = 86.0
+pivot_offset = Vector2( 263, 47.5 )
+focus_neighbor_top = NodePath("../Close Menu")
+focus_neighbor_bottom = NodePath("../FullScreen")
 focus_next = NodePath("../FullScreen")
 focus_previous = NodePath("../Close Menu")
 text = "New Game"
 
 [node name="FullScreen" type="Button" parent="MainMenu/MainMenuPanel/ButtonContainer"]
-margin_top = 90.0
-margin_right = 241.0
-margin_bottom = 131.0
-rect_pivot_offset = Vector2( 263, 47.5 )
-focus_neighbour_top = NodePath("../NewGame")
-focus_neighbour_bottom = NodePath("../Quit")
+offset_top = 90.0
+offset_right = 241.0
+offset_bottom = 131.0
+pivot_offset = Vector2( 263, 47.5 )
+focus_neighbor_top = NodePath("../NewGame")
+focus_neighbor_bottom = NodePath("../Quit")
 focus_next = NodePath("../Quit")
 focus_previous = NodePath("../NewGame")
 text = "Exit Full Screen"
 
 [node name="Quit" type="Button" parent="MainMenu/MainMenuPanel/ButtonContainer"]
-margin_top = 135.0
-margin_right = 241.0
-margin_bottom = 176.0
-rect_pivot_offset = Vector2( 263, 47.5 )
-focus_neighbour_top = NodePath("../FullScreen")
-focus_neighbour_bottom = NodePath("../Close Menu")
+offset_top = 135.0
+offset_right = 241.0
+offset_bottom = 176.0
+pivot_offset = Vector2( 263, 47.5 )
+focus_neighbor_top = NodePath("../FullScreen")
+focus_neighbor_bottom = NodePath("../Close Menu")
 focus_next = NodePath("../Close Menu")
 focus_previous = NodePath("../FullScreen")
 text = "Quit Game"

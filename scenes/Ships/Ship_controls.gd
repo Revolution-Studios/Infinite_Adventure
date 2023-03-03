@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 var acceleration: int = 250
 var max_speed: int = 500
@@ -8,7 +8,7 @@ var direction: Vector2
 var velocity: Vector2 = Vector2.ZERO
 var player_character = null
 
-onready var flame_exhaust: Node2D = $Ship_Exhaust
+@onready var flame_exhaust: Node2D = $Ship_Exhaust
 
 
 func _ready() -> void:
@@ -31,7 +31,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("flip_maneuver") && velocity.length() > 0:
 		var total_radians_to_rotate = direction.angle_to(velocity.rotated(PI))
 		var frame_degrees_to_rotate = rotation_speed * delta
-		if frame_degrees_to_rotate >= abs(rad2deg(total_radians_to_rotate)):
+		if frame_degrees_to_rotate >= abs(rad_to_deg(total_radians_to_rotate)):
 			rotation_degrees += total_radians_to_rotate
 		else:
 			var rotation_direction = total_radians_to_rotate / abs(total_radians_to_rotate)
@@ -49,7 +49,14 @@ func _physics_process(delta: float) -> void:
 
 	GameState.player.position = self.position
 	
-	velocity = move_and_slide(velocity, Vector2(0, 0), false, 4, PI/4, false)
+	set_velocity(velocity)
+	set_up_direction(Vector2(0, 0))
+	set_floor_stop_on_slope_enabled(false)
+	set_max_slides(4)
+	set_floor_max_angle(PI/4)
+	# TODOConverter40 infinite_inertia were removed in Godot 4.0 - previous value `false`
+	move_and_slide()
+	velocity = velocity
 
 
 func _on_AnimatedSprite_animation_finished() -> void:
@@ -57,7 +64,7 @@ func _on_AnimatedSprite_animation_finished() -> void:
 
 
 func _apply_collision_knockback_damage()-> bool:
-	for i in get_slide_count():
+	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		
 		if collision.collider is RigidBody2D: 

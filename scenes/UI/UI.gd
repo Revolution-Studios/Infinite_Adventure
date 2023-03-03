@@ -1,9 +1,9 @@
 extends CanvasLayer
 
-var systems = null setget _set_systems 
+var systems = null : set = _set_systems
 
 func _ready():
-	GameState.player.connect("hull_health_changed",self, "_update_health")
+	GameState.player.connect("hull_health_changed",Callable(self,"_update_health"))
 	_update_health(GameState.player.hull_health)
 
 func _update_health(val):

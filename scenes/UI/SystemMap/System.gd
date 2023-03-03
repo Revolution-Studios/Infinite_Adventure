@@ -3,7 +3,7 @@ extends Node2D
 signal selected
 
 var _system_data = null
-var selected = false setget _set_selected
+var selected = false : set = _set_selected
 
 var textures = {
 	"unexplored": preload("res://scenes/UI/SystemMap/art/unexploredSystemMapNode.png"),
@@ -18,10 +18,10 @@ var textures = {
 }
 
 func _ready():
-	assert($TextureRect.connect("gui_input", self, "_input_event") == 0)
+	assert($TextureRect.connect("gui_input",Callable(self,"_input_event")) == 0)
 	
 func _input_event(event):
-	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.is_pressed():
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
 		var id = -1
 		if _system_data and _system_data.id:
 			id = _system_data.id
