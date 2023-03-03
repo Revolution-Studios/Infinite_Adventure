@@ -12,7 +12,7 @@ motion_scale = Vector2( 0.4, 0.4 )
 motion_mirroring = Vector2( 1920, 1080 )
 
 [node name="TextureRect" type="TextureRect" parent="StarLayer"]
-margin_left = 600.0
-margin_top = 600.0
-margin_right = 2520.0
-margin_bottom = 1680.0
+offset_left = 600.0
+offset_top = 600.0
+offset_right = 2520.0
+offset_bottom = 1680.0

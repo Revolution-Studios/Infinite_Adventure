@@ -7,7 +7,7 @@
 [ext_resource path="res://scenes/World/World.gd" type="Script" id=7]
 
 [node name="World" type="Node2D"]
-pause_mode = 2
+process_mode = 2
 script = ExtResource( 7 )
 
 [node name="Pilot" parent="." instance=ExtResource( 2 )]

@@ -1,12 +1,12 @@
 extends Node2D
 
-onready var pilot = $Pilot
+@onready var pilot = $Pilot
 var player_ship = null
 var ship_name = null
 var systems = null
 
 func _ready() -> void:
-	GameState.player.connect("system_id_changed", self, "_on_system_id_changed")
+	GameState.player.connect("system_id_changed",Callable(self,"_on_system_id_changed"))
 	$UI.systems = systems
 	_render_planets()
 	if GameState.player.character != null:
@@ -23,7 +23,7 @@ func _get_ship_class_from_name(name):
 func _spawn_ship():
 	var ship_class = _get_ship_class_from_name(GameState.player.ship_type)
 	if ship_class:
-		var ship_instance = ship_class.instance()
+		var ship_instance = ship_class.instantiate()
 		pilot.add_child(ship_instance)
 		ship_instance.position = GameState.player.position
 
@@ -37,7 +37,7 @@ func _render_planets():
 	var current_system = systems.get_by_id(GameState.player.system_id)
 	for planet in current_system.planets:
 		if "position" in planet:
-			var planet_instance = planet_class.instance()
+			var planet_instance = planet_class.instantiate()
 			planet_instance.position = Vector2(planet.position[0],planet.position[1])
 			planet_instance.add_to_group("Planets")
 			planet_instance.planet_data = planet

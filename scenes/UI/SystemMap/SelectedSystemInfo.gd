@@ -1,14 +1,14 @@
 extends VBoxContainer
 
-export var label = 'System Name' setget _set_label
-export var values: PoolStringArray = ['Solaria'] setget _set_values
+@export var label = 'System Name' : set = _set_label
+@export var values: PackedStringArray = ['Solaria'] : set = _set_values
 
 func _ready():
 	_render()
 	
 func _render():
 	$Label.text = label
-	$Value.text = values.join('\n')
+	$Value.text = '\n'.join(values)
 
 func _set_label(val):
 	label = val

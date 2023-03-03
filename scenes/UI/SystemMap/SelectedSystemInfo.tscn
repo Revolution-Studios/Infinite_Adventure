@@ -1,10 +1,10 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://themes/fonts/ChivoMono-VariableFont_wght.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://themes/fonts/ChivoMono-VariableFont_wght.ttf" type="FontFile" id=1]
 [ext_resource path="res://scenes/UI/SystemMap/SelectedSystemInfo.gd" type="Script" id=2]
-[ext_resource path="res://themes/fonts/ChivoMono.tres" type="DynamicFont" id=3]
+[ext_resource path="res://themes/fonts/ChivoMono.tres" type="FontFile" id=3]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="FontFile" id=1]
 size = 12
 font_data = ExtResource( 1 )
 
@@ -12,17 +12,17 @@ font_data = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="."]
-margin_right = 550.0
-margin_bottom = 15.0
+offset_right = 550.0
+offset_bottom = 15.0
 custom_colors/font_color = Color( 0.601216, 0.763827, 0.78125, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Selected System"
 uppercase = true
 
 [node name="Value" type="Label" parent="."]
-margin_top = 19.0
-margin_right = 550.0
-margin_bottom = 39.0
+offset_top = 19.0
+offset_right = 550.0
+offset_bottom = 39.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 3 )
 text = "Solaria Solaria Solaria Solaria Solaria Solaria Solaria"

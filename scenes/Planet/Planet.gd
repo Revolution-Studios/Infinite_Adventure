@@ -10,4 +10,4 @@ func _ready():
 		var image = Image.new()
 		image.load(planet_data.planet_image)
 		texture.create_from_image(image)
-		$Sprite.texture = texture
+		$Sprite2D.texture = texture
