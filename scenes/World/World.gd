@@ -13,10 +13,10 @@ func _ready() -> void:
 		_spawn_ship()
 
 
-func _get_ship_class_from_name(name):
-	if name == "Harrier":
+func _get_ship_class_from_name(ship_name_string):
+	if ship_name_string == "Harrier":
 		return load("res://scenes/Ships/Harrier/Harrier.tscn")
-	elif name == "Falcon":
+	elif ship_name_string == "Falcon":
 		return load("res://scenes/Ships/Falcon/Falcon.tscn")
 	return null
 	

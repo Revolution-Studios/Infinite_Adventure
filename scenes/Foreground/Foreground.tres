@@ -1,6 +1,6 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://frjcpbdh481m"]
 
-[sub_resource type="Shader" id=1]
+[sub_resource type="Shader" id="1"]
 code = "shader_type canvas_item;
 
 uniform vec2 resolution = vec2(1000, 1000);
@@ -65,8 +65,8 @@ void fragment() {
 "
 
 [resource]
-shader = SubResource( 1 )
-shader_param/resolution = Vector2( 1920, 1080 )
-shader_param/offset = Vector2( 0, 0 )
-shader_param/nebula_color = Vector3( 255, 255, 255 )
-shader_param/opacity = 0.25
+shader = SubResource("1")
+shader_parameter/resolution = Vector2(1920, 1080)
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/nebula_color = Vector3(255, 255, 255)
+shader_parameter/opacity = 0.25

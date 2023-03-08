@@ -5,11 +5,7 @@ var _systems_by_id = {}
 
 func _init():
 	var systems_filename = "res://lib/data/systems.json";
-	var systems_file = File.new()
-	if not systems_file.file_exists(systems_filename):
-		return
-
-	systems_file.open(systems_filename, File.READ)
+	var systems_file = FileAccess.open(systems_filename, FileAccess.READ)
 	
 	var test_json_conv = JSON.new()
 	test_json_conv.parse(systems_file.get_as_text())

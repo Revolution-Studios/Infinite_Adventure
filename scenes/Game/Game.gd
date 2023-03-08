@@ -20,6 +20,7 @@ func _input(event) -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	get_tree().set_auto_accept_quit(false)
 	systems = load("res://lib/data/Systems.gd").new()
 	assert(GameState.connect("change_scene_to_file",Callable(self,"_change_scene")) == 0)
 	assert(get_tree().get_root().connect("size_changed",Callable(self,"_size_changed_game")) == 0)
@@ -28,7 +29,10 @@ func _ready():
 
 func _change_scene(sceneId):
 	if(root_scene_map.has(sceneId)):
-
+		print("StartMenu=", Constants.SceneId.StartMenu)
+		print("World=", Constants.SceneId.World)
+		print("PlanetSurface=", Constants.SceneId.PlanetSurface)
+		print("change_scene", sceneId)
 		var children_to_remove = $Content.get_children()
 		var new_scene = root_scene_map[sceneId].instantiate();
 		if sceneId == Constants.SceneId.World:
@@ -59,7 +63,7 @@ func _on_Close_Menu_pressed():
 
 func _on_Quit_pressed():
 	GameState.save()
-	get_tree().notification(MainLoop.NOTIFICATION_WM_QUIT_REQUEST)
+	get_tree().get_root().propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 
 
 func _on_FullScreen_pressed():

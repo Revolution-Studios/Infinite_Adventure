@@ -1,19 +1,31 @@
-[gd_resource type="Theme" load_steps=4 format=2]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://chxi0ia7bb6l8"]
 
-[ext_resource path="res://themes/fonts/SpaceGrotesk-SemiBold.ttf" type="FontFile" id=1]
+[ext_resource type="FontFile" uid="uid://od4x1o3iv6yf" path="res://themes/fonts/SpaceGrotesk-SemiBold.ttf" id="1"]
 
-[sub_resource type="FontFile" id=2]
-size = 27
-outline_size = 1
-outline_color = Color( 0.0156863, 0.0156863, 0.0156863, 1 )
-font_data = ExtResource( 1 )
+[sub_resource type="FontFile" id="2"]
+fallbacks = Array[Font]([ExtResource("1")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[sub_resource type="FontFile" id=3]
-size = 27
-outline_size = 1
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 1 )
+[sub_resource type="FontFile" id="3"]
+fallbacks = Array[Font]([ExtResource("1")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [resource]
-Button/fonts/font = SubResource( 2 )
-Label/fonts/font = SubResource( 3 )
+Button/fonts/font = SubResource("2")
+Label/fonts/font = SubResource("3")

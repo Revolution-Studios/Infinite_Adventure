@@ -10,7 +10,7 @@ extends Control
 func _ready():
 	visible = false
 
-func get_size():
+func get_node_size():
 	return (size.x)/2
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
