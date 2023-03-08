@@ -7,7 +7,6 @@ const TOGGLE_ANIMATION_TIME = 0.2
 
 var systems = null : set = _set_systems
 var shown = false : set = _set_shown
-var scale = 1
 var SystemClass = load("res://scenes/UI/SystemMap/System.tscn")
 var _drag = false
 var _editing_nav = false
@@ -46,8 +45,10 @@ func _set_shown(val):
 	else:
 		final_opacity = 0
 		final_pos_y = parent_height - size.y + 50
+		
+	var tween = create_tween()
 	
-	$Tween.interpolate_property(
+	tween.interpolate_property(
 		self,
 		"modulate:a",
 		modulate.a,
@@ -55,7 +56,7 @@ func _set_shown(val):
 		TOGGLE_ANIMATION_TIME,
 		Tween.TRANS_LINEAR
 	)
-	$Tween.interpolate_property(
+	tween.interpolate_property(
 		self,
 		"position:y",
 		position.y,
@@ -63,7 +64,7 @@ func _set_shown(val):
 		TOGGLE_ANIMATION_TIME,
 		Tween.TRANS_LINEAR
 	)
-	$Tween.start()
+	tween.start()
 	shown = val
 	_system_selected(GameState.player.system_id)
 
@@ -102,7 +103,7 @@ func _update_zoom(incr, mouse_pos):
 	system_container.scale = Vector2(_current_zoom_level, _current_zoom_level)
 
 func _system_id_changed(_current_system_id, _previous_system_id):
-	_render_systems()
+	call_deferred("_render_systems")
 
 func _render_systems():
 	for child in system_container.get_children():
@@ -150,15 +151,18 @@ func _render_systems():
 	# Add map systems
 	for systemData in systems.data.systems:
 		var system = SystemClass.instantiate()
-		system.fromJSON(systemData)
-		system_container.add_child(system)
-		system.connect("selected",Callable(self,"_system_selected"))
+		print(system)
+#		system.fromJSON(systemData)
+#		system_container.add_child(system)
+#		system.connect("selected",Callable(self,"_system_selected"))
 		_system_nodes[systemData.id] = system
 
 func _set_systems(val):
 	systems = val
-	_render_systems()
-	_center()
+	call_deferred("_render_systems")
+	call_deferred("_center")
+#	_render_systems()
+#	_center()
 
 func _system_selected(id):
 	var data = systems.get_by_id(id)

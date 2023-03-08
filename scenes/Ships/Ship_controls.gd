@@ -5,13 +5,13 @@ var max_speed: int = 500
 var rotation_speed: int = 150
 var inertia = 50
 var direction: Vector2
-var velocity: Vector2 = Vector2.ZERO
 var player_character = null
 
 @onready var flame_exhaust: Node2D = $Ship_Exhaust
 
 
 func _ready() -> void:
+	velocity = Vector2.ZERO
 	flame_exhaust.hide()
 
 
@@ -50,7 +50,7 @@ func _physics_process(delta: float) -> void:
 	GameState.player.position = self.position
 	
 	set_velocity(velocity)
-	set_up_direction(Vector2(0, 0))
+	direction = Vector2(0, 0)
 	set_floor_stop_on_slope_enabled(false)
 	set_max_slides(4)
 	set_floor_max_angle(PI/4)
@@ -86,7 +86,7 @@ func handle_landing_request():
 	
 	for planet in planets:
 		var planetsize = planet.get_node("Selection").get_size()
-		var closestplanetsize = closest_planet.get_node("Selection").get_size()
+		var closestplanetsize = closest_planet.get_node("Selection").get_node_size()
 		if planet.global_position.distance_to(global_position) - planetsize < closest_planet.global_position.distance_to(global_position) - closestplanetsize:
 			closest_planet = planet
 	if GameState.player.selection != null:
@@ -99,7 +99,7 @@ func handle_landing_request():
 	if speed_check > 50:
 		print ("Moving too fast, slow down")
 	else:
-		var planetsize = closest_planet.get_node("Selection").get_size()
+		var planetsize = closest_planet.get_node("Selection").get_node_size()
 		var distance_check = closest_planet.global_position.distance_to(global_position) - planetsize
 		print ("distance to planet ", distance_check)
 		if distance_check > 150:

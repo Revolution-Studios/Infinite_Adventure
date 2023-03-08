@@ -17,17 +17,13 @@ func toJSON():
 	}
 
 func save():
-	var save_file = File.new()
-	save_file.open(save_filename, File.WRITE)
-	save_file.store_line(JSON.new().stringify(toJSON()))
+	var save_file = FileAccess.open(save_filename, FileAccess
+.WRITE)
+	save_file.store_line(JSON.stringify(toJSON()))
 	save_file.close()
 
 func load_from_save():
-	var save_file = File.new()
-	if not save_file.file_exists(save_filename):
-		return
-
-	save_file.open(save_filename,File.READ)
+	var save_file = FileAccess.open(save_filename, FileAccess.READ)
 	
 	var test_json_conv = JSON.new()
 	test_json_conv.parse(save_file.get_as_text())
@@ -41,5 +37,6 @@ func fromJSON(json):
 	_set_scene(int(json.scene))
 
 func _notification(what: int) -> void:
-	if what == NOTIFICATION_WM_QUIT_REQUEST:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		save()
+		get_tree().quit()

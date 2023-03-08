@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 @onready var animated_sprite = $AnimatedSprite2D
-@onready var asteroid_type = $AnimatedSprite2D.frames.get_animation_names()
+@onready var asteroid_type = $AnimatedSprite2D.sprite_frames.get_animation_names()
 var damage = 10
 
 func _ready() -> void:
