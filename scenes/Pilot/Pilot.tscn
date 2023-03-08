@@ -1,7 +1,6 @@
-[gd_scene format=2]
+[gd_scene format=3 uid="uid://byk0wfr4l5h5g"]
 
 [node name="Pilot" type="Node2D"]
 process_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
-current = true
