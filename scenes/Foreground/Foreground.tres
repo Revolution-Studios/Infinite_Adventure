@@ -57,7 +57,7 @@ float cloud(vec2 st) {
 }
 
 void fragment() {
-	vec2 st = (FRAGCOORD.xy + offset * vec2(1, -1) * 1.5) / resolution.xy;
+	vec2 st = (FRAGCOORD.xy + offset * 1.5) / resolution.xy;
     st.x *= resolution.x / resolution.y;
     float v = cloud(st);
     COLOR = vec4(nebula_color/255.0, v * opacity);

@@ -18,7 +18,6 @@ func _load_foreground():
 func _size_changed():
 	_load_foreground()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	$ColorRect.material.set_shader_parameter('offset', GameState.player.position)
