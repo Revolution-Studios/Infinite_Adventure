@@ -2,12 +2,11 @@
 
 [ext_resource type="PackedScene" path="res://scenes/Asteroid/Asteroid.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://byk0wfr4l5h5g" path="res://scenes/Pilot/Pilot.tscn" id="2"]
-[ext_resource type="PackedScene" path="res://scenes/Foreground/Foreground.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://btwqyq5bhwtv5" path="res://scenes/Foreground/Foreground.tscn" id="5"]
 [ext_resource type="PackedScene" uid="uid://btxyogh73tnwo" path="res://scenes/UI/UI.tscn" id="6"]
 [ext_resource type="Script" path="res://scenes/World/World.gd" id="7"]
 
 [node name="World" type="Node2D"]
-process_mode = 2
 script = ExtResource("7")
 
 [node name="Pilot" parent="." instance=ExtResource("2")]
