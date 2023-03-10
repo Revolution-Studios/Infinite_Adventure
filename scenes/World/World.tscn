@@ -1,13 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://chd6p0cu6krio"]
+[gd_scene load_steps=7 format=3 uid="uid://chd6p0cu6krio"]
 
 [ext_resource type="PackedScene" uid="uid://qywbj3rshy64" path="res://scenes/Asteroid/Asteroid.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://byk0wfr4l5h5g" path="res://scenes/Pilot/Pilot.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://b1emfkprat461" path="res://scenes/Background/Background.tscn" id="2_23do4"]
 [ext_resource type="PackedScene" uid="uid://btwqyq5bhwtv5" path="res://scenes/Foreground/Foreground.tscn" id="5"]
 [ext_resource type="PackedScene" uid="uid://btxyogh73tnwo" path="res://scenes/UI/UI.tscn" id="6"]
 [ext_resource type="Script" path="res://scenes/World/World.gd" id="7"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("7")
+
+[node name="Background" parent="." instance=ExtResource("2_23do4")]
+layer = -100
 
 [node name="Pilot" parent="." instance=ExtResource("2")]
 position = Vector2(605, 473)
