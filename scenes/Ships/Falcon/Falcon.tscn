@@ -9,9 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://bepyevw82gu61" path="res://scenes/Ships/Falcon/art/fire04.png" id="7"]
 [ext_resource type="Texture2D" uid="uid://mq8yqot0t3vj" path="res://scenes/Ships/Falcon/art/fire01.png" id="8"]
 
-[sub_resource type="CapsuleShape2D" id="1"]
-radius = 11.0
-height = 21.9999
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q7iwq"]
+size = Vector2(48, 68)
 
 [sub_resource type="SpriteFrames" id="2"]
 animations = [{
@@ -61,8 +60,9 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.90737e-06, 5.72205e-06)
 rotation = 1.5708
-shape = SubResource("1")
+shape = SubResource("RectangleShape2D_q7iwq")
 
 [node name="Ship_Exhaust" type="AnimatedSprite2D" parent="."]
 position = Vector2(0.0001086, -30)
