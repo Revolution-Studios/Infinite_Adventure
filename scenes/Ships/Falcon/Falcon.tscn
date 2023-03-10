@@ -60,8 +60,6 @@ process_mode = 1
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("6")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("1")
@@ -70,5 +68,7 @@ shape = SubResource("1")
 position = Vector2(0.0001086, -30)
 sprite_frames = SubResource("2")
 animation = &"acceleration"
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="animation_finished" from="Ship_Exhaust" to="." method="_on_AnimatedSprite_animation_finished"]
