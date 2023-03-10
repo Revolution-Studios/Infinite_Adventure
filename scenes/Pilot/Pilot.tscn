@@ -2,5 +2,3 @@
 
 [node name="Pilot" type="Node2D"]
 process_mode = 1
-
-[node name="Camera2D" type="Camera2D" parent="."]

@@ -62,8 +62,6 @@ script = ExtResource("9")
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("6")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 process_mode = 1
 shape = SubResource("1")
@@ -72,5 +70,7 @@ shape = SubResource("1")
 position = Vector2(0, -55)
 sprite_frames = SubResource("2")
 animation = &"acceleration"
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="animation_finished" from="Ship_Exhaust" to="." method="_on_AnimatedSprite_animation_finished"]
