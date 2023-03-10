@@ -19,7 +19,10 @@ func _init():
 	systems_file.close()
 
 func get_by_id(id):
-	return _systems_by_id[id]
+	if id in _systems_by_id:
+		return _systems_by_id[id]
+	else:
+		return null
 	
 func get_goods_traded(system):
 	if !system.has('planets'):
