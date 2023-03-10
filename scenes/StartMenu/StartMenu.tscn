@@ -1,22 +1,25 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=8 format=3 uid="uid://bj7gnwjv1lbd0"]
 
-[ext_resource path="res://scenes/StartMenu/art/Nebula Aqua-Pink_start_menu.png" type="Texture2D" id=1]
-[ext_resource path="res://scenes/StartMenu/StartMenu.gd" type="Script" id=2]
-[ext_resource path="res://scenes/StartMenu/art/planet02_start_menu.png" type="Texture2D" id=3]
-[ext_resource path="res://themes/start_menu.tres" type="Theme" id=4]
-[ext_resource path="res://scenes/StartMenu/art/gamepad.png" type="Texture2D" id=5]
-[ext_resource path="res://scenes/StartMenu/art/import.png" type="Texture2D" id=6]
-[ext_resource path="res://scenes/StartMenu/art/cross.png" type="Texture2D" id=7]
+[ext_resource type="Texture2D" uid="uid://di5p8ayko4rh1" path="res://scenes/StartMenu/art/Nebula Aqua-Pink_start_menu.png" id="1"]
+[ext_resource type="Script" path="res://scenes/StartMenu/StartMenu.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://dcq3de740xc67" path="res://scenes/StartMenu/art/planet02_start_menu.png" id="3"]
+[ext_resource type="Theme" uid="uid://chxi0ia7bb6l8" path="res://themes/start_menu.tres" id="4"]
+[ext_resource type="Texture2D" uid="uid://de154aw8pum5c" path="res://scenes/StartMenu/art/gamepad.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://qguss55co44b" path="res://scenes/StartMenu/art/import.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://37uj2galkhnh" path="res://scenes/StartMenu/art/cross.png" id="7"]
 
 [node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource( 4 )
-script = ExtResource( 2 )
+theme = ExtResource("4")
+script = ExtResource("2")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
 anchor_left = 0.227
 anchor_top = 0.663
 anchor_right = 0.227
@@ -27,44 +30,36 @@ offset_right = 199.16
 offset_bottom = 140.96
 
 [node name="Start" type="Button" parent="VBoxContainer"]
-offset_right = 199.0
-offset_bottom = 44.0
-focus_neighbor_top = NodePath("../Quit")
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+focus_neighbor_top = NodePath("../Quit")
 text = "New Game"
-icon = ExtResource( 5 )
+icon = ExtResource("5")
 flat = true
-align = 0
 icon_alignment = 2
 expand_icon = true
 
 [node name="Continue" type="Button" parent="VBoxContainer"]
-offset_top = 48.0
-offset_right = 199.0
-offset_bottom = 92.0
-custom_minimum_size = Vector2( 100, 22 )
+custom_minimum_size = Vector2(100, 22)
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Continue"
-icon = ExtResource( 6 )
+icon = ExtResource("6")
 flat = true
-align = 0
 icon_alignment = 2
 expand_icon = true
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
-offset_top = 96.0
-offset_right = 199.0
-offset_bottom = 141.0
-custom_minimum_size = Vector2( 100, 22 )
-focus_neighbor_bottom = NodePath("../Start")
+custom_minimum_size = Vector2(100, 22)
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+focus_neighbor_bottom = NodePath("../Start")
 text = "Quit"
-icon = ExtResource( 7 )
+icon = ExtResource("7")
 flat = true
-align = 0
 icon_alignment = 2
 expand_icon = true
 
@@ -72,16 +67,19 @@ expand_icon = true
 layer = -1
 
 [node name="TextureRect" type="TextureRect" parent="Background"]
+custom_minimum_size = Vector2(4096, 4096)
+anchors_preset = -1
 anchor_right = 2.133
 anchor_bottom = 3.793
 offset_right = 0.639648
 offset_bottom = -0.44043
-custom_minimum_size = Vector2( 4096, 4096 )
-texture = ExtResource( 1 )
-expand = true
+texture = ExtResource("1")
+expand_mode = 1
 stretch_mode = 2
 
 [node name="Planet" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1280, 1280)
+layout_mode = 0
 anchor_left = 0.633
 anchor_top = 0.244
 anchor_right = 0.633
@@ -89,9 +87,8 @@ anchor_bottom = 0.244
 offset_top = 0.47998
 offset_right = 1280.0
 offset_bottom = 1280.48
-custom_minimum_size = Vector2( 1280, 1280 )
-scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 3 )
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3")
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

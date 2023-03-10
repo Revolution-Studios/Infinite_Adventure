@@ -6,7 +6,8 @@ extends Control
 func _ready() -> void:
 	start_game.grab_focus()
 	
-func _input(event):
+func _unhandled_input(event):
+	print("_input StartMenu", event)
 	if event.is_action_pressed("ui_select"):
 		if $VBoxContainer/Start.has_focus():
 			$VBoxContainer/Start.release_focus()

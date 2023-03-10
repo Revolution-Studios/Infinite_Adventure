@@ -1,6 +1,6 @@
 extends Node2D
 
-signal selected
+signal system_selected
 
 var _system_data = null
 var selected = false : set = _set_selected
@@ -21,11 +21,12 @@ func _ready():
 	assert($TextureRect.connect("gui_input",Callable(self,"_input_event")) == 0)
 	
 func _input_event(event):
+	print("_input System", event)
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
 		var id = -1
 		if _system_data and _system_data.id:
 			id = _system_data.id
-		emit_signal("selected", id)
+		emit_signal("system_selected", id)
 		
 func _set_selected(val):
 	$Selection.visible = val

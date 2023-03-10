@@ -5,11 +5,12 @@
 [ext_resource type="Theme" uid="uid://dv7mmpl3tg0ga" path="res://themes/RootTheme.tres" id="3"]
 
 [node name="Game" type="Control"]
-process_mode = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("3")
 script = ExtResource("1")
 
@@ -20,7 +21,6 @@ anchor_bottom = 1.0
 
 [node name="MainMenu" type="CanvasLayer" parent="."]
 layer = 100
-visible = false
 
 [node name="MainMenuPanel" type="Panel" parent="MainMenu"]
 anchors_preset = 8
@@ -77,6 +77,7 @@ focus_next = NodePath("../Close Menu")
 focus_previous = NodePath("../FullScreen")
 text = "Quit Game"
 
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="pressed" from="MainMenu/MainMenuPanel/ButtonContainer/Close Menu" to="." method="_on_Close_Menu_pressed"]
 [connection signal="pressed" from="MainMenu/MainMenuPanel/ButtonContainer/NewGame" to="." method="_on_NewGame_pressed"]
 [connection signal="pressed" from="MainMenu/MainMenuPanel/ButtonContainer/FullScreen" to="." method="_on_FullScreen_pressed"]

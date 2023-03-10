@@ -1,50 +1,74 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=3 uid="uid://cfdd5f1b603m6"]
 
-[ext_resource path="res://scenes/Ships/Falcon/art/fire06.png" type="Texture2D" id=1]
-[ext_resource path="res://scenes/Ships/Falcon/art/fire07.png" type="Texture2D" id=2]
-[ext_resource path="res://scenes/Ships/Falcon/art/fire05.png" type="Texture2D" id=3]
-[ext_resource path="res://scenes/Ships/Falcon/art/fire02.png" type="Texture2D" id=4]
-[ext_resource path="res://scenes/Ships/Falcon/art/fire03.png" type="Texture2D" id=5]
-[ext_resource path="res://scenes/Ships/Falcon/art/spaceShips_007X2.png" type="Texture2D" id=6]
-[ext_resource path="res://scenes/Ships/Falcon/art/fire04.png" type="Texture2D" id=7]
-[ext_resource path="res://scenes/Ships/Falcon/art/fire01.png" type="Texture2D" id=8]
-[ext_resource path="res://scenes/Ships/Ship_controls.gd" type="Script" id=9]
+[ext_resource type="Texture2D" uid="uid://loe2vci10q54" path="res://scenes/Ships/Falcon/art/fire06.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://c3cnrc6di1m88" path="res://scenes/Ships/Falcon/art/fire07.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://dbb7fe27yja7s" path="res://scenes/Ships/Falcon/art/fire05.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://cfie7neyenquj" path="res://scenes/Ships/Falcon/art/fire02.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://cujig12odrbj7" path="res://scenes/Ships/Falcon/art/fire03.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://3ciyd5xrrdni" path="res://scenes/Ships/Falcon/art/spaceShips_007X2.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://bepyevw82gu61" path="res://scenes/Ships/Falcon/art/fire04.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://mq8yqot0t3vj" path="res://scenes/Ships/Falcon/art/fire01.png" id="8"]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 22.0
+[sub_resource type="CapsuleShape2D" id="1"]
+radius = 11.0
 height = 21.9999
 
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 3 ) ],
+[sub_resource type="SpriteFrames" id="2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3")
+}],
 "loop": false,
-"name": "acceleration",
+"name": &"acceleration",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 3 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3")
+}],
 "loop": true,
-"name": "max-speed",
+"name": &"max-speed",
 "speed": 10.0
-} ]
+}]
 
 [node name="Falcon" type="CharacterBody2D"]
 process_mode = 1
-script = ExtResource( 9 )
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 6 )
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-current = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
-shape = SubResource( 1 )
+shape = SubResource("1")
 
 [node name="Ship_Exhaust" type="AnimatedSprite2D" parent="."]
-position = Vector2( 0.0001086, -30 )
-frames = SubResource( 2 )
-animation = "acceleration"
+position = Vector2(0.0001086, -30)
+sprite_frames = SubResource("2")
+animation = &"acceleration"
 
 [connection signal="animation_finished" from="Ship_Exhaust" to="." method="_on_AnimatedSprite_animation_finished"]
