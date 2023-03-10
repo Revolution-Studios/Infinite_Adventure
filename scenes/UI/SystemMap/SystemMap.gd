@@ -47,25 +47,8 @@ func _set_shown(val):
 		final_opacity = 0
 		final_pos_y = parent_height - size.y + 50
 		
-	var tween = create_tween()
-	
-	tween.interpolate_property(
-		self,
-		"modulate:a",
-		modulate.a,
-		final_opacity,
-		TOGGLE_ANIMATION_TIME,
-		Tween.TRANS_LINEAR
-	)
-	tween.interpolate_property(
-		self,
-		"position:y",
-		position.y,
-		final_pos_y,
-		TOGGLE_ANIMATION_TIME,
-		Tween.TRANS_LINEAR
-	)
-	tween.start()
+	create_tween().tween_property(self, "modulate:a", final_opacity, TOGGLE_ANIMATION_TIME).set_trans(Tween.TRANS_LINEAR);
+	create_tween().tween_property(self, "position:y", final_pos_y, TOGGLE_ANIMATION_TIME).set_trans(Tween.TRANS_LINEAR);
 	shown = val
 	_system_selected(GameState.player.system_id)
 
@@ -167,7 +150,8 @@ func _set_systems(val):
 
 func _system_selected(id):
 	var data = systems.get_by_id(id)
-	if !data:
+	print("_system_selected ", data, " ", id)
+	if data == null:
 		return
 	if id != _selected_system_id:
 		if _selected_system_id != null:
