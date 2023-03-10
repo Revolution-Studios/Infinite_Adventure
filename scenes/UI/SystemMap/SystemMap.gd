@@ -136,21 +136,18 @@ func _render_systems():
 	for systemData in systems.data.systems:
 		var system = SystemClass.instantiate()
 		print(system)
-#		system.fromJSON(systemData)
-#		system_container.add_child(system)
-#		system.connect("system_selected",Callable(self,"_system_selected"))
+		system.fromJSON(systemData)
+		system_container.add_child(system)
+		system.connect("system_selected",Callable(self,"_system_selected"))
 		_system_nodes[systemData.id] = system
 
 func _set_systems(val):
 	systems = val
-	call_deferred("_render_systems")
-	call_deferred("_center")
-#	_render_systems()
-#	_center()
+	_render_systems()
+	_center()
 
 func _system_selected(id):
 	var data = systems.get_by_id(id)
-	print("_system_selected ", data, " ", id)
 	if data == null:
 		return
 	if id != _selected_system_id:
