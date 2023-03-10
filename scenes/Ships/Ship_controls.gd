@@ -6,6 +6,7 @@ var rotation_speed: int = 150
 var inertia = 50
 var direction: Vector2
 var player_character = null
+var last_damage = 0
 
 @onready var flame_exhaust: Node2D = $Ship_Exhaust
 
@@ -66,14 +67,21 @@ func _on_AnimatedSprite_animation_finished() -> void:
 func _apply_collision_knockback_damage()-> bool:
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
 		
-		if collision.collider is RigidBody2D: 
-			collision.collider.apply_central_impulse(-collision.normal * inertia)
+		print("collision ", collider)
 		
-			if i > 0 and collision.collider_id == get_slide_collision(i -1).collider_id:  
+		if collider is RigidBody2D:
+			collider.apply_central_impulse(-collision.get_normal() * inertia)
+		
+			if i > 0 and collision.get_collider_id() == get_slide_collision(i -1).get_collider_id():  
 				continue
 		
-			GameState.player.hull_health = GameState.player.hull_health - collision.collider.damage
+			if Time.get_ticks_msec() - last_damage > 250:
+				print(collider, " ", collider.damage)
+				GameState.player.hull_health = GameState.player.hull_health - collider.damage
+				last_damage = Time.get_ticks_msec()
+				
 			return true
 		
 	return false

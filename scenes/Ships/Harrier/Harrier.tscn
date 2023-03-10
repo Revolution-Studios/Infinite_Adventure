@@ -11,8 +11,8 @@
 [ext_resource type="Script" path="res://scenes/Ships/Ship_controls.gd" id="9"]
 
 [sub_resource type="CapsuleShape2D" id="1"]
-radius = 19.0
-height = 38.0
+radius = 18.0
+height = 90.0
 
 [sub_resource type="SpriteFrames" id="2"]
 animations = [{
@@ -64,6 +64,7 @@ texture = ExtResource("6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 process_mode = 1
+position = Vector2(0, 1)
 shape = SubResource("1")
 
 [node name="Ship_Exhaust" type="AnimatedSprite2D" parent="."]
