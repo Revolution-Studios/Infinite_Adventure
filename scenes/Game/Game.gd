@@ -9,12 +9,12 @@ var root_scene_map = {
 	Constants.SceneId.PlanetSurface: preload("res://scenes/PlanetSurface/PlanetSurface.tscn"),
 }
 
-func _input(event) -> void:
+func _unhandled_input(event) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		$MainMenu.get_node("MainMenuPanel/ButtonContainer/NewGame").visible = (
 			GameState.scene != Constants.SceneId.StartMenu
 		)
-		
+
 		$MainMenu.visible = !$MainMenu.visible
 		Menu.grab_focus()
 
@@ -46,7 +46,7 @@ func _change_scene(sceneId):
 		for n in children_to_remove:
 			$Content.remove_child(n)
 			n.queue_free()
-			
+
 		GameState.player.selection = null
 
 func _size_changed_game():
@@ -54,12 +54,8 @@ func _size_changed_game():
 		'Exit' if ((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN)) else 'Enter'
 	) + ' Fullscreen'
 
-	
-
-
 func _on_Close_Menu_pressed():
 	$MainMenu.visible = false
-
 
 func _on_Quit_pressed():
 	GameState.save()
@@ -68,8 +64,6 @@ func _on_Quit_pressed():
 
 func _on_FullScreen_pressed():
 	get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (!((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN))) else Window.MODE_WINDOWED
-	
-
 
 func _on_NewGame_pressed():
 	GameState.player.queue_free()

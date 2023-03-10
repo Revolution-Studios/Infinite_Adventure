@@ -35,6 +35,7 @@ func _ready():
 	self.modulate.a = 0;
 
 func _set_shown(val):
+	print("set shown ", val)
 	_center()
 	var final_opacity = 0
 	var parent_height = get_viewport().get_visible_rect().size.y
@@ -154,7 +155,7 @@ func _render_systems():
 		print(system)
 #		system.fromJSON(systemData)
 #		system_container.add_child(system)
-#		system.connect("selected",Callable(self,"_system_selected"))
+#		system.connect("system_selected",Callable(self,"_system_selected"))
 		_system_nodes[systemData.id] = system
 
 func _set_systems(val):
@@ -228,6 +229,7 @@ func _update_nav_route(id):
 	clear_route_button.disabled = (path_resolved.size() == 0)
 
 func _input(event):
+	print("_input SystemMap", event)
 	if event.is_action_pressed("system_map_cam_drag"):
 		if _mouse_over_map:
 			_drag = true

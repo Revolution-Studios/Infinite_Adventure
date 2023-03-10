@@ -85,8 +85,9 @@ func handle_landing_request():
 
 	
 	for planet in planets:
-		var planetsize = planet.get_node("Selection").get_size()
+		var planetsize = planet.get_node("Selection").get_node_size()
 		var closestplanetsize = closest_planet.get_node("Selection").get_node_size()
+		print(planet.global_position.distance_to(global_position), " ", planetsize, " ", closest_planet.global_position.distance_to(global_position), " ", closestplanetsize)
 		if planet.global_position.distance_to(global_position) - planetsize < closest_planet.global_position.distance_to(global_position) - closestplanetsize:
 			closest_planet = planet
 	if GameState.player.selection != null:
@@ -95,7 +96,6 @@ func handle_landing_request():
 	GameState.player.selection = closest_planet
 	GameState.player.selection.get_node("Selection").visible = true
 	
-	print ("Speed = ",speed_check)
 	if speed_check > 50:
 		print ("Moving too fast, slow down")
 	else:
@@ -117,7 +117,7 @@ func handle_jump_request():
 		GameState.player.system_id = GameState.player.nav_route.pop_front()
 		print("Jumped to ", GameState.player.system_id, " nav_route = ", GameState.player.nav_route)
 
-func _input(event):
+func _unhandled_key_input(event):
 	if event.is_action_pressed("select_planet"):
 		handle_landing_request()
 	if event.is_action_pressed("jump"):
