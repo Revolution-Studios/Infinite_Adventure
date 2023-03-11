@@ -12,6 +12,7 @@ var ship_type = "Harrier"
 var planet_id = 1
 var system_id = 1 : set = _set_system_id
 var nav_route = []
+var systems = null
 
 func _set_hull_health(val):
 	hull_health = val
@@ -45,3 +46,18 @@ func fromJSON(json):
 			planet_id = null
 	if "system_id" in json:
 		system_id = int(json.system_id)
+		
+func current_system():
+	if systems == null:
+		return null
+	return systems.get_by_id(system_id)
+	
+func current_planet():
+	var current_system = current_system()
+	if current_system == null:
+		return null;
+	for planet in current_system.planets:
+		if planet.id == planet_id:
+			return planet
+	return null
+	

@@ -1,6 +1,5 @@
 extends Control
 
-var systems = null
 @onready var Menu = $MainMenu/MainMenuPanel/ButtonContainer/NewGame
 
 var root_scene_map = {
@@ -21,7 +20,7 @@ func _unhandled_input(event) -> void:
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_tree().set_auto_accept_quit(false)
-	systems = load("res://lib/data/Systems.gd").new()
+	GameState.player.systems = load("res://lib/data/Systems.gd").new()
 	assert(GameState.connect("change_scene_to_file",Callable(self,"_change_scene")) == 0)
 	assert(get_tree().get_root().connect("size_changed",Callable(self,"_size_changed_game")) == 0)
 	GameState.load_from_save()
@@ -35,13 +34,6 @@ func _change_scene(sceneId):
 		print("change_scene", sceneId)
 		var children_to_remove = $Content.get_children()
 		var new_scene = root_scene_map[sceneId].instantiate();
-		if sceneId == Constants.SceneId.World:
-			new_scene.systems = systems
-		elif sceneId == Constants.SceneId.PlanetSurface:
-			var current_system = systems.get_by_id(GameState.player.system_id)
-			for planet in current_system.planets:
-				if planet.id == GameState.player.planet_id:
-					new_scene.planet_data = planet
 		$Content.add_child(new_scene)
 		for n in children_to_remove:
 			$Content.remove_child(n)

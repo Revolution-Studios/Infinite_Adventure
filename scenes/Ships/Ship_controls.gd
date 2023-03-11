@@ -7,6 +7,7 @@ var inertia = 50
 var direction: Vector2
 var player_character = null
 var last_damage = 0
+var _jumping = false
 
 @onready var flame_exhaust: Node2D = $Ship_Exhaust
 
@@ -41,6 +42,10 @@ func _physics_process(delta: float) -> void:
 		rotation_degrees -= rotation_speed * delta
 	elif Input.is_action_pressed("rotate_right"):
 		rotation_degrees += rotation_speed * delta
+#	elif Input.is_action_just_pressed("jump"):
+#		_jumping = _can_jump()
+	elif Input.is_action_pressed("jump"):
+		print("jump down")
 	
 	if _apply_collision_knockback_damage():
 		velocity = velocity * -1
@@ -117,10 +122,18 @@ func handle_landing_request():
 			GameState.player.planet_id = closest_planet.planet_data.id
 			GameState.scene = Constants.SceneId.PlanetSurface
 
+#func _can_jump():
+#	if GameState.player.nav_route.size() == 0:
+#		var x = InputMap.action_get_events("toggle_system_map")
+#		print('Press "'+OS.get_keycode_string(x[0].keycode)+'" to open the map to set where you would like to jump')
+#		return false
+#	elif position.distance_to()
+
 func handle_jump_request():
 	print('Jump request')
 	if(GameState.player.nav_route.size() == 0):
-		print('Open the map to set where you would like to jump')
+		var x = InputMap.action_get_events("toggle_system_map")
+		print('Press "'+OS.get_keycode_string(x[0].keycode)+'" to open the map to set where you would like to jump')
 	else:
 		GameState.player.system_id = GameState.player.nav_route.pop_front()
 		print("Jumped to ", GameState.player.system_id, " nav_route = ", GameState.player.nav_route)
@@ -128,8 +141,8 @@ func handle_jump_request():
 func _unhandled_key_input(event):
 	if event.is_action_pressed("select_planet"):
 		handle_landing_request()
-	if event.is_action_pressed("jump"):
-		handle_jump_request()
+#	if event.is_action_pressed("jump"):
+#		handle_jump_request()
 
 
 	

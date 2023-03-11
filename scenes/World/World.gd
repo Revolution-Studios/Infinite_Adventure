@@ -3,11 +3,9 @@ extends Node2D
 @onready var pilot = $Pilot
 var player_ship = null
 var ship_name = null
-var systems = null
 
 func _ready() -> void:
 	GameState.player.connect("system_id_changed",Callable(self,"_on_system_id_changed"))
-	$UI.systems = systems
 	_render_planets()
 	if GameState.player.character != null:
 		_spawn_ship()
@@ -34,7 +32,7 @@ func _render_planets():
 		remove_child(planet)
 		planet.queue_free()
 	var planet_class = load("res://scenes/Planet/Planet.tscn")
-	var current_system = systems.get_by_id(GameState.player.system_id)
+	var current_system = GameState.player.current_system()
 	for planet in current_system.planets:
 		if "position" in planet:
 			var planet_instance = planet_class.instantiate()

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c72soclowwb1h"]
+
+[ext_resource type="Script" path="res://scenes/Blur/Blur.gd" id="1_7kaqv"]
+[ext_resource type="Shader" path="res://scenes/Background/BackgroundBlur.gdshader" id="1_m1vqf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ispot"]
+shader = ExtResource("1_m1vqf")
+shader_parameter/blur = Vector2(0, 0)
+
+[node name="Blur" type="CanvasLayer"]
+layer = 19
+script = ExtResource("1_7kaqv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ispot")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
