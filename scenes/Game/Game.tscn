@@ -21,6 +21,7 @@ anchor_bottom = 1.0
 
 [node name="MainMenu" type="CanvasLayer" parent="."]
 layer = 100
+visible = false
 
 [node name="MainMenuPanel" type="Panel" parent="MainMenu"]
 anchors_preset = 8

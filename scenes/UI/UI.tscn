@@ -15,6 +15,7 @@ theme = SubResource("1")
 value = 100.0
 
 [node name="SystemMap" parent="." instance=ExtResource("2")]
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
