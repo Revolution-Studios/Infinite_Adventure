@@ -4,13 +4,18 @@
 [ext_resource type="Script" path="res://scenes/Background/Background.gd" id="4"]
 
 [node name="Background" type="CanvasLayer"]
+layer = -100
 offset = Vector2(-600, -600)
 transform = Transform2D(1, 0, 0, 1, -600, -600)
 script = ExtResource("4")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Stars" type="CanvasLayer" parent="."]
+layer = -100
+
+[node name="ColorRect" type="ColorRect" parent="Stars"]
 material = ExtResource("2_s2egc")
-offset_left = 600.0
-offset_top = 600.0
-offset_right = 2520.0
-offset_bottom = 1680.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

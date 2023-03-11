@@ -5,7 +5,6 @@ const MIN_ZOOM_LEVEL = 4.0
 const ZOOM_INCREMENT = 0.05
 const TOGGLE_ANIMATION_TIME = 0.2
 
-var systems = null : set = _set_systems
 var shown = false : set = _set_shown
 var SystemClass = load("res://scenes/UI/SystemMap/System.tscn")
 var _drag = false
@@ -33,6 +32,7 @@ func _ready():
 	assert(map_control.connect("mouse_exited",Callable(self,"_mouse_exited_map")) == 0)
 	assert(GameState.player.connect("system_id_changed",Callable(self,"_system_id_changed")) == 0)
 	self.modulate.a = 0;
+	_render_systems()
 
 func _set_shown(val):
 	print("set shown ", val)
@@ -62,7 +62,7 @@ func _close():
 	_set_shown(false)
 	
 func _center():
-	var current_system = systems.get_by_id(GameState.player.system_id)
+	var current_system = GameState.player.current_system()
 	system_container.position = Vector2(current_system.position[0], current_system.position[1]) + map_control.size / 2
 	system_container.scale = Vector2(1, 1)
 
@@ -96,17 +96,14 @@ func _render_systems():
 	_system_nodes = {}
 	_system_edges = {}
 
-	if !systems:
-		return
-
 	# Add map route lines
-	for connection in systems.data.connections:
+	for connection in GameState.player.systems.data.connections:
 		var line = Line2D.new();
 		line.default_color = Color("979797")
 		line.width = 2
 		line.end_cap_mode = Line2D.LINE_CAP_NONE
-		var system1 = systems.get_by_id(connection[0])
-		var system2 = systems.get_by_id(connection[1])
+		var system1 = GameState.player.systems.get_by_id(connection[0])
+		var system2 = GameState.player.systems.get_by_id(connection[1])
 		var point1 = Vector2(system1.position[0], system1.position[1])
 		var point2 = Vector2(system2.position[0], system2.position[1])
 
@@ -133,7 +130,7 @@ func _render_systems():
 		last_id = path_id
 
 	# Add map systems
-	for systemData in systems.data.systems:
+	for systemData in GameState.player.systems.data.systems:
 		var system = SystemClass.instantiate()
 		print(system)
 		system.fromJSON(systemData)
@@ -141,13 +138,8 @@ func _render_systems():
 		system.connect("system_selected",Callable(self,"_system_selected"))
 		_system_nodes[systemData.id] = system
 
-func _set_systems(val):
-	systems = val
-	_render_systems()
-	_center()
-
 func _system_selected(id):
-	var data = systems.get_by_id(id)
+	var data = GameState.player.systems.get_by_id(id)
 	if data == null:
 		return
 	if id != _selected_system_id:
@@ -156,8 +148,8 @@ func _system_selected(id):
 		_system_nodes[id].selected = true
 		_selected_system_id = id
 		if data.relationship != "unexplored":
-			var goods = systems.get_goods_traded(data)
-			var services = systems.get_services(data)
+			var goods = GameState.player.systems.get_goods_traded(data)
+			var services = GameState.player.systems.get_services(data)
 			system_info.get_node("Name").values = PackedStringArray([data.name])
 			system_info.get_node("Government").values = PackedStringArray([data.government])
 			system_info.get_node("LegalStatus").values = PackedStringArray([data.relationship])

@@ -13,11 +13,11 @@ func _ready():
 	
 func _load_foreground():
 	var size = get_viewport().get_visible_rect().size
-	$ColorRect.set_size(size)
+	$Stars/ColorRect.set_size(size)
 	
 func _size_changed():
 	_load_foreground()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	$ColorRect.material.set_shader_parameter('offset', GameState.player.position)
+	$Stars/ColorRect.material.set_shader_parameter('offset', GameState.player.position)

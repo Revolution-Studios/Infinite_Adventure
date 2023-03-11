@@ -1,9 +1,11 @@
 extends Control
 
 @onready var Surface_start = $CanvasLayer/PlanetPanel/surfacelocations/Bar
-var planet_data = null
 
 func _ready() -> void:
+	var planet_data = GameState.player.current_planet()
+	if planet_data == null:
+		return
 	Surface_start.grab_focus()
 	if "shipyard_description" in planet_data:
 			$CanvasLayer/PlanetPanel/RichTextLabel.text = planet_data.shipyard_description
@@ -28,6 +30,9 @@ func _input(event):
 		GameState.player.planet_id = null
 
 func _on_Bar_pressed():
+	var planet_data = GameState.player.current_planet()
+	if planet_data == null:
+		return
 	if "bar_description" in planet_data:
 		$CanvasLayer/PlanetPanel/RichTextLabel.text = planet_data.bar_description
 	if "bar_image" in planet_data:
@@ -36,6 +41,9 @@ func _on_Bar_pressed():
 		$Backroundimage.texture = ImageTexture.create_from_image(image)
 
 func _on_Missions_pressed():
+	var planet_data = GameState.player.current_planet()
+	if planet_data == null:
+		return
 	if "missions_description" in planet_data:
 		$CanvasLayer/PlanetPanel/RichTextLabel.text = planet_data.missions_description
 	if "missions_image" in planet_data:
@@ -45,6 +53,9 @@ func _on_Missions_pressed():
 
 
 func _on_Trade_Center_pressed():
+	var planet_data = GameState.player.current_planet()
+	if planet_data == null:
+		return
 	if "trade_center_description" in planet_data:
 		$CanvasLayer/PlanetPanel/RichTextLabel.text = planet_data.trade_center_description
 	if "trade_center_image" in planet_data:
@@ -54,6 +65,9 @@ func _on_Trade_Center_pressed():
 
 
 func _on_Outfitter_pressed():
+	var planet_data = GameState.player.current_planet()
+	if planet_data == null:
+		return
 	if "outfitter_description" in planet_data:
 		$CanvasLayer/PlanetPanel/RichTextLabel.text = planet_data.outfitter_description
 	if "outfitter_image" in planet_data:
@@ -63,6 +77,9 @@ func _on_Outfitter_pressed():
 
 
 func _on_Refuel_pressed():
+	var planet_data = GameState.player.current_planet()
+	if planet_data == null:
+		return
 	if "shipyard_description" in planet_data:
 		$CanvasLayer/PlanetPanel/RichTextLabel.text = planet_data.shipyard_description
 	if "shipyard_image" in planet_data:

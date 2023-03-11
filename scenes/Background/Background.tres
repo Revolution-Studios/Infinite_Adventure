@@ -8,7 +8,6 @@ uniform vec2 offset = vec2(0, 0);
 uniform float density = 0.1;
 uniform float cellPadding = 7;
 
-
 float random (vec2 st) {
     return abs(
 		fract(
@@ -88,9 +87,6 @@ void fragment() {
 		float val2 = exp(-1.0 * dist * dist / (50. * brightness));
 		COLOR = vec4(val2, val2, val2, 1.);
 	}
-//	else {
-//		COLOR = vec4(val, val, val, 1.);
-//	}
 }
 "
 
