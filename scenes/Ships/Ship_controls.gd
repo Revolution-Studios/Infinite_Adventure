@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+signal begin_jump
+signal complete_jump
+
 var acceleration: int = 250
 var max_speed: int = 500
 var rotation_speed: int = 150
@@ -7,8 +10,8 @@ var inertia = 50
 var direction: Vector2
 var player_character = null
 var last_damage = 0
-var _jumping = false
 var _accelerating = false
+var _jump_timer: Timer = Timer.new()
 
 @onready var flame_exhaust: Node2D = $Ship_Exhaust
 
@@ -16,10 +19,14 @@ var _accelerating = false
 func _ready() -> void:
 	velocity = Vector2.ZERO
 	flame_exhaust.hide()
+	_jump_timer.one_shot = true
+	_jump_timer.timeout.connect(_complete_jump)
+	add_child(_jump_timer)
 
 
 func _physics_process(delta: float) -> void:
-	direction = Vector2(cos(self.rotation + PI/2), sin(self.rotation + PI/2))
+	if !_jump_timer.is_stopped():
+		return
 	if Input.is_action_pressed("move_forward"):
 		_start_accelerating()
 	
@@ -38,23 +45,28 @@ func _physics_process(delta: float) -> void:
 		if warning == '':
 			if velocity.length() > 0:
 				var flip_complete = _do_flip(delta)
+				print("flip_complete ", flip_complete)
 				if flip_complete:
-					print("velocity", velocity.length())
 					if velocity.length() > acceleration * delta:
+						print("_start_accelerating")
 						_start_accelerating()
 					else:
 						_stop_accelerating()
 						velocity = Vector2.ZERO
 			else:
-				_do_jump()
+				var path_direction = GameState.player.systems.get_path_direction(GameState.player.system_id, GameState.player.nav_route[0])
+				var rotate_complete = _rotate_to(path_direction.rotated(PI / -2), delta)
+				if rotate_complete:
+					_begin_jump(path_direction)
+
 		elif Input.is_action_just_pressed("jump"):
 			print(warning)
 	elif Input.is_action_just_released("jump"):
 		if !Input.is_action_pressed("move_forward"):
 			_stop_accelerating()
-				
+
 	if _accelerating:
-		velocity = velocity.move_toward(direction * max_speed, acceleration * delta)
+		velocity = velocity.move_toward(Vector2(1, 0).rotated(rotation + PI / 2) * max_speed, acceleration * delta)
 	
 	if _apply_collision_knockback_damage():
 		velocity = velocity * -1
@@ -62,30 +74,42 @@ func _physics_process(delta: float) -> void:
 	if GameState.player.hull_health <= 0: 
 		queue_free()
 
+
 	GameState.player.position = self.position
 	
 	set_velocity(velocity)
-	direction = Vector2(0, 0)
 	set_floor_stop_on_slope_enabled(false)
 	set_max_slides(4)
 	set_floor_max_angle(PI/4)
 	# TODOConverter40 infinite_inertia were removed in Godot 4.0 - previous value `false`
 	move_and_slide()
 	velocity = velocity
-	
-func _do_flip(delta):
-	var total_degrees_to_rotate = rad_to_deg(direction.angle_to(velocity.rotated(PI)))
+
+func _rotate_to(vec: Vector2, delta):
+	var rotation_vec = Vector2(1, 0).rotated(rotation)
+	var total_degrees_to_rotate = rad_to_deg(rotation_vec.angle_to(vec))
 	var frame_degrees_to_rotate = rotation_speed * delta
 	if frame_degrees_to_rotate >= abs(total_degrees_to_rotate):
-		rotation = velocity.rotated(PI).angle() - PI / 2
+		rotation = vec.angle()
 		return true
 	else:
 		var rotation_direction = total_degrees_to_rotate / abs(total_degrees_to_rotate)
 		rotation_degrees += rotation_direction * frame_degrees_to_rotate
 		return false
+	
+func _do_flip(delta):
+	return _rotate_to(velocity.rotated(PI/2), delta)
 		
-func _do_jump():
+func _begin_jump(dir: Vector2):
+	if _jump_timer.is_stopped():
+		print("begin jump")
+		_jump_timer.start(Constants.JumpTime)
+		emit_signal("begin_jump", dir)
+
+func _complete_jump():
+	print("complete_jump")
 	GameState.player.system_id = GameState.player.nav_route.pop_front()
+	emit_signal("complete_jump")
 
 func _start_accelerating():
 	if !_accelerating:
@@ -128,6 +152,8 @@ func _apply_collision_knockback_damage()-> bool:
 	
 func _get_closest_planet():
 	var planets = get_tree().get_nodes_in_group("Planets")
+	if !planets.size():
+		return null
 	var closest_planet = planets[0]
 	
 	for planet in planets:
@@ -166,7 +192,7 @@ func _jump_warning() -> String:
 		var x = InputMap.action_get_events("toggle_system_map")
 		return 'Press "'+OS.get_keycode_string(x[0].keycode)+'" to open the map to set where you would like to jump'
 	var closest_planet = _get_closest_planet()
-	if global_position.distance_to(closest_planet.global_position) < 700:
+	if closest_planet != null and global_position.distance_to(closest_planet.global_position) < 700:
 		return "You are too close to the system center. Move away from planets before jumping."
 	return ''
 

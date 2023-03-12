@@ -58,7 +58,9 @@ func _on_FullScreen_pressed():
 	get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (!((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN))) else Window.MODE_WINDOWED
 
 func _on_NewGame_pressed():
+	var newPlayer = PlayerState.new()
+	newPlayer.systems = GameState.player.systems.duplicate()
 	GameState.player.queue_free()
-	GameState.player = PlayerState.new()
+	GameState.player = newPlayer
 	GameState.scene = Constants.SceneId.World
 	$MainMenu.visible = false

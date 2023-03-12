@@ -1,4 +1,5 @@
 extends Node
+class_name Systems
 
 var data = null;
 var _systems_by_id = {}
@@ -43,3 +44,10 @@ func get_services(system):
 			for good in planet.services:
 				goods[good] = true
 	return goods.keys()
+
+func get_path_direction(from: int, to: int) -> Vector2:
+	var system1 = GameState.player.systems.get_by_id(from)
+	var system2 = GameState.player.systems.get_by_id(to)
+	var point1 = Vector2(system1.position[0], system1.position[1])
+	var point2 = Vector2(system2.position[0], system2.position[1])
+	return (point2 - point1).normalized()

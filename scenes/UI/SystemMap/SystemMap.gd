@@ -87,7 +87,7 @@ func _update_zoom(incr, mouse_pos):
 	system_container.scale = Vector2(_current_zoom_level, _current_zoom_level)
 
 func _system_id_changed(_current_system_id, _previous_system_id):
-	call_deferred("_render_systems")
+	_render_systems()
 
 func _render_systems():
 	for child in system_container.get_children():
@@ -173,7 +173,7 @@ func _update_nav_route(id):
 		var last_id = path[i-1]
 		_system_edges[last_id][path[i]].default_color = Color("979797")
 	
-	var path_resolved = [GameState.player.system_id]
+	var path_resolved: Array[int] = [GameState.player.system_id]
 	if id != GameState.player.system_id:
 		for i in range(1, path.size()):
 			var last_id = path[i-1]
