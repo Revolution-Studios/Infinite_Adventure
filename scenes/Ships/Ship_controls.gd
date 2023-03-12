@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal begin_jump
+signal pre_complete_jump
 signal complete_jump
 
 var acceleration: int = 250
