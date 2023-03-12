@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 
 Constants="*res://lib/Constants.gd"
 GameState="*res://lib/state/GameState.gd"
+SoundEffect="*res://lib/SoundEffect.gd"
 
 [display]
 

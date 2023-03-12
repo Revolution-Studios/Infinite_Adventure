@@ -40,8 +40,10 @@ func _on_begin_jump(dir: Vector2):
 	_blur_direction = dir
 	_blur_progress = 0
 	$Blur.visible = true
-	
+	SoundEffect.play(Constants.Sound.JumpBegin)
+
 func _on_complete_jump():
+	SoundEffect.play(Constants.Sound.JumpComplete)
 	print("world complete_jump")
 	_blur_progress = 0
 	$Blur.visible = false
