@@ -1,7 +1,7 @@
 extends Node
 
-var scene = Constants.SceneId.StartMenu : set = _set_scene
-var player = PlayerState.new()
+var scene: Constants.SceneId = Constants.SceneId.StartMenu : set = _set_scene
+var player: PlayerState = PlayerState.new()
 var save_filename = "user://save_game.save"
 
 signal change_scene_to_file

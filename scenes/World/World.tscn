@@ -1,36 +1,53 @@
-[gd_scene load_steps=8 format=3 uid="uid://chd6p0cu6krio"]
+[gd_scene load_steps=9 format=3 uid="uid://chd6p0cu6krio"]
 
 [ext_resource type="PackedScene" uid="uid://qywbj3rshy64" path="res://scenes/Asteroid/Asteroid.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://byk0wfr4l5h5g" path="res://scenes/Pilot/Pilot.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://b1emfkprat461" path="res://scenes/Background/Background.tscn" id="2_23do4"]
+[ext_resource type="Shader" path="res://scenes/Background/BackgroundBlur.gdshader" id="4_su18t"]
 [ext_resource type="PackedScene" uid="uid://btwqyq5bhwtv5" path="res://scenes/Foreground/Foreground.tscn" id="5"]
 [ext_resource type="PackedScene" uid="uid://btxyogh73tnwo" path="res://scenes/UI/UI.tscn" id="6"]
-[ext_resource type="PackedScene" uid="uid://c72soclowwb1h" path="res://scenes/Blur/Blur.tscn" id="6_gmxfp"]
 [ext_resource type="Script" path="res://scenes/World/World.gd" id="7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jy34u"]
+shader = ExtResource("4_su18t")
+shader_parameter/blur = Vector2(150, 0)
 
 [node name="World" type="Node2D"]
 script = ExtResource("7")
 
 [node name="Background" parent="." instance=ExtResource("2_23do4")]
 
-[node name="Pilot" parent="." instance=ExtResource("2")]
-position = Vector2(605, 473)
+[node name="Bodies" type="CanvasLayer" parent="."]
+layer = -10
+follow_viewport_enabled = true
 
-[node name="Asteroid" parent="." instance=ExtResource("1")]
+[node name="Asteroid" parent="Bodies" instance=ExtResource("1")]
 position = Vector2(691, 276)
 
-[node name="Asteroid2" parent="." instance=ExtResource("1")]
+[node name="Asteroid2" parent="Bodies" instance=ExtResource("1")]
 position = Vector2(1191, 849)
 
-[node name="Asteroid3" parent="." instance=ExtResource("1")]
+[node name="Asteroid3" parent="Bodies" instance=ExtResource("1")]
 position = Vector2(439, 653)
 
-[node name="Foreground" parent="." instance=ExtResource("5")]
-layer = 0
-
-[node name="Blur" parent="." instance=ExtResource("6_gmxfp")]
-process_mode = 1
+[node name="Blur" type="CanvasLayer" parent="."]
+layer = -5
 visible = false
 
+[node name="ColorRect" type="ColorRect" parent="Blur"]
+material = SubResource("ShaderMaterial_jy34u")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Pilot" parent="." instance=ExtResource("2")]
+z_as_relative = false
+position = Vector2(605, 473)
+
+[node name="Foreground" parent="." instance=ExtResource("5")]
+layer = 40
+
 [node name="UI" parent="." instance=ExtResource("6")]
-layer = 20
+layer = 50

@@ -10,15 +10,15 @@ var selection = null
 var character = "yam"
 var ship_type = "Harrier"
 var planet_id = 1
-var system_id = 1 : set = _set_system_id
-var nav_route = []
-var systems = null
+var system_id: int = 1 : set = _set_system_id
+var nav_route: Array[int] = []
+var systems: Systems = null
 
 func _set_hull_health(val):
 	hull_health = val
 	emit_signal("hull_health_changed", hull_health)
 
-func _set_system_id(val):
+func _set_system_id(val: int):
 	var previous_system_id = system_id
 	system_id = val
 	emit_signal("system_id_changed", system_id, previous_system_id)
