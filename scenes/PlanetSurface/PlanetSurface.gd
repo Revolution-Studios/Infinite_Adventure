@@ -10,9 +10,7 @@ func _ready() -> void:
 	if "shipyard_description" in planet_data:
 			$CanvasLayer/PlanetPanel/RichTextLabel.text = planet_data.shipyard_description
 	if "shipyard_image" in planet_data:
-		var image = Image.new()
-		image.load(planet_data.shipyard_image)
-		$Backroundimage.texture = ImageTexture.create_from_image(image)
+		$Backroundimage.texture = load(planet_data.shipyard_image)
 
 func _on_Leave_pressed():
 	GameState.scene = Constants.SceneId.World
@@ -36,9 +34,7 @@ func _on_Bar_pressed():
 	if "bar_description" in planet_data:
 		$CanvasLayer/PlanetPanel/RichTextLabel.text = planet_data.bar_description
 	if "bar_image" in planet_data:
-		var image = Image.new()
-		image.load(planet_data.bar_image)
-		$Backroundimage.texture = ImageTexture.create_from_image(image)
+		$Backroundimage.texture = load(planet_data.bar_image)
 
 func _on_Missions_pressed():
 	var planet_data = GameState.player.current_planet()
@@ -47,9 +43,7 @@ func _on_Missions_pressed():
 	if "missions_description" in planet_data:
 		$CanvasLayer/PlanetPanel/RichTextLabel.text = planet_data.missions_description
 	if "missions_image" in planet_data:
-		var image = Image.new()
-		image.load(planet_data.missions_image)
-		$Backroundimage.texture = ImageTexture.create_from_image(image)
+		$Backroundimage.texture = load(planet_data.missions_image)
 
 
 func _on_Trade_Center_pressed():
@@ -59,9 +53,7 @@ func _on_Trade_Center_pressed():
 	if "trade_center_description" in planet_data:
 		$CanvasLayer/PlanetPanel/RichTextLabel.text = planet_data.trade_center_description
 	if "trade_center_image" in planet_data:
-		var image = Image.new()
-		image.load(planet_data.trade_center_image)
-		$Backroundimage.texture = ImageTexture.create_from_image(image)
+		$Backroundimage.texture = load(planet_data.trade_center_image)
 
 
 func _on_Outfitter_pressed():
@@ -71,9 +63,7 @@ func _on_Outfitter_pressed():
 	if "outfitter_description" in planet_data:
 		$CanvasLayer/PlanetPanel/RichTextLabel.text = planet_data.outfitter_description
 	if "outfitter_image" in planet_data:
-		var image = Image.new()
-		image.load(planet_data.outfitter_image)
-		$Backroundimage.texture = ImageTexture.create_from_image(image)
+		$Backroundimage.texture = load(planet_data.outfitter_image)
 
 
 func _on_Refuel_pressed():
@@ -83,6 +73,4 @@ func _on_Refuel_pressed():
 	if "shipyard_description" in planet_data:
 		$CanvasLayer/PlanetPanel/RichTextLabel.text = planet_data.shipyard_description
 	if "shipyard_image" in planet_data:
-		var image = Image.new()
-		image.load(planet_data.shipyard_image)
-		$Backroundimage.texture = ImageTexture.create_from_image(image)
+		$Backroundimage.texture = load(planet_data.shipyard_image)
