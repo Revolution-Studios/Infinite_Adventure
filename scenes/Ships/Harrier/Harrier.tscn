@@ -11,8 +11,8 @@
 [ext_resource type="Script" path="res://scenes/Ships/Ship_controls.gd" id="9"]
 
 [sub_resource type="CapsuleShape2D" id="1"]
-radius = 18.0
-height = 90.0
+radius = 28.0
+height = 92.0
 
 [sub_resource type="SpriteFrames" id="2"]
 animations = [{
