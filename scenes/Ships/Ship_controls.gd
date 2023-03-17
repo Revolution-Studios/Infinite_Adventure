@@ -138,9 +138,9 @@ func _apply_collision_knockback_damage()-> bool:
 		
 		
 		if collider is RigidBody2D:
-			collider.apply_central_impulse(-collision.get_normal() * inertia)
+			collider.apply_central_impulse(-collision.get_normal() * (inertia + 1))
 		
-			if i > 0 and collision.get_collider_id() == get_slide_collision(i -1).get_collider_id():  
+			if i > 0 and collision.get_collider_id() == get_slide_collision(i -1).get_collider_id():
 				continue
 		
 			if Time.get_ticks_msec() - last_damage > 250:

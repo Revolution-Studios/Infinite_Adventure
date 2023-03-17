@@ -1502,8 +1502,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="26"]
-radius = 20.8968
-height = 62.7812
+radius = 20.5042
+height = 57.0303
 
 [node name="Asteroid" type="RigidBody2D"]
 position = Vector2(960, 540)
@@ -1514,14 +1514,16 @@ script = ExtResource("2")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3.5, 1.5)
 sprite_frames = SubResource("25")
-animation = &"Asteroid3"
+animation = &"Asteroid9"
+frame_progress = 0.566569
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0.5)
+position = Vector2(3, 2)
 rotation = -0.856932
 shape = SubResource("26")
 
 [node name="Selection" parent="." instance=ExtResource("3")]
+visible = false
 layout_mode = 3
 anchors_preset = 8
 offset_left = -60.0
