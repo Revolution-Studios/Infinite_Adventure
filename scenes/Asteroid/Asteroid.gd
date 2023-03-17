@@ -1,4 +1,5 @@
 extends RigidBody2D
+class_name Asteroid
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var asteroid_type = $AnimatedSprite2D.sprite_frames.get_animation_names()
