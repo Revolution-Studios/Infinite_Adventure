@@ -13,6 +13,7 @@ var player_character = null
 var last_damage = 0
 var _accelerating = false
 var _jump_timer: Timer = Timer.new()
+var _last_asteroid_collision = 0
 
 @onready var flame_exhaust: Node2D = $Ship_Exhaust
 
@@ -69,22 +70,26 @@ func _physics_process(delta: float) -> void:
 	if _accelerating:
 		velocity = velocity.move_toward(Vector2(1, 0).rotated(rotation + PI / 2) * max_speed, acceleration * delta)
 	
-	if _apply_collision_knockback_damage():
-		velocity = velocity * -1
-	
 	if GameState.player.hull_health <= 0: 
 		queue_free()
-
 
 	GameState.player.position = self.position
 	
 	set_velocity(velocity)
-	set_floor_stop_on_slope_enabled(false)
-	set_max_slides(4)
-	set_floor_max_angle(PI/4)
-	# TODOConverter40 infinite_inertia were removed in Godot 4.0 - previous value `false`
-	move_and_slide()
-	velocity = velocity
+	var collision = move_and_collide(velocity * delta)
+	if collision != null:
+		_handle_collision(collision)
+
+func _handle_collision(collision: KinematicCollision2D):
+	var collider = collision.get_collider()
+	if collider is Asteroid and Time.get_unix_time_from_system() - _last_asteroid_collision > 0.5:
+		var offset = collider.global_position - collision.get_position()
+		collider.apply_impulse(velocity*1.5, offset)
+#		collider.set_position(collider.position + velocity.normalized()*50)
+		_last_asteroid_collision = Time.get_unix_time_from_system()
+		print("collide")
+	elif collider is Planet:
+		move_and_slide()
 
 func _rotate_to(vec: Vector2, delta):
 	var rotation_vec = Vector2(1, 0).rotated(rotation)
