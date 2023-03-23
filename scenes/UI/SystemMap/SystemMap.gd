@@ -3,7 +3,7 @@ extends ReferenceRect
 const MAX_ZOOM_LEVEL = 0.5
 const MIN_ZOOM_LEVEL = 4.0
 const ZOOM_INCREMENT = 0.05
-const TOGGLE_ANIMATION_TIME = 0.2
+const TOGGLE_ANIMATION_TIME = 0.3
 
 var shown = false : set = _set_shown
 var SystemClass = load("res://scenes/UI/SystemMap/System.tscn")
@@ -15,6 +15,7 @@ var _mouse_over_map = false
 var _selected_system_id = null
 var _system_nodes = {}
 var _system_edges = {}
+var _first = true
 @onready var center_container = $Row.get_node("Center")
 @onready var map_control = center_container.get_node("MarginContainer/Control")
 @onready var system_container = map_control.get_node("SystemContainer")
@@ -37,15 +38,24 @@ func _ready():
 func _set_shown(val):
 	print("set shown ", val)
 	_center()
-	var final_opacity = 0
-	var parent_height = get_viewport().get_visible_rect().size.y
-	var final_pos_y = parent_height - size.y
+	var screen_height = get_viewport().get_visible_rect().size.y
+	var parent_height = get_parent().size.y
+	size.y = max(parent_height, screen_height / 3)
+	print("screen_height ", screen_height)
+	print("position.y ", position.y)
+	if _first:
+		position.y = size.y
+		_first = false
+	var final_pos_y
+	var final_opacity
 	if val:
 		final_opacity = 1
-		final_pos_y = parent_height - size.y - 50
+		final_pos_y = parent_height - size.y
 	else:
 		final_opacity = 0
-		final_pos_y = parent_height - size.y + 50
+		final_pos_y = size.y
+		
+	print("final_pos_y ", final_pos_y)
 		
 	create_tween().tween_property(self, "modulate:a", final_opacity, TOGGLE_ANIMATION_TIME).set_trans(Tween.TRANS_LINEAR);
 	create_tween().tween_property(self, "position:y", final_pos_y, TOGGLE_ANIMATION_TIME).set_trans(Tween.TRANS_LINEAR);

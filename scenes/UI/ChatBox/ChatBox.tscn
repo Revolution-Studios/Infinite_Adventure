@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjeiopahivnx6"]
+
+[ext_resource type="Script" path="res://scenes/UI/ChatBox/ChatBox.gd" id="1_2k6pb"]
+
+[node name="ChatBox" type="PanelContainer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -48.0
+offset_right = 505.0
+offset_bottom = -5.0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_2k6pb")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="RichTextLabel" parent="MarginContainer"]
+custom_minimum_size = Vector2(156, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 22
+text = "sdfkjshdfj"
+fit_content = true

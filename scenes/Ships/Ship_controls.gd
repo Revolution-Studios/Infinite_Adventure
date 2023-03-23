@@ -29,6 +29,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if !_jump_timer.is_stopped():
 		return
+		
 	if Input.is_action_pressed("move_forward"):
 		_start_accelerating()
 	
@@ -62,7 +63,7 @@ func _physics_process(delta: float) -> void:
 					_begin_jump(path_direction)
 
 		elif Input.is_action_just_pressed("jump"):
-			print(warning)
+			GameState.show_message(warning)
 	elif Input.is_action_just_released("jump"):
 		if !Input.is_action_pressed("move_forward"):
 			_stop_accelerating()
@@ -181,15 +182,15 @@ func handle_landing_request():
 	GameState.player.selection.get_node("Selection").visible = true
 	
 	if speed_check > 50:
-		print ("Moving too fast, slow down")
+		GameState.show_message("Moving too fast, slow down")
 	else:
 		var planetsize = closest_planet.get_node("Selection").get_node_size()
 		var distance_check = closest_planet.global_position.distance_to(global_position) - planetsize
 		print ("distance to planet ", distance_check)
 		if distance_check > 150:
-			print ("You have to get closer if you're trying to land")
+			GameState.show_message("You have to get closer if you're trying to land")
 		else:
-			print ("Landing sequence initiated")
+			GameState.show_message("Landing sequence initiated")
 			GameState.player.planet_id = closest_planet.planet_data.id
 			GameState.scene = Constants.SceneId.PlanetSurface
 

@@ -3,8 +3,10 @@ extends Node
 var scene: Constants.SceneId = Constants.SceneId.StartMenu : set = _set_scene
 var player: PlayerState = PlayerState.new()
 var save_filename = "user://save_game.save"
+var messages: PackedStringArray = []
 
 signal change_scene_to_file
+signal new_message
 
 func _set_scene(next_scene):
 	scene = next_scene
@@ -40,3 +42,7 @@ func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		save()
 		get_tree().quit()
+
+func show_message(message: String):
+	messages.append(message)
+	emit_signal("new_message", message) 

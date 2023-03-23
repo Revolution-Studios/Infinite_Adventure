@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/UI/SystemMap/SelectedSystemInfo.gd" id="2"]
 [ext_resource type="FontFile" uid="uid://bs3uui4klwiur" path="res://themes/fonts/ChivoMono-Italic-VariableFont_wght.ttf" id="2_b6orm"]
-[ext_resource type="FontFile" path="res://themes/fonts/ChivoMono.tres" id="3"]
+[ext_resource type="FontFile" uid="uid://44jfbhcp4fyi" path="res://themes/fonts/ChivoMono.tres" id="3"]
 
 [node name="SystemInfo" type="VBoxContainer"]
 script = ExtResource("2")
