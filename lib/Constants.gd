@@ -8,6 +8,6 @@ enum EngineType { IonDrive }
 
 var JumpTime: float = 1.5
 
-enum Sound { JumpBegin, JumpComplete }
+enum Sound { JumpBegin, JumpComplete, Message }
 
 #export var SceneId: _SceneId
