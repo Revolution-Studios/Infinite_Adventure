@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://big518wdojcxl"]
+[gd_scene load_steps=8 format=3 uid="uid://big518wdojcxl"]
 
 [ext_resource type="Texture2D" uid="uid://fh7olytaib5e" path="res://scenes/UI/SystemMap/art/CenterSystemMapFrame.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://c0wxg0k5s3jpb" path="res://scenes/UI/SystemMap/art/RightSystemMapFrame.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://cnf24ko3jueqe" path="res://scenes/UI/SystemMap/art/LeftSystemMapFrame.png" id="4"]
 [ext_resource type="Script" path="res://scenes/UI/SystemMap/SystemMap.gd" id="5"]
 [ext_resource type="Texture2D" uid="uid://ckd7l8rfy7iwb" path="res://scenes/UI/SystemMap/art/MapCloseIconButton.png" id="6"]
-[ext_resource type="PackedScene" path="res://scenes/UI/SystemMap/SelectedSystemInfo.tscn" id="7"]
+[ext_resource type="FontFile" path="res://themes/fonts/ChivoMono.tres" id="6_odjp8"]
+[ext_resource type="PackedScene" uid="uid://do0sj3ioumenw" path="res://scenes/UI/SystemMap/SelectedSystemInfo.tscn" id="7"]
 
 [node name="SystemMap" type="ReferenceRect"]
 anchors_preset = 15
@@ -22,6 +23,7 @@ layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
+theme_override_constants/separation = 0
 
 [node name="Left" type="MarginContainer" parent="Row"]
 layout_mode = 2
@@ -37,6 +39,9 @@ patch_margin_bottom = 182
 
 [node name="MarginContainer" type="MarginContainer" parent="Row/Left"]
 layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 62
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Row/Left/MarginContainer"]
 layout_mode = 2
@@ -106,6 +111,8 @@ patch_margin_bottom = 57
 
 [node name="MarginContainer" type="MarginContainer" parent="Row/Right"]
 layout_mode = 2
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_right = 30
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Row/Right/MarginContainer"]
 layout_mode = 2
@@ -114,6 +121,8 @@ size_flags_vertical = 4
 [node name="Label" type="Label" parent="Row/Right/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("6_odjp8")
+theme_override_font_sizes/font_size = 14
 text = "Use shift + click on a
 system in the map to
 plan your route"
