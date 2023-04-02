@@ -211,7 +211,7 @@ func _update_nav_route(id):
 	GameState.player.nav_route = path_resolved
 	clear_route_button.disabled = (path_resolved.size() == 0)
 
-func _unhandled_input(event):
+func _input(event):
 	if event.is_action_pressed("system_map_cam_drag"):
 		if _mouse_over_map:
 			_drag = true
