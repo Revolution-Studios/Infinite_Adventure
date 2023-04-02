@@ -53,10 +53,10 @@ func current_system():
 	return systems.get_by_id(system_id)
 	
 func current_planet():
-	var current_system = current_system()
-	if current_system == null:
+	var system = current_system()
+	if system == null:
 		return null;
-	for planet in current_system.planets:
+	for planet in system.planets:
 		if planet.id == planet_id:
 			return planet
 	return null
