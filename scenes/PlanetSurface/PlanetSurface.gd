@@ -24,6 +24,8 @@ func _input(event):
 		else:
 			$CanvasLayer/PlanetPanel/surfacelocations/Bar.grab_focus()
 	if event.is_action_pressed("take_off"):
+		print("take off")
+		get_viewport().set_input_as_handled()
 		GameState.scene = Constants.SceneId.World
 		GameState.player.planet_id = null
 
