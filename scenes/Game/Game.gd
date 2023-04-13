@@ -10,12 +10,18 @@ var root_scene_map = {
 
 func _unhandled_input(event) -> void:
 	if event.is_action_pressed("ui_cancel"):
-		$MainMenu.get_node("MainMenuPanel/ButtonContainer/NewGame").visible = (
+		if GameState.scene == Constants.SceneId.PlanetSurface:
+			print("Leaving planet")
+			get_viewport().set_input_as_handled()
+			GameState.scene = Constants.SceneId.World
+			GameState.player.planet_id = null
+		else: 
+			$MainMenu.get_node("MainMenuPanel/ButtonContainer/NewGame").visible = (
 			GameState.scene != Constants.SceneId.StartMenu
-		)
+			)
 
-		$MainMenu.visible = !$MainMenu.visible
-		Menu.grab_focus()
+			$MainMenu.visible = !$MainMenu.visible
+			Menu.grab_focus()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
