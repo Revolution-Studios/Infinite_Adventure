@@ -138,26 +138,6 @@ func _on_AnimatedSprite_animation_finished() -> void:
 	flame_exhaust.animation = "max-speed"
 
 
-func _apply_collision_knockback_damage()-> bool:
-	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-		var collider = collision.get_collider()
-		
-		
-		if collider is RigidBody2D:
-			collider.apply_central_impulse(-collision.get_normal() * (inertia + 1))
-		
-			if i > 0 and collision.get_collider_id() == get_slide_collision(i -1).get_collider_id():
-				continue
-		
-			if Time.get_ticks_msec() - last_damage > 250:
-				GameState.player.hull_health = GameState.player.hull_health - collider.damage
-				last_damage = Time.get_ticks_msec()
-				
-			return true
-		
-	return false
-	
 func _get_closest_planet():
 	var planets = get_tree().get_nodes_in_group("Planets")
 	if !planets.size():
