@@ -86,6 +86,7 @@ func _handle_collision(collision: KinematicCollision2D):
 	if collider is Asteroid and Time.get_unix_time_from_system() - _last_asteroid_collision > 0.5:
 		var offset = collider.global_position - collision.get_position()
 		collider.apply_impulse(velocity*1.5, offset)
+		GameState.player.hull_health = GameState.player.hull_health - collider.damage
 #		collider.set_position(collider.position + velocity.normalized()*50)
 		_last_asteroid_collision = Time.get_unix_time_from_system()
 		print("collide")
